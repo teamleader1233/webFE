@@ -14,21 +14,69 @@ const SignUp = () => {
   const [inputPassword, setInputPassword] = useState("");
   const [checkErrorEmail, setCheckErrorEmail] = useState(true);
   const [checkErrorPassword, setCheckErrorPassword] = useState(true);
+  const [passwordCondition, setPasswordCondition] = useState("");
   const dispatch = useDispatch();
   const blockedSubmit = useRef();
+
+  //submit
   const handerLogin = () => {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var isEmail = emailPattern.test(inputEmail);
+    var isEmail = emailPattern.test(inputEmail.trim());
     if (isEmail && inputPassword) {
-      // lam gi do o day
-      // blockedSubmit.current.disabled = false;
+      if (inputPassword.length < 8) {
+        setCheckErrorPassword(false);
+        setPasswordCondition("Password must be at least 8 characters.");
+      } else if (
+        !inputPassword.match(
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+~\-={}[\]|;:"<>,.?\/]).*$/
+        )
+      ) {
+        console.log(inputPassword);
+        setCheckErrorPassword(false);
+        setPasswordCondition(
+          "Password must contain at least one uppercase letter, one lowercase letter, one number and one special character."
+        );
+      } else {
+        // correct
+        setCheckErrorPassword(true);
+        setCheckErrorEmail(true);
+        //save user localStorage
+        const userSign_Up = {
+          userEmail: inputEmail.trim(),
+          userPassword: inputPassword.trim(),
+        };
+        const checkDataLocalStorage = localStorage.getItem("user");
+        console.log(checkDataLocalStorage);
+        if (
+          checkDataLocalStorage === null ||
+          checkDataLocalStorage === undefined
+        ) {
+          localStorage.setItem("user", JSON.stringify([]));
+        }
+        const userJSON = localStorage.getItem("user");
+        let userCurrent = JSON.parse(userJSON);
+        console.log(userCurrent);
+        //add user to localStorage
+        if (userCurrent && userCurrent.length === 0) {
+          userCurrent = [...userCurrent, userSign_Up];
+          localStorage.setItem("user", JSON.stringify(userCurrent));
+          console.log(JSON.parse(localStorage.getItem("user")));
+        } else if (userCurrent && userCurrent.length > 0) {
+          const findUserDuplicates = userCurrent.find((item) => {
+            return (
+              item.userEmail.trim() === userSign_Up.userEmail &&
+              item.userPassword.trim() === userSign_Up.userPassword
+            );
+          });
 
-      setCheckErrorPassword(true);
-      setCheckErrorEmail(true);
-      //
-      console.log(inputEmail, inputPassword);
+          if (!findUserDuplicates) {
+            userCurrent = [...userCurrent, userSign_Up];
+            // console.log(userCurrent);
+            localStorage.setItem("user", JSON.stringify(userCurrent));
+          }
+        }
+      }
     } else {
-      console.log(false);
       if (inputEmail.trim().length === 0 && inputPassword.trim().length === 0) {
         setCheckErrorEmail(false);
       } else if (inputEmail.trim().length === 0) {
@@ -37,6 +85,7 @@ const SignUp = () => {
       } else if (inputPassword.trim().length === 0) {
         setCheckErrorEmail(true);
         setCheckErrorPassword(false);
+        setPasswordCondition("Please provide your password.");
       }
     }
   };
@@ -94,7 +143,7 @@ const SignUp = () => {
               style={{
                 color: "red",
                 textAlign: "start",
-                margin: "2px 0px 0px 1px",
+                margin: "0px 0px 0px 1px",
               }}
             >
               Please provide your email.
@@ -125,10 +174,10 @@ const SignUp = () => {
               style={{
                 color: "red",
                 textAlign: "start",
-                margin: "2px 0px 0px 1px",
+                margin: "0px 0px 0px 1px",
               }}
             >
-              Please provide your password.
+              {passwordCondition}
             </div>
           )}
         </div>

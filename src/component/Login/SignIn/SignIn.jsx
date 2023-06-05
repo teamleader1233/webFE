@@ -52,6 +52,19 @@ const SignIn = () => {
   //change email
   const handleChangeInputEmail = (e) => {
     setInputEmail(e.target.value);
+    const userCurrent = JSON.parse(localStorage.getItem("user"));
+    if (userCurrent) {
+      const checkUserPreLoggin = userCurrent.find((item) => {
+        return item.userEmail.trim() === e.target.value.trim();
+      });
+      console.log(checkUserPreLoggin);
+      if (checkUserPreLoggin) {
+        setInputPassword(checkUserPreLoggin.userPassword.trim());
+      } else if (!checkUserPreLoggin) {
+        setInputPassword("");
+      }
+    }
+
     setCheckErrorEmail(true);
   };
   return (
