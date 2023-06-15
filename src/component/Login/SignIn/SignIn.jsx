@@ -53,6 +53,7 @@ const SignIn = () => {
   const handleChangeInputEmail = (e) => {
     setInputEmail(e.target.value);
     const userCurrent = JSON.parse(localStorage.getItem("user"));
+    //get user in local storage
     if (userCurrent) {
       const checkUserPreLoggin = userCurrent.find((item) => {
         return item.userEmail.trim() === e.target.value.trim();
