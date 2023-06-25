@@ -7,7 +7,7 @@ import LogInSamlSSO from "./LogInSaml_SSO/LogInSamlSSO";
 import ResetPassword from "./ResetPassword/ResetPassword";
 const Login = () => {
   const logger = useSelector((state) => state.signIn_sign_out.value);
-
+  console.log(logger);
   return (
     <div>
       {logger === "SIGN_IN" ? (

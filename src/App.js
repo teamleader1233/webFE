@@ -1,15 +1,21 @@
 import React from "react";
 
 import "./App.css";
+// import SignUp from "./component/Login/Sign_up/SignUp";
 import Login from "./component/Login/Login";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./component/NotFound/NotFound";
-
+import Nav from "./component/Nav/Nav";
+import Home from "./component/Home/Home";
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/Login_SignIn" element={<Login />}></Route>
+        <Route path="/" element={<Nav />}>
+          <Route path="Home" element={<Home />}></Route>
+          <Route path="Register" element={<Login />}></Route>
+        </Route>
+
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>

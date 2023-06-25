@@ -1,7 +1,7 @@
 .signUp {
   color: #000;
   position: relative;
-  top: 100px;
+  top: 180px;
   display: flex;
   justify-content: center;
 
@@ -12,6 +12,8 @@ form {
   width: 360px;
   text-align: center;
   h1 {
+    margin-bottom: 20px;
+    letter-spacing: 2px;
     user-select: none;
   }
 }
@@ -58,7 +60,7 @@ form {
     outline: none;
   }
   input {
-    border: 3px solid #000;
+    border: 2px solid #000;
     border-radius: 5px;
     height: 50px;
     line-height: normal;
@@ -74,10 +76,12 @@ form {
     padding-right: 4px;
     outline: none;
   }
+  .space_line {
+    margin: 0 0 20px 0;
+  }
   .signUp_input_email {
   }
   .signUp_input_password {
-    margin: 20px 0;
   }
 }
 .signUp_submit {
@@ -150,4 +154,30 @@ form {
   overflow: hidden;
   font-size: 20px;
   font-weight: 700;
+}
+
+.signUp_another {
+  display: flex;
+  justify-content: center;
+  .signUp_another_logo {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin: 0 20px;
+
+    width: 60px;
+    height: 32px;
+    border-radius: 4px;
+    i {
+      color: white;
+      line-height: 30px;
+    }
+    img {
+      height: 30px;
+    }
+    transition: all 0.15s linear;
+  }
+  .signUp_another_logo:hover {
+    transition: all 0.15s linear;
+    transform: translateY(-2px);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  }
 }

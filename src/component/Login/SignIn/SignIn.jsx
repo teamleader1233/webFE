@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import style from "../Sign_up/style.module.scss";
 import { useState } from "react";
 import google from "../../../data/img/gg.png";
+import logoGG from "../../../data/img/gg.png";
 import { useDispatch } from "react-redux";
 import {
   isSignIn,
@@ -77,80 +78,103 @@ const SignIn = () => {
             e.preventDefault();
           }}
         >
-          <h1>Sign in for Figma</h1>
-          <div className={style.signUp_google}>
+          <h1>Sign in </h1>
+          {/* <div className={style.signUp_google}>
             <img src={google} alt="" />
             <h2>Continue with Google</h2>
           </div>
           <div>
             <p style={{ opacity: "0.6", margin: "16px 0 " }}>or</p>
-          </div>
+          </div> */}
+
           <div className={style.signUp_input}>
-            <input
-              value={inputEmail}
-              onChange={(e) => handleChangeInputEmail(e)}
-              className={style.signUp_input_email}
-              type="email"
-              placeholder="Email"
-              autoComplete="username"
-              autoCapitalize="off"
-              autoCorrect="off"
-              dir="auto"
-              style={
-                focusInputEmail
-                  ? checkErrorEmail
-                    ? { border: "3px solid #000" }
-                    : { border: "3px solid red" }
-                  : { border: "3px solid blue" }
-              }
-              onFocus={() => setfocusInputEmail(false)}
-              onBlur={() => setfocusInputEmail(true)}
-            />
-            {checkErrorEmail ? (
-              ""
-            ) : (
-              <div
-                style={{
-                  color: "red",
-                  textAlign: "start",
-                  margin: "2px 0px 0px 1px",
-                }}
-              >
-                Please provide your email.
-              </div>
-            )}
-            <input
-              value={inputPassword}
-              onChange={(e) => handleChangeInputPassword(e)}
-              className={style.signUp_input_password}
-              autoComplete="current-password"
-              type="password"
-              name="password"
-              placeholder="Password"
-              style={
-                focusInputPassword
-                  ? checkErrorPassword
-                    ? { border: "3px solid #000" }
-                    : { border: "3px solid red" }
-                  : { border: "3px solid blue" }
-              }
-              onFocus={() => setfocusInputPassword(false)}
-              onBlur={() => setfocusInputPassword(true)}
-            />
-            {checkErrorPassword ? (
-              ""
-            ) : (
-              <div
-                style={{
-                  color: "red",
-                  textAlign: "start",
-                  margin: "2px 0px 0px 1px",
-                }}
-              >
-                Please provide your password.
-              </div>
-            )}
+            <div className={style.space_line}>
+              <input
+                value={inputEmail}
+                onChange={(e) => handleChangeInputEmail(e)}
+                className={style.signUp_input_email}
+                type="email"
+                placeholder="Email"
+                autoComplete="username"
+                autoCapitalize="off"
+                autoCorrect="off"
+                dir="auto"
+                style={
+                  focusInputEmail
+                    ? checkErrorEmail
+                      ? { border: "2px solid #000" }
+                      : { border: "2px solid red" }
+                    : { border: "2px solid blue" }
+                }
+                onFocus={() => setfocusInputEmail(false)}
+                onBlur={() => setfocusInputEmail(true)}
+              />
+              {checkErrorEmail ? (
+                ""
+              ) : (
+                <div
+                  style={{
+                    color: "red",
+                    textAlign: "start",
+                    margin: "2px 0px 0px 1px",
+                  }}
+                >
+                  Please provide your email.
+                </div>
+              )}
+            </div>
+            <div className={style.space_line}>
+              <input
+                value={inputPassword}
+                onChange={(e) => handleChangeInputPassword(e)}
+                className={style.signUp_input_password}
+                autoComplete="current-password"
+                type="password"
+                name="password"
+                placeholder="Password"
+                style={
+                  focusInputPassword
+                    ? checkErrorPassword
+                      ? { border: "2px solid #000" }
+                      : { border: "2px solid red" }
+                    : { border: "2px solid blue" }
+                }
+                onFocus={() => setfocusInputPassword(false)}
+                onBlur={() => setfocusInputPassword(true)}
+              />
+              {checkErrorPassword ? (
+                ""
+              ) : (
+                <div
+                  style={{
+                    color: "red",
+                    textAlign: "start",
+                    margin: "2px 0px 0px 1px",
+                  }}
+                >
+                  Please provide your password.
+                </div>
+              )}
+            </div>
           </div>
+          <div className={style.signUp_another}>
+            <div
+              className={style.signUp_another_logo}
+              style={{ backgroundColor: "#087cea" }}
+            >
+              <i className="bi bi-facebook"></i>
+            </div>
+            <div className={style.signUp_another_logo}>
+              <img src={logoGG} alt="logoGG" />
+            </div>
+            <div
+              className={style.signUp_another_logo}
+              style={{ backgroundColor: "#161616" }}
+            >
+              <i className="bi bi-apple"></i>
+            </div>
+          </div>
+          <div></div>
           <div>
             <button
               ref={blockedSubmit}
@@ -161,15 +185,15 @@ const SignIn = () => {
             </button>
           </div>
 
-          <div className={style.signUp_signOn}>
+          {/* <div className={style.signUp_signOn}>
             <span onClick={() => dispatch(isUseSingle())}>
               Use single sign-on
             </span>
             <span onClick={() => dispatch(isResetPassword())}>
               Reset password
             </span>
-          </div>
-          <div>
+          </div> */}
+          <div style={{ marginTop: "28px" }}>
             <span>No account?</span>
             <span
               className={style.signUp_logIn}
