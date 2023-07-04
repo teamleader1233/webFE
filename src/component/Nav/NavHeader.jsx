@@ -95,9 +95,14 @@ const NavHeader = () => {
         </div>
       </div>
       <div className={style.nav_heasder_Infor}>
-        <div className={style.nav_heasder_Infor_search}>
-          <input maxLength="40" type="text" placeholder="Search..." />
-          <div>
+        <div className="flex justify-between bg-white px-[10px] rounded-sm ">
+          <input
+            maxLength="40"
+            type="text"
+            placeholder="Search..."
+            className="focus:outline-none md:w-[380px] "
+          />
+          <div className=" bg-[#f94f2f] w-[60px]  flex justify-center my-[4px] rounded-sm text-white">
             <i className="bi bi-search"></i>
           </div>
         </div>

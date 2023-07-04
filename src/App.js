@@ -10,12 +10,11 @@ import Home from "./component/Home/Home";
 import { useEffect } from "react";
 import axios from "axios";
 function App() {
-  
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Nav />}>
-          <Route path="Home" element={<Home />}></Route>
+          <Route path="" element={<Home />}></Route>
           <Route path="Register" element={<Login />}></Route>
         </Route>
 

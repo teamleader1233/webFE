@@ -78,7 +78,7 @@ const SignIn = () => {
             e.preventDefault();
           }}
         >
-          <h1>Sign in </h1>
+          <h1 className="font-semibold text-[32px]">Sign in </h1>
           {/* <div className={style.signUp_google}>
             <img src={google} alt="" />
             <h2>Continue with Google</h2>
@@ -164,7 +164,7 @@ const SignIn = () => {
             >
               <i className="bi bi-facebook"></i>
             </div>
-            <div className={style.signUp_another_logo}>
+            <div className={`${style.signUp_another_logo} flex justify-center`}>
               <img src={logoGG} alt="logoGG" />
             </div>
             <div

@@ -156,7 +156,7 @@ const SignUp = () => {
           e.preventDefault();
         }}
       >
-        <h1>REGISTER</h1>
+        <h1 className="font-semibold text-[32px]">REGISTER</h1>
         <div className={style.signUp_input}>
           {/* input first name  */}
           <div className={style.space_line}>
@@ -308,8 +308,8 @@ const SignUp = () => {
           >
             <i className="bi bi-facebook"></i>
           </div>
-          <div className={style.signUp_another_logo}>
-            <img src={logoGG} alt="logoGG" />
+          <div className={`${style.signUp_another_logo}  flex justify-center`}>
+            <img src={logoGG} alt="logoGG" className="text-center" />
           </div>
           <div
             className={style.signUp_another_logo}
@@ -322,7 +322,7 @@ const SignUp = () => {
           <button
             ref={blockedSubmit}
             onClick={handerLogin}
-            className={style.signUp_submit}
+            className={`${style.signUp_submit} bg-black`}
             type="submit"
           >
             Create account
@@ -350,7 +350,7 @@ const SignUp = () => {
         <div style={{ marginTop: "28px" }}>
           <span>Already have an account?</span>
           <span
-            className={style.signUp_logIn}
+            className={`${style.signUp_logIn} `}
             onClick={() => dispatch(isSignIn())}
           >
             Log in
