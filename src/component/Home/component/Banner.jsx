@@ -12,7 +12,7 @@ const Banner = () => {
           <SliderImg />
         </div>
         <div className="absolute left-[100px]  bottom-[180px] text-white">
-          <p className="text-[36px] max-[1024px]:text-[20px]">
+          <p className="text-[36px] max-[1024px]:text-[20px] ">
             Tận Hưởng Trải Nghiệm Mua Sắm An{" "}
           </p>
           <p className="text-[36px] max-[1024px]:text-[20px]">

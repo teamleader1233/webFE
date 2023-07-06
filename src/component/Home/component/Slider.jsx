@@ -6,9 +6,10 @@ import banner3 from "../../../data/img/banner3.jpg";
 
 const SliderImg = () => {
   const settings = {
-    speed: 1500,
+    speed: 2000,
     fade: true,
     autoplay: true,
+    autoplaySpeed: 4000,
     dots: false,
     infinite: true,
     slidesToShow: 1,
@@ -17,12 +18,13 @@ const SliderImg = () => {
   return (
     <div>
       <Slider {...settings}>
-        <div className="w-full slick-slide">
+        <div className="w-full slick-slide ">
           <img
             src={banner1}
             alt="banner1"
             className="h-screen w-full      object-cover "
           />
+          <div className="absolute top-0 left-0 w-full h-full bg-[#37373753]"></div>
         </div>
         <div className="w-full slick-slide">
           <img
@@ -30,6 +32,7 @@ const SliderImg = () => {
             alt="banner1"
             className="h-screen w-full     object-cover "
           />
+          <div className="absolute top-0 left-0 w-full h-full bg-[#37373753]"></div>
         </div>
         <div className="w-full slick-slide">
           <img
@@ -37,6 +40,7 @@ const SliderImg = () => {
             alt="banner1"
             className="h-screen w-full      object-cover "
           />
+          <div className="absolute top-0 left-0 w-full h-full bg-[#37373753]"></div>
         </div>
       </Slider>
     </div>
