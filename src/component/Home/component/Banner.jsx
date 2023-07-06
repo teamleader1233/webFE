@@ -1,14 +1,16 @@
 import React from "react";
-import banner1 from "../../../data/img/banner1.jpg";
+
+import SliderImg from "./Slider";
 const Banner = () => {
+  const handleScrollDown = () => {
+    window.scrollTo({ top: 860 });
+  };
   return (
-    <div className=" relative w-full h-screen bg-red-200 top-0">
-      <div className=" absolute w-screen">
-        <img
-          src={banner1}
-          alt="banner1"
-          className="h-screen w-full  bg-cover bg-center  bg-no-repeat object-cover"
-        />
+    <div className="  w-full h-screen ">
+      <div className=" relative w-screen ">
+        <div className="w-[full]">
+          <SliderImg />
+        </div>
         <div className="absolute left-[100px]  bottom-[180px] text-white">
           <p className="text-[36px] max-[1024px]:text-[20px]">
             Tận Hưởng Trải Nghiệm Mua Sắm An{" "}
@@ -20,11 +22,11 @@ const Banner = () => {
             SHOP NOW
           </button>
         </div>
-        <a href="#scrollContent">
-          <div className="absolute bottom-[10px] opacity-50 left-1/2 bg-white rounded-full px-[10px] pt-[4px] shadow-md ease-linear transition-all duration-[0.2s] hover:bottom-0 hover:opacity-100 ">
-            <i class="bi bi-chevron-down text-black text-[32px] "></i>
+        <div onClick={handleScrollDown}>
+          <div className="absolute bottom-[10px] opacity-50 left-1/2 translate-x-[-50%] bg-white rounded-full px-[10px] pt-[4px] shadow-md ease-linear transition-all duration-[0.2s] hover:bottom-0 hover:opacity-100 ">
+            <i className="bi bi-chevron-down text-black text-[32px] "></i>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   );

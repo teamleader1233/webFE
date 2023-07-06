@@ -6,7 +6,7 @@ import MainProductReview from "./component/MainProductReview";
 import Footer from "./component/Footer";
 const Home = () => {
   return (
-    <div id="home" className="relative">
+    <div id="home" className="relative w-full overflow-x-hidden">
       <Banner />
       <MainContent />
       <MainProductReview />

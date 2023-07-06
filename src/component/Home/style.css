@@ -1,0 +1,20 @@
+.slick-dots {
+  display: none; /* Ẩn dấu chấm */
+}
+
+.slick-slide {
+  position: relative; /* Đặt vị trí của các slide là tương đối */
+  padding: 0; /* Xóa khoảng trắng xung quanh các slide */
+}
+
+.slick-slide img {
+  width: 100%; /* Đặt kích thước của các hình ảnh là 100% */
+  position: absolute; /* Đặt vị trí của các hình ảnh là tuyệt đối */
+  top: 0;
+  left: 0;
+  z-index: 1; /* Đặt z-index để đè lên các hình ảnh khác */
+}
+
+.slick-active img {
+  z-index: 2; /* Đặt z-index của slide hiện tại lớn hơn các slide khác */
+}

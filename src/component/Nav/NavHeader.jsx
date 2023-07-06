@@ -10,11 +10,14 @@ const NavHeader = () => {
     showNav.current.classList.toggle(`${style.show}`);
     showUser_Cart.current.classList.toggle(`${style.show}`);
   };
+  const handeBackHome = () => {
+    window.scrollTo({ top: 0 });
+  };
   return (
     <div className={style.nav_header}>
       <div className={style.nav_header_title}>
         <div style={{ position: "relative", marginRight: "20px" }}>
-          <Link to={"/"}>
+          <Link to={"/"} onClick={handeBackHome}>
             <div className={style.nav_header_title_logo}>
               <img src={logo} alt="logo" />
             </div>
