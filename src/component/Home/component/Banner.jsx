@@ -2,9 +2,6 @@ import React from "react";
 
 import SliderImg from "./Slider";
 const Banner = () => {
-  const handleScrollDown = () => {
-    window.scrollTo({ top: 860 });
-  };
   return (
     <div className="  w-full h-screen ">
       <div className=" relative w-screen ">
@@ -22,11 +19,11 @@ const Banner = () => {
             SHOP NOW
           </button>
         </div>
-        <div onClick={handleScrollDown}>
+        <a href="#product">
           <div className="absolute bottom-[10px] opacity-50 left-1/2 translate-x-[-50%] bg-white rounded-full px-[10px] pt-[4px] shadow-md ease-linear transition-all duration-[0.2s] hover:bottom-0 hover:opacity-100 ">
             <i className="bi bi-chevron-down text-black text-[32px] "></i>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

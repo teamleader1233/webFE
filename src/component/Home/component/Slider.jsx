@@ -9,7 +9,7 @@ const SliderImg = () => {
     speed: 2000,
     fade: true,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 2000,
     dots: false,
     infinite: true,
     slidesToShow: 1,

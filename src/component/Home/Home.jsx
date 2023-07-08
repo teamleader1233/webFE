@@ -3,7 +3,7 @@ import Banner from "./component/Banner";
 import MainContent from "./component/MainContent";
 import MainProductReview from "./component/MainProductReview";
 
-import Footer from "./component/Footer";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <div id="home" className="relative w-full overflow-x-hidden">

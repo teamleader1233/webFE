@@ -18,13 +18,13 @@ const MainContent = () => {
   }, []);
   return (
     <div>
+      <div id="product" className="pt-[120px] pb-[80px] flex justify-center">
+        <h1 className="text-[32px]">Sản Phẩm Mới 2023</h1>
+      </div>
       <div
         className="w-screen mt-[40px] mt-[800px] opacity-0 pointer-events-none transition-all duration-[2000ms] ease-in-out"
         ref={scroll}
       >
-        <div className="my-[80px] flex justify-center">
-          <h1 className="text-[32px]">Sản Phẩm Mới 2023</h1>
-        </div>
         <div className="w-full flex justify-center">
           <div className="flex justify-center w-4/5 flex-wrap">
             <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md  ">
