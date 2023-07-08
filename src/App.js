@@ -12,6 +12,7 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// cascasc
 function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
