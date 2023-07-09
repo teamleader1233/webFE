@@ -11,10 +11,12 @@ import { useEffect } from "react";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 import Houseware from "./component/Houseware/Houseware";
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
 import Rent from "./component/Rent/Rent";
+
 function App() {
   return (
     <div className="App">
