@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./style.module.scss";
 import logo from "../../data/img/logo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useRef } from "react";
+
 const NavHeader = () => {
   const showNav = useRef();
   const showUser_Cart = useRef();
@@ -37,8 +38,13 @@ const NavHeader = () => {
           >
             <i className="bi bi-x-lg"></i>
           </div>
-          <div
-            className={`${style.nav_header_title_content} ${style.nav_header_title_list}`}
+          <NavLink
+            to="/HuntingService"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-[2px] border-solid border-white"
+                : `${style.nav_header_title_content} ${style.nav_header_title_list}`
+            }
           >
             Dịch Vụ Săn Hàng
             <span></span>
@@ -63,38 +69,67 @@ const NavHeader = () => {
                 </li>
               </ul>
             </div>
-          </div>
-          <div className={style.nav_header_title_content}>
+          </NavLink>
+          <NavLink
+            to="/toy"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-[2px] border-solid border-white"
+                : `${style.nav_header_title_content}`
+            }
+          >
             Đồ Chơi
             <span></span>
-          </div>
-          <div className={style.nav_header_title_content}>
+          </NavLink>
+
+          <NavLink
+            to="/Houseware"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-[2px] border-solid border-white"
+                : `${style.nav_header_title_content}`
+            }
+          >
             Đồ Gia Dụng
             <span></span>
-          </div>
-          <div className={style.nav_header_title_content}>
+          </NavLink>
+
+          <NavLink
+            to="/fashion"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-[2px] border-solid border-white"
+                : `${style.nav_header_title_content}`
+            }
+          >
             Thời Trang
             <span></span>
-          </div>
-          <div
-            className={`${style.nav_header_title_content} ${style.nav_header_title_list}`}
+          </NavLink>
+
+          <NavLink
+            to="/Delivery"
+            className={({ isActive }) =>
+              isActive
+                ? "border-b-[2px] border-solid border-white"
+                : `${style.nav_header_title_content} ${style.nav_header_title_list}`
+            }
           >
             Vận Tải
             <span></span>
             <div className={style.nav_header_title_content_list}>
               <ul style={{ listStyleType: "none" }}>
                 <li>
-                  <p>Vận Tải Nội Địa</p>
+                  <NavLink to="/InlandTransport">Vận Tải Nội Địa</NavLink>
                 </li>
                 <li>
-                  <p>Vận Tải Việt - Trung</p>
+                  <NavLink to="/OutlandTransport">Vận Tải Việt - Trung</NavLink>
                 </li>
                 <li>
-                  <p>Thuê Xe Tải</p>
+                  <NavLink to="/Rent">Thuê Xe Tải</NavLink>
                 </li>
               </ul>
             </div>
-          </div>
+          </NavLink>
         </div>
       </div>
       <div className={style.nav_heasder_Infor}>

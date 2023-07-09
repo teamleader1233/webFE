@@ -11,17 +11,24 @@ import { useEffect } from "react";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import Houseware from "./component/Houseware/Houseware";
+import InlandTransport from "./component/InlandTransport/InlandTransport";
+import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
+import Rent from "./component/Rent/Rent";
 function App() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Nav />}>
           <Route path="" element={<Home />}></Route>
-          <Route path="Register" element={<Login />}></Route>
+          <Route path="/Register" element={<Login />}></Route>
+          <Route path="/Houseware" element={<Houseware />}></Route>
+          <Route path="/InlandTransport" element={<InlandTransport />}></Route>
+          <Route
+            path="/OutlandTransport"
+            element={<OutlandTransport />}
+          ></Route>
+          <Route path="/Rent" element={<Rent />}></Route>
         </Route>
 
         <Route path="*" element={<NotFound />}></Route>

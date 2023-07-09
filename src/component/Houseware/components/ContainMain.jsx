@@ -1,29 +1,21 @@
 import React, { useEffect, useRef } from "react";
-import shoe from "../../../data/img/shoe.jpg";
+import productHouseware from "../../../data/img/productHouseware.jpg";
 const MainContent = () => {
   const scroll = useRef();
   useEffect(() => {
     window.scrollTo(0, 0);
-    function scrollY() {
-      let scrollYWindow = window.scrollY;
-
-      if (scrollYWindow >= 420) {
-        const classRemove = "opacity-0 pointer-events-none mt-[800px]";
-        scroll.current?.classList.remove(...classRemove.split(" "));
-      }
-    }
-    window.addEventListener("scroll", scrollY);
-    return () => {
-      window.removeEventListener("scroll", scrollY);
-    };
+    const classRemove = "opacity-0 pointer-events-none mt-[800px]";
+    scroll.current?.classList.remove(...classRemove.split(" "));
   }, []);
   return (
     <div>
-      <div id="product" className="pt-[120px] pb-[80px] flex justify-center">
-        <h1 className="text-[32px]">Sản Phẩm Mới 2023</h1>
+      <div id="product" className="pt-[160px] pb-[60px] flex justify-center">
+        <h1 className="text-[32px] bg-[#f94f2f] text-white p-[6px] px-[20px] rounded-md select-none">
+          Đồ Gia Dụng
+        </h1>
       </div>
       <div
-        className="w-screen mt-[40px] mt-[800px] opacity-0 pointer-events-none transition-all duration-[2000ms] ease-in-out"
+        className="w-screen mt-[40px] mt-[800px] opacity-0 pointer-events-none transition-all duration-[1000ms] ease-in-out"
         ref={scroll}
       >
         <div className="w-full flex justify-center">
@@ -32,15 +24,15 @@ const MainContent = () => {
               <div className="overflow-hidden">
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
-                <h1 className="m-[10px] whitespace-nowrap truncate text-ellipsis w-full p-[10px] text-[20px] font-medium grow-[2]">
+                <h1 className="m-[10px] whitespace-nowrap truncate text-ellipsis w-full p-[10px] text-[20px] font-medium grow-[2] select-none">
                   Tên Sản Phẩmasdasdasdasdasdasdasds
                 </h1>
-                <span className="m-[10px] grow-[6]  break-words line-clamp-3 overflow-hidden ">
+                <span className="m-[10px] grow-[6]  break-words line-clamp-3 overflow-hidden select-none">
                   asdasdasdasdasdasasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdádasdasdasdasdasdsádasdádasdasdassdsdqweqweqw
                 </span>
                 <p className="m-[10px] mb-[20px] grow-[2] ">Giá Sản Phẩm </p>
@@ -50,8 +42,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -68,8 +60,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -86,8 +78,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -104,8 +96,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -122,8 +114,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -140,8 +132,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">
@@ -158,8 +150,8 @@ const MainContent = () => {
               <div>
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
-                  src={shoe}
-                  alt="shoe"
+                  src={productHouseware}
+                  alt="productHouseware"
                 />
               </div>
               <div className="flex flex-col w-full">

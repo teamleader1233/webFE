@@ -1,6 +1,6 @@
 import React from "react";
-import shoe from "../../../data/img/shoe.jpg";
-const FooterContent = () => {
+
+const FooterContent = ({ img }) => {
   return (
     <div className="w-[320px] flex justify-center flex-col items-center mx-[40px] my-[20px]">
       <div className="text-orange-300 mt-[10px] flex">
@@ -15,7 +15,7 @@ const FooterContent = () => {
           asdasdasdasdasdasasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdádasdasdasdasdasdsádasdádasdasdassdsdqweqweqw
         </span>
       </div>
-      <img src={shoe} alt="shoe" className="h-[380px] object-cover" />
+      <img src={img} alt="img" className="h-[380px] object-cover rounded-md" />
     </div>
   );
 };
