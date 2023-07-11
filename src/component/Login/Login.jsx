@@ -5,10 +5,13 @@ import SignIn from "./SignIn/SignIn";
 import { useSelector } from "react-redux";
 import LogInSamlSSO from "./LogInSaml_SSO/LogInSamlSSO";
 import ResetPassword from "./ResetPassword/ResetPassword";
+import Footer from "../Home/component/Footer";
 const Login = () => {
   const logger = useSelector((state) => state.signIn_sign_out.value);
   console.log(logger);
   return (
+    <div>
+    <div>
     <div>
       {logger === "SIGN_IN" ? (
         <SignIn />
@@ -20,6 +23,17 @@ const Login = () => {
         <ResetPassword />
       )}
     </div>
+    </div>
+    <div>
+    <div className="border-t-4 border-t-slate-300 w-full border-white mt-[220px]">
+      <Footer/>
+    </div>
+    
+    <div className="text-[18px] font-bold mt-[40px] text-center">
+        CÔNG TY CỔ PHẦN VẬN TẢI VÀ XUẤT NHẬP KHẨU SVN LOGISTICS
+      </div>
+      </div>
+      </div>
   );
 };
 
