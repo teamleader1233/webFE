@@ -16,6 +16,7 @@ import Houseware from "./component/Houseware/Houseware";
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
 import Rent from "./component/Rent/Rent";
+import Detail from "./component/Detail/HousewareDetail"
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="" element={<Home />}></Route>
           <Route path="/Register" element={<Login />}></Route>
           <Route path="/Houseware" element={<Houseware />}></Route>
+          <Route path="/Detail" element={<Detail />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>
           <Route
             path="/OutlandTransport"

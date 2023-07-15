@@ -5,7 +5,7 @@ import demo3 from "../../../../data/img/demo3.png";
 
 const ProductInformation = () => {
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
             <div className="flex flex-col items-center mt-[10px] w-[800px] ">
                 <span className="mb-[20px]">chi tiết sản phẩm</span>
                 <img src={demo1} alt="" />
