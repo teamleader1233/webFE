@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import productHouseware from "../../../data/img/productHouseware.jpg";
-<<<<<<< HEAD
+
 import { useNavigate } from "react-router-dom";
-=======
+
 import { Link, NavLink } from "react-router-dom";
->>>>>>> 3aed1849022f2e4e1e71c113c5b2da22f838098a
+
 const MainContent = () => {
   const scroll = useRef();
   const navigate = useNavigate();
@@ -30,7 +30,6 @@ const MainContent = () => {
       >
         <div className="w-full flex justify-center">
           <div className="flex justify-center w-4/5 flex-wrap">
-<<<<<<< HEAD
             <div
               className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md cursor-pointer  "
               onClick={() => handleOpenDetail()}
@@ -52,7 +51,6 @@ const MainContent = () => {
                 <p className="m-[10px] mb-[20px] grow-[2] ">Giá Sản Phẩm </p>
               </div>
             </div>
-=======
             <Link to="/Detail">
               <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md  ">
                 <div className="overflow-hidden">
@@ -73,7 +71,7 @@ const MainContent = () => {
                 </div>
               </div>
             </Link>
->>>>>>> 3aed1849022f2e4e1e71c113c5b2da22f838098a
+
             <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md   ">
               <div>
                 <img
