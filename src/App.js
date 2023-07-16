@@ -16,12 +16,15 @@ import Houseware from "./component/Houseware/Houseware";
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
 import Rent from "./component/Rent/Rent";
+import HousewareDetail from "./component/Detail/HousewareDetail";
+import SreachCode from "./component/SearchCode/SreachCode";
+import SignIn from "./component/Login/SignIn/SignIn";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Nav />}>
+        {/* <Route path="/" element={<Nav />}>
           <Route path="" element={<Home />}></Route>
           <Route path="/Register" element={<Login />}></Route>
           <Route path="/Houseware" element={<Houseware />}></Route>
@@ -30,8 +33,11 @@ function App() {
             path="/OutlandTransport"
             element={<OutlandTransport />}
           ></Route>
+          <Route path="/HousewareDetail" element={<HousewareDetail />}></Route>
           <Route path="/Rent" element={<Rent />}></Route>
-        </Route>
+        </Route> */}
+        <Route path="/SearchCode" element={<SreachCode />}></Route>
+        <Route path="/Login" element={<SignIn isAdmin={true}/>}></Route>
 
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

@@ -10,7 +10,8 @@ import {
   isSignUp,
   isUseSingle,
 } from "../../../features/SignIn_SignOut/SliceSignInSignOut";
-const SignIn = () => {
+import axios from "axios";
+const SignIn = ({ isAdmin }) => {
   const [focusInputEmail, setfocusInputEmail] = useState(true);
   const [focusInputPassword, setfocusInputPassword] = useState(true);
   const [inputEmail, setInputEmail] = useState("");
@@ -20,20 +21,28 @@ const SignIn = () => {
   const blockedSubmit = useRef();
 
   const dispatch = useDispatch();
+  // checkPassword
+  const getApi = async () => {
+    try {
+      const response = await axios.get();
+    } catch (e) {
+      console.log(e);
+    }
+  };
   // check login
   const handerLogin = () => {
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     var isEmail = emailPattern.test(inputEmail);
     if (isEmail && inputPassword) {
       // lam gi do o day
-      // blockedSubmit.current.disabled = false;
+      if (isAdmin) {
+        getApi();
+      }
 
-      setCheckErrorPassword(true);
-      setCheckErrorEmail(true);
+      // setCheckErrorPassword(true);
+      // setCheckErrorEmail(true);
       //
-      console.log(inputEmail, inputPassword);
     } else {
-      console.log(false);
       if (inputEmail.trim().length === 0 && inputPassword.trim().length === 0) {
         setCheckErrorEmail(false);
       } else if (inputEmail.trim().length === 0) {
@@ -157,23 +166,29 @@ const SignIn = () => {
               )}
             </div>
           </div>
-          <div className={style.signUp_another}>
-            <div
-              className={style.signUp_another_logo}
-              style={{ backgroundColor: "#087cea" }}
-            >
-              <i className="bi bi-facebook"></i>
+          {isAdmin ? (
+            ""
+          ) : (
+            <div className={style.signUp_another}>
+              <div
+                className={style.signUp_another_logo}
+                style={{ backgroundColor: "#087cea" }}
+              >
+                <i className="bi bi-facebook"></i>
+              </div>
+              <div
+                className={`${style.signUp_another_logo} flex justify-center`}
+              >
+                <img src={logoGG} alt="logoGG" />
+              </div>
+              <div
+                className={style.signUp_another_logo}
+                style={{ backgroundColor: "#161616" }}
+              >
+                <i className="bi bi-apple"></i>
+              </div>
             </div>
-            <div className={`${style.signUp_another_logo} flex justify-center`}>
-              <img src={logoGG} alt="logoGG" />
-            </div>
-            <div
-              className={style.signUp_another_logo}
-              style={{ backgroundColor: "#161616" }}
-            >
-              <i className="bi bi-apple"></i>
-            </div>
-          </div>
+          )}
           <div></div>
           <div>
             <button
@@ -193,15 +208,19 @@ const SignIn = () => {
               Reset password
             </span>
           </div> */}
-          <div style={{ marginTop: "28px" }}>
-            <span>No account?</span>
-            <span
-              className={style.signUp_logIn}
-              onClick={() => dispatch(isSignUp())}
-            >
-              Create one
-            </span>
-          </div>
+          {isAdmin ? (
+            " "
+          ) : (
+            <div style={{ marginTop: "28px" }}>
+              <span>No account?</span>
+              <span
+                className={style.signUp_logIn}
+                onClick={() => dispatch(isSignUp())}
+              >
+                Create one
+              </span>
+            </div>
+          )}
         </form>
       </div>
     </div>

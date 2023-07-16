@@ -1,12 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import productHouseware from "../../../data/img/productHouseware.jpg";
+import { useNavigate } from "react-router-dom";
 const MainContent = () => {
   const scroll = useRef();
+  const navigate = useNavigate();
   useEffect(() => {
     window.scrollTo(0, 0);
     const classRemove = "opacity-0 pointer-events-none mt-[800px]";
     scroll.current?.classList.remove(...classRemove.split(" "));
   }, []);
+  const handleOpenDetail = () => {
+    console.log("asds");
+    navigate(`/HousewareDetail`);
+  };
   return (
     <div>
       <div id="product" className="pt-[160px] pb-[60px] flex justify-center">
@@ -20,7 +26,10 @@ const MainContent = () => {
       >
         <div className="w-full flex justify-center">
           <div className="flex justify-center w-4/5 flex-wrap">
-            <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md  ">
+            <div
+              className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md cursor-pointer  "
+              onClick={() => handleOpenDetail()}
+            >
               <div className="overflow-hidden">
                 <img
                   className="h-[280px] overflow-hidden object-cover w-full"
@@ -30,7 +39,7 @@ const MainContent = () => {
               </div>
               <div className="flex flex-col w-full">
                 <h1 className="m-[10px] whitespace-nowrap truncate text-ellipsis w-full p-[10px] text-[20px] font-medium grow-[2] select-none">
-                  Tên Sản Phẩmasdasdasdasdasdasdasds
+                  Tên San Phẩmasdasdasdasdasdasdasds
                 </h1>
                 <span className="m-[10px] grow-[6]  break-words line-clamp-3 overflow-hidden select-none">
                   asdasdasdasdasdasasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdádasdasdasdasdasdsádasdádasdasdassdsdqweqweqw

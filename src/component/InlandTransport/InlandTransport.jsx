@@ -1,7 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import Footer from "../Footer/Footer";
 import imgMap from "../../data/img/map.jpg";
+import { useNavigate } from "react-router-dom";
 const InlandTransport = () => {
+  const navigate = useNavigate()
   const show = useRef();
   useEffect(() => {
     show.current?.classList.remove(..."mt-[200px] opacity-0".split(" "));
@@ -27,7 +29,7 @@ const InlandTransport = () => {
           <div className="rounded-sm my-[40px] border-solid border-[2px] h-[200px] flex justify-center items-center font-semibold text-[24px] max-[1024px]:text-[16px] px-[10px] text-center">
             Hà Nội - Bắc Ninh - Hà Nam - Nam Định - Thái Bình - Hải Phòng
           </div>
-          <div className="max-[1024px]:w-full bg-black text-white text-center w-[200px] py-[10px] rounded-md text-[24px] hover:shadow-[0_0_5px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-150 hover:translate-y-[-6px]">
+          <div onClick={()=>{}} className="max-[1024px]:w-full bg-black text-white text-center w-[200px] py-[10px] rounded-md text-[24px] hover:shadow-[0_0_5px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-150 hover:translate-y-[-6px]">
             Tạo Đơn{" "}
           </div>
         </div>
