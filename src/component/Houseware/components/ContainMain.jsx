@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import productHouseware from "../../../data/img/productHouseware.jpg";
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+=======
+import { Link, NavLink } from "react-router-dom";
+>>>>>>> 3aed1849022f2e4e1e71c113c5b2da22f838098a
 const MainContent = () => {
   const scroll = useRef();
   const navigate = useNavigate();
@@ -26,6 +30,7 @@ const MainContent = () => {
       >
         <div className="w-full flex justify-center">
           <div className="flex justify-center w-4/5 flex-wrap">
+<<<<<<< HEAD
             <div
               className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md cursor-pointer  "
               onClick={() => handleOpenDetail()}
@@ -47,6 +52,28 @@ const MainContent = () => {
                 <p className="m-[10px] mb-[20px] grow-[2] ">Giá Sản Phẩm </p>
               </div>
             </div>
+=======
+            <Link to="/Detail">
+              <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md  ">
+                <div className="overflow-hidden">
+                  <img
+                    className="h-[280px] overflow-hidden object-cover w-full"
+                    src={productHouseware}
+                    alt="productHouseware"
+                  />
+                </div>
+                <div className="flex flex-col w-full">
+                  <h1 className="m-[10px] whitespace-nowrap truncate text-ellipsis w-full p-[10px] text-[20px] font-medium grow-[2] select-none">
+                    Tên Sản Phẩmasdasdasdasdasdasdasds
+                  </h1>
+                  <span className="m-[10px] grow-[6]  break-words line-clamp-3 overflow-hidden select-none">
+                    asdasdasdasdasdasasdasdasdasdasdasdasdasdasdasdsadasdasdasdasdasdasdádasdasdasdasdasdsádasdádasdasdassdsdqweqweqw
+                  </span>
+                  <p className="m-[10px] mb-[20px] grow-[2] ">Giá Sản Phẩm </p>
+                </div>
+              </div>
+            </Link>
+>>>>>>> 3aed1849022f2e4e1e71c113c5b2da22f838098a
             <div className="border-[2px] w-[280px] border-solid border-[#CCCC] mx-[40px] mb-[60px] rounded-md   ">
               <div>
                 <img

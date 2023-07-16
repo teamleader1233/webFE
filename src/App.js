@@ -16,9 +16,13 @@ import Houseware from "./component/Houseware/Houseware";
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
 import Rent from "./component/Rent/Rent";
+<<<<<<< HEAD
 import HousewareDetail from "./component/Detail/HousewareDetail";
 import SreachCode from "./component/SearchCode/SreachCode";
 import SignIn from "./component/Login/SignIn/SignIn";
+=======
+import Detail from "./component/Detail/HousewareDetail"
+>>>>>>> 3aed1849022f2e4e1e71c113c5b2da22f838098a
 
 function App() {
   return (
@@ -28,6 +32,7 @@ function App() {
           <Route path="" element={<Home />}></Route>
           <Route path="/Register" element={<Login />}></Route>
           <Route path="/Houseware" element={<Houseware />}></Route>
+          <Route path="/Detail" element={<Detail />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>
           <Route
             path="/OutlandTransport"
