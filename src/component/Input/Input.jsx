@@ -1,6 +1,13 @@
 import React from "react";
 
-const Input = ({ register, errors, placeholder, dataInput, ...prop }) => {
+const Input = ({
+  register,
+  errors,
+  placeholder,
+  dataInput,
+  isDisabled,
+  ...prop
+}) => {
   return (
     <div className="w-full">
       <input
@@ -8,6 +15,7 @@ const Input = ({ register, errors, placeholder, dataInput, ...prop }) => {
         type="text"
         placeholder={placeholder}
         id={dataInput}
+        disabled={isDisabled === true ? true : false}
         {...register(`${dataInput}`)}
         {...prop}
       />

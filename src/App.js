@@ -33,10 +33,7 @@ function App() {
           <Route path="/Houseware" element={<Houseware />}></Route>
           <Route path="/Detail" element={<Detail />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>
-          <Route
-            path="/OutlandTransport"
-            element={<OutlandTransport />}
-          ></Route>
+         
           <Route path="/HousewareDetail" element={<HousewareDetail />}></Route>
           <Route path="/Rent" element={<Rent />}></Route>
         </Route> */}
@@ -44,6 +41,7 @@ function App() {
         <Route path="/Login" element={<SignIn isAdmin={true} />}></Route>
         <Route path="/Rent" element={<Rent />}></Route>
         <Route path="*" element={<NotFound />}></Route>
+        <Route path="/InlandTransport" element={<InlandTransport />}></Route>
       </Routes>
     </div>
   );

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as yub from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../Input/Input";
 import Footer from "../Footer/Footer";
+import { useState } from "react";
 const Rent = () => {
+  const [location, setLocation] = useState("");
+  const area = useRef();
+  const handleSelect = () => {
+    area.current.classList.toggle("hidden");
+  };
   const schema = yub.object().shape({
     phoneNumber: yub.string().required("Vui lòng nhập số điện thoại."),
     name: yub.string().required("Vui lòng nhập tên."),
@@ -26,18 +32,12 @@ const Rent = () => {
 
       .required("Vui lòng nhập số lượng")
       .typeError("Vui lòng nhập số lượng"),
-    // collection: yub
-    //   .number("vui lòng nhập số ")
-    //   .positive("Vui lòng nhập số dương")
-    //   .integer("Vui lòng nhập kiểu số dương"),
-    // valueProduct: yub
-    //   .number()
-    //   .positive("Vui lòng nhập số dương")
-    //   .integer("Vui lòng nhập kiểu số dương"),
-    // detailProduct: yub.string(),
-    // note: yub.string(),
+    senderPhoneNumber: yub.string().required("Vui lòng nhập số điện thoại."),
+    senderName: yub.string().required("Vui lòng nhập tên."),
+    senderAddress: yub.string().required("Vui lòng nhập địa chỉ"),
   });
   const {
+    setValue,
     register,
     handleSubmit,
     control,
@@ -65,81 +65,167 @@ const Rent = () => {
     <div>
       <div className="w-full flex justify-center">
         <form className="w-4/5   " onSubmit={handleSubmit(onSubmit)}>
-          <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
-            {" "}
-            Người Nhận
-          </h1>
           {/* header  */}
-          <div>
-            <div className="mb-[10px]">
-              <div className="flex py-[4px] bg-white w-[380px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
-                <label htmlFor="phoneNumber">
-                  <i class="bi bi-telephone-fill pr-[16px] "></i>
-                </label>
+          <div className="flex justify-between max-[1280px]:flex-col max-[1280px]:items-center">
+            <div>
+              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
+                {" "}
+                Người Nhận
+              </h1>
+              <div className="mb-[10px] ">
+                <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center ">
+                  <label htmlFor="phoneNumber">
+                    <i class="bi bi-telephone-fill pr-[16px] "></i>
+                  </label>
 
-                <Controller
-                  control={control}
-                  name="phoneNumber"
-                  render={({ field: { onChange } }) => (
-                    <Input
-                      register={register}
-                      onChange={onChange}
-                      errors={errors}
-                      placeholder="Nhập Số Điện Thoại Của khách Hàng"
-                      dataInput="phoneNumber"
-                    />
-                  )}
-                />
+                  <Controller
+                    control={control}
+                    name="phoneNumber"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Nhập Số Điện Thoại Của khách Hàng"
+                        dataInput="phoneNumber"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">
+                  {errors.phoneNumber?.message}
+                </p>
               </div>
-              <p className="text-red-400 text-left">
-                {errors.phoneNumber?.message}
-              </p>
+              <div className="mb-[10px]">
+                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+                  <label htmlFor="name">
+                    <i class="bi bi-person-fill-add pr-[16px]"></i>
+                  </label>
+
+                  <Controller
+                    control={control}
+                    name="name"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Tên Khách Hàng"
+                        dataInput="name"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">{errors.name?.message}</p>
+              </div>
+              <div className="mb-[10px]">
+                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+                  <label htmlFor="address">
+                    <i class="bi bi-house-door-fill pr-[16px]"></i>
+                  </label>
+
+                  <Controller
+                    control={control}
+                    name="address"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Địa Chỉ"
+                        dataInput="address"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">
+                  {errors.address?.message}
+                </p>
+              </div>
             </div>
-            <div className="mb-[10px]">
-              <div className="flex py-[4px] bg-white  w-[380px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
-                <label htmlFor="name">
-                  <i class="bi bi-person-fill-add pr-[16px]"></i>
-                </label>
+            <div>
+              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
+                {" "}
+                Người Gửi
+              </h1>
+              <div className="mb-[10px]">
+                <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+                  <label htmlFor="senderPhoneNumber">
+                    <i class="bi bi-telephone-fill pr-[16px] "></i>
+                  </label>
 
-                <Controller
-                  control={control}
-                  name="name"
-                  render={({ field: { onChange } }) => (
-                    <Input
-                      register={register}
-                      onChange={onChange}
-                      errors={errors}
-                      placeholder="Tên Khách Hàng"
-                      dataInput="name"
-                    />
-                  )}
-                />
+                  <Controller
+                    control={control}
+                    name="senderPhoneNumber"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Nhập Số Điện Thoại Của khách Hàng"
+                        dataInput="senderPhoneNumber"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">
+                  {errors.senderPhoneNumber?.message}
+                </p>
               </div>
-              <p className="text-red-400 text-left">{errors.name?.message}</p>
-            </div>
-            <div className="mb-[10px]">
-              <div className="flex py-[4px] bg-white  w-[380px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
-                <label htmlFor="address">
-                  <i class="bi bi-house-door-fill pr-[16px]"></i>
-                </label>
+              <div className="mb-[10px]">
+                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+                  <label htmlFor="senderName">
+                    <i class="bi bi-person-fill-add pr-[16px]"></i>
+                  </label>
 
-                <Controller
-                  control={control}
-                  name="address"
-                  render={({ field: { onChange } }) => (
-                    <Input
-                      register={register}
-                      onChange={onChange}
-                      errors={errors}
-                      placeholder="Địa Chỉ"
-                      dataInput="address"
-                    />
-                  )}
-                />
+                  <Controller
+                    control={control}
+                    name="senderName"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Tên Khách Hàng"
+                        dataInput="senderName"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">
+                  {errors.senderName?.message}
+                </p>
               </div>
-              <p className="text-red-400 text-left">
-                {errors.address?.message}
-              </p>
+              <div className="mb-[10px]">
+                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+                  <label htmlFor="senderAddress">
+                    <i class="bi bi-house-door-fill pr-[16px]"></i>
+                  </label>
+
+                  <Controller
+                    control={control}
+                    name="senderAddress"
+                    render={({ field: { onChange } }) => (
+                      <Input
+                        isDisabled={false}
+                        register={register}
+                        onChange={onChange}
+                        errors={errors}
+                        placeholder="Địa Chỉ"
+                        dataInput="senderAddress"
+                      />
+                    )}
+                  />
+                </div>
+                <p className="text-red-400 text-left">
+                  {errors.senderAddress?.message}
+                </p>
+              </div>
             </div>
           </div>
           {/* main  */}
@@ -160,6 +246,7 @@ const Rent = () => {
                       errors={errors}
                       placeholder="Tòa Nhà/Hẻm/Đường"
                       dataInput="building"
+                      isDisabled={false}
                     />
                   )}
                 />
@@ -173,6 +260,7 @@ const Rent = () => {
                   name="wards"
                   render={({ field: { onChange } }) => (
                     <Input
+                      isDisabled={false}
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -191,6 +279,7 @@ const Rent = () => {
                   name="district"
                   render={({ field: { onChange } }) => (
                     <Input
+                      isDisabled={false}
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -203,7 +292,12 @@ const Rent = () => {
               <p className="text-red-400 text-left">
                 {errors.district?.message}
               </p>
-              <div className="border-solid border-[1px] border-[#363636a3] sm:full  xl:w-[500px] mt-[20px]">
+              <div
+                className="border-solid border-[1px] border-[#363636a3] sm:full  xl:w-[500px] mt-[20px] relative cursor-pointer "
+                onClick={() => {
+                  handleSelect();
+                }}
+              >
                 <Controller
                   control={control}
                   name="city"
@@ -214,9 +308,54 @@ const Rent = () => {
                       errors={errors}
                       placeholder="Tỉnh/Tp"
                       dataInput="city"
+                      isDisabled={true}
                     />
                   )}
                 />
+                <div className="absolute top-[12px] right-[8px]">
+                  <i class="bi bi-caret-down-fill"></i>
+                </div>
+                <div
+                  ref={area}
+                  className="hidden cursor-pointer absolute flex flex-col bg-[#ff9232] left-0 right-0 z-10 text-left overflow-hidden rounded-md text-white "
+                >
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Hà Nội")}
+                  >
+                    Hà Nội
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Bắc Ninh")}
+                  >
+                    Bắc Ninh
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Hà Nam")}
+                  >
+                    Hà Nam
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Nam Định")}
+                  >
+                    Nam Định
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Thái Bình")}
+                  >
+                    Thái Bình
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Hải Phòng")}
+                  >
+                    Hải Phòng
+                  </span>
+                </div>
               </div>
               <p className="text-red-400 text-left">{errors.city?.message}</p>
             </div>
@@ -224,7 +363,7 @@ const Rent = () => {
           {/* img  */}
           <div className="flex w-full mt-[60px] ">
             <div className="grow-[2] border-b-[1px] border-t-[1px] border-l-[1px] border-solid border-[#363636a3] min-w-[160px] flex justify-center items-center">
-              <input type="file" />
+              <input isDisabled={false} type="file" />
             </div>
             <div className="flex flex-col grow-[8] border-[1px] border-solid border-[#363636a3]">
               <div className="border-b-[1px] border-solid border-[#363636a3] py-[20px] relative">
@@ -233,6 +372,7 @@ const Rent = () => {
                   name="nameProduct"
                   render={({ field: { onChange } }) => (
                     <Input
+                      isDisabled={false}
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -252,6 +392,7 @@ const Rent = () => {
                     name="weight"
                     render={({ field: { onChange } }) => (
                       <Input
+                        isDisabled={false}
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -270,6 +411,7 @@ const Rent = () => {
                     name="quantity"
                     render={({ field: { onChange } }) => (
                       <Input
+                        isDisabled={false}
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -293,6 +435,7 @@ const Rent = () => {
                 name="collection"
                 render={({ field: { onChange } }) => (
                   <Input
+                    isDisabled={false}
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -309,6 +452,7 @@ const Rent = () => {
                 name="valueProduct"
                 render={({ field: { onChange } }) => (
                   <Input
+                    isDisabled={false}
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -324,6 +468,7 @@ const Rent = () => {
                 name="detailProduct"
                 render={({ field: { onChange } }) => (
                   <Input
+                    isDisabled={false}
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -339,6 +484,7 @@ const Rent = () => {
                 name="note"
                 render={({ field: { onChange } }) => (
                   <Input
+                    isDisabled={false}
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -352,7 +498,7 @@ const Rent = () => {
           <div className="flex justify-center mb-[60px] mt-[20px]">
             <button
               type="submit"
-              className="bg-[#E46000E0] inline-block text-white px-[18px] py-[10px] rounded-md text-[24px] cursor-pointer active:shadow-[0_0px_10px_6px_#F46000E8] hover:shadow-[0_0px_10px_2px_#E46000E8] transition-all ease-in-out duration-200 select-none"
+              className="bg-[#ff9232] inline-block text-white px-[18px] py-[10px] rounded-md text-[24px] cursor-pointer active:shadow-[0_0px_10px_6px_#F46000E8] hover:shadow-[0_0px_10px_2px_#E46000E8] transition-all ease-in-out duration-200 select-none"
             >
               Tạo Đơn Đăng Kí
             </button>

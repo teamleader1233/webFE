@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import Footer from "../Footer/Footer";
-import imgMap from "../../data/img/map.jpg";
+import imgMap1 from "../../data/img/map.jpg";
+import imgMap2 from "../../data/img/map2.jpg";
 import { useNavigate } from "react-router-dom";
 const InlandTransport = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const show = useRef();
   useEffect(() => {
     show.current?.classList.remove(..."mt-[200px] opacity-0".split(" "));
@@ -20,7 +21,18 @@ const InlandTransport = () => {
         </h1>
       </div>
       <div className="w-full flex justify-center">
-        <img src={imgMap} alt="imgMap" className="bg-transparent h-[600px]" />
+        <div className="w-4/5 flex justify-between sm:flex-col md:flex-row">
+          <img
+            src={imgMap1}
+            alt="imgMap"
+            className="bg-transparent  mr-[20px] sm:h-[200px] md:h-[300px] xl:h-[400px] 2xl:h-[500px] "
+          />
+          <img
+            src={imgMap2}
+            alt="imgMap"
+            className="bg-transparent  mr-[20px] sm:mt-[20px] sm:h-[200px] md:h-[300px] xl:h-[400px] 2xl:h-[500px]"
+          />
+        </div>
       </div>
       <div className="w-full mt-[100px] border-y-[4px] border-solid flex justify-center py-[60px] ">
         <div className="w-4/5">
@@ -29,7 +41,12 @@ const InlandTransport = () => {
           <div className="rounded-sm my-[40px] border-solid border-[2px] h-[200px] flex justify-center items-center font-semibold text-[24px] max-[1024px]:text-[16px] px-[10px] text-center">
             Hà Nội - Bắc Ninh - Hà Nam - Nam Định - Thái Bình - Hải Phòng
           </div>
-          <div onClick={()=>{}} className="max-[1024px]:w-full bg-black text-white text-center w-[200px] py-[10px] rounded-md text-[24px] hover:shadow-[0_0_5px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-150 hover:translate-y-[-6px]">
+          <div
+            onClick={() => {
+              navigate("/Rent");
+            }}
+            className="max-[1024px]:w-full bg-black text-white text-center w-[200px] py-[10px] rounded-md text-[24px] hover:shadow-[0_0_5px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-150 hover:translate-y-[-6px]"
+          >
             Tạo Đơn{" "}
           </div>
         </div>
