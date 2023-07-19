@@ -22,6 +22,7 @@ import SreachCode from "./component/SearchCode/SreachCode";
 import SignIn from "./component/Login/SignIn/SignIn";
 
 import Detail from "./component/Detail/HousewareDetail";
+import NavHeader from "./component/Nav/NavHeader";
 
 function App() {
   return (
@@ -37,11 +38,14 @@ function App() {
           <Route path="/HousewareDetail" element={<HousewareDetail />}></Route>
           <Route path="/Rent" element={<Rent />}></Route>
         </Route> */}
-        <Route path="/SearchCode" element={<SreachCode />}></Route>
-        <Route path="/Login" element={<SignIn isAdmin={true} />}></Route>
-        <Route path="/Rent" element={<Rent />}></Route>
-        <Route path="*" element={<NotFound />}></Route>
-        <Route path="/InlandTransport" element={<InlandTransport />}></Route>
+        <Route element={<NavHeader />}>
+          <Route path="/home" element={<Home />}></Route>
+          <Route path="/SearchCode" element={<SreachCode />}></Route>
+          <Route path="/Login" element={<SignIn isAdmin={true} />}></Route>
+          <Route path="/Rent" element={<Rent />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+          <Route path="/InlandTransport" element={<InlandTransport />}></Route>
+        </Route>
       </Routes>
     </div>
   );

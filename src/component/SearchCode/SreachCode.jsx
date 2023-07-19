@@ -7,17 +7,16 @@ const SreachCode = () => {
   return (
     <div className="flex flex-col justify-between md:h-screen">
       <div className="grow-[1] max-[1280px]:h-[120px]">
-        <NavHeader />
         <IconContact />
       </div>
-      <div className="w-full  grow-[8] flex  justify-center items-center max-[1280px]:mb-[40px]">
+      <div className="w-full  grow-[8] flex  justify-center items-center max-[1280px]:mb-[40px] ">
         <img
           src={imgSearchCode}
           alt="img avar"
           className="h-screen w-screen object-cover"
         />
-        <div className="absolute bg-[#ee751f] max-[640px]:w-[300px]  max-[1280px]:w-[400px] xl:w-[600px] rounded-2xl min-h-[300px] flex items-center justify-around flex-col py-[20px] my-[10px]">
-          <div className="text-white">
+        <div className="absolute bg-[#ffffffae] max-[640px]:w-[300px]  max-[1280px]:w-[400px] xl:w-[600px] rounded-2xl min-h-[300px] flex items-center justify-around flex-col py-[20px] my-[10px] z-[10]">
+          <div className="text-black font-semibold text-[20px]">
             <span>SVN Logistic</span> <span>|</span>{" "}
             <span>Tra cứu đơn hàng </span>
           </div>
@@ -80,13 +79,10 @@ const SreachCode = () => {
               </div>
             </div>
           </div>
-          <div className="text-[14px] text-white w-4/5 text-center py-[10px] mt-[10px]">
+          <div className="text-[14px] text-black  w-4/5 text-center py-[10px] mt-[10px]">
             Niềm Hạnh Phúc Của Khách Hàng Là Động Lực Của Chúng Tôi{" "}
           </div>
         </div>
-      </div>
-      <div className="grow-[1] border-t-[1px] border-solid border-[#686868cc]">
-        <Footer />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const InlandTransport = () => {
   return (
     <div
       id="top"
-      className="overflow-x-hidden mt-[200px] transition-all duration-1000 ease-in-out opacity-0"
+      className="overflow-x-hidden mt-[200px] transition-all duration-1000 ease-in-out opacity-0 "
       ref={show}
     >
       <div id="product" className="pt-[160px] pb-[60px] flex justify-center">
