@@ -5,18 +5,28 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import { useRef } from "react";
 
 const NavHeader = () => {
-  const showNav = useRef();
-  const showUser_Cart = useRef();
-  const handleShowNav = () => {
-    showNav.current.classList.toggle(`${style.show}`);
-    showUser_Cart.current.classList.toggle(`${style.show}`);
-  };
+  const show = useRef();
   const handeBackHome = () => {
     window.scrollTo({ top: 0 });
   };
+  const handleClose = (e) => {
+    show &&
+      show.current?.classList.add(
+        ..."opacity-0 pointer-events-none".split(" ")
+      );
+    e.stopPropagation();
+  };
   return (
     <div>
-      <div className="fixed w-full flex flex-col items-center justify-center bg-white z-[20]">
+      <div
+        className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] "
+        onClick={(e) =>
+          show &&
+          show.current?.classList.add(
+            ..."opacity-0 pointer-events-none".split(" ")
+          )
+        }
+      >
         <div className="flex justify-between  w-4/5 h-[100px] ">
           <div className="w-1/2 flex items-center">
             <Link to={"/"} onClick={handeBackHome}>
@@ -61,16 +71,10 @@ const NavHeader = () => {
               <div className="h-[0] w-[0] absolute  top-[-50px] right-[-50px] border-l-[50px] border-r-[50px]  border-l-[transparent] border-r-[transparent] border-b-[50px] border-b-[#d73214] border-solid"></div>
             </div>
           </div>
-          <div className={style.nav_header}>
+          <div className={`${style.nav_header}`}>
             <div className={style.nav_header_title}>
-              <div
-                className={`${style.nav_header_title_responsive}`}
-                ref={showNav}
-              >
-                <div
-                  onClick={handleShowNav}
-                  className={style.nav_header_title_responsive_close}
-                >
+              <div className={`${style.nav_header_title_responsive}`}>
+                <div className={style.nav_header_title_responsive_close}>
                   <i className="bi bi-x-lg"></i>
                 </div>
                 {/* Dịch Vụ Săn Hàng */}
@@ -107,19 +111,79 @@ const NavHeader = () => {
                 </div> */}
                 </NavLink>
                 {/* Đồ Chơi */}
-                <NavLink
-                  to="/SearchCode"
-                  className={({ isActive }) =>
-                    isActive
-                      ? "border-b-[2px] border-solid border-white"
-                      : `${style.nav_header_title_content}`
-                  }
+                <div
+                  className={`${style.nav_header_title_content} `}
+                  onClick={(e) => {
+                    show &&
+                      show.current?.classList.remove(
+                        ..."opacity-0 pointer-events-none".split(" ")
+                      );
+                    e.stopPropagation();
+                  }}
                 >
                   Dịch Vụ
                   <span></span>
-                </NavLink>
+                  <div
+                    ref={show}
+                    className=" opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute w-screen left-0 right-0 flex items-center bottom-[-300px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[300px] "
+                  >
+                    <div
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center "
+                      onClick={(e) => handleClose(e)}
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">
+                        XUẤT NHẬU KHẨU CHÍNH NGẠCH
+                      </div>
+                    </div>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">
+                        ĐẶT HÀNG ONLINE TRÊN CÁC SÀN TMĐT TRUNG QUỐC
+                      </div>
+                    </div>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">
+                        VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT-TRUNG
+                      </div>
+                    </div>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">
+                        THANH TOÁN MAU BÁN NHƯỢNG QUYỀN GIAO DỊCH
+                      </div>
+                    </div>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">
+                        NHẬN CHUYỂN TIỀN TRUNG QUỐC VỀ VIỆT NAM
+                      </div>
+                    </div>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={logo} alt="ss" />
+                      <div className="mt-[20px]">VẬN CHUYỂN 24H</div>
+                    </div>
+                  </div>
+                </div>
                 {/* Đồ Gia Dụng */}
                 <NavLink
+                  onClick={handeBackHome}
                   to="/InlandTransport"
                   className={({ isActive }) =>
                     isActive

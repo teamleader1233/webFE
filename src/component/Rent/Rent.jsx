@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Controller, useForm } from "react-hook-form";
 import * as yub from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -36,6 +36,7 @@ const Rent = () => {
     senderName: yub.string().required("Vui lòng nhập tên."),
     senderAddress: yub.string().required("Vui lòng nhập địa chỉ"),
   });
+
   const {
     setValue,
     register,
@@ -58,6 +59,9 @@ const Rent = () => {
     },
     resolver: yupResolver(schema),
   });
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, []);
   const onSubmit = () => {
     alert("success");
   };

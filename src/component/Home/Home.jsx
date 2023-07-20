@@ -11,9 +11,6 @@ const Home = () => {
       <MainContent />
       <MainProductReview />
       <Footer />
-      <div className="text-[18px] font-bold mt-[40px] text-center">
-        CÔNG TY CỔ PHẦN VẬN TẢI VÀ XUẤT NHẬP KHẨU SVN LOGISTICS
-      </div>
     </div>
   );
 };
