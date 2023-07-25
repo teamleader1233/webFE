@@ -79,7 +79,7 @@ const Rent = () => {
               <div className="mb-[10px] ">
                 <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center ">
                   <label htmlFor="phoneNumber">
-                    <i class="bi bi-telephone-fill pr-[16px] "></i>
+                    <i className="bi bi-telephone-fill pr-[16px] "></i>
                   </label>
 
                   <Controller
@@ -87,7 +87,7 @@ const Rent = () => {
                     name="phoneNumber"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -104,7 +104,7 @@ const Rent = () => {
               <div className="mb-[10px]">
                 <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="name">
-                    <i class="bi bi-person-fill-add pr-[16px]"></i>
+                    <i className="bi bi-person-fill-add pr-[16px]"></i>
                   </label>
 
                   <Controller
@@ -112,7 +112,7 @@ const Rent = () => {
                     name="name"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -127,7 +127,7 @@ const Rent = () => {
               <div className="mb-[10px]">
                 <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="address">
-                    <i class="bi bi-house-door-fill pr-[16px]"></i>
+                    <i className="bi bi-house-door-fill pr-[16px]"></i>
                   </label>
 
                   <Controller
@@ -135,7 +135,7 @@ const Rent = () => {
                     name="address"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -158,7 +158,7 @@ const Rent = () => {
               <div className="mb-[10px]">
                 <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderPhoneNumber">
-                    <i class="bi bi-telephone-fill pr-[16px] "></i>
+                    <i className="bi bi-telephone-fill pr-[16px] "></i>
                   </label>
 
                   <Controller
@@ -166,7 +166,7 @@ const Rent = () => {
                     name="senderPhoneNumber"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -183,7 +183,7 @@ const Rent = () => {
               <div className="mb-[10px]">
                 <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderName">
-                    <i class="bi bi-person-fill-add pr-[16px]"></i>
+                    <i className="bi bi-person-fill-add pr-[16px]"></i>
                   </label>
 
                   <Controller
@@ -191,7 +191,7 @@ const Rent = () => {
                     name="senderName"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -208,7 +208,7 @@ const Rent = () => {
               <div className="mb-[10px]">
                 <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderAddress">
-                    <i class="bi bi-house-door-fill pr-[16px]"></i>
+                    <i className="bi bi-house-door-fill pr-[16px]"></i>
                   </label>
 
                   <Controller
@@ -216,7 +216,7 @@ const Rent = () => {
                     name="senderAddress"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -250,7 +250,7 @@ const Rent = () => {
                       errors={errors}
                       placeholder="Tòa Nhà/Hẻm/Đường"
                       dataInput="building"
-                      isDisabled={false}
+                      isdisabled="false"
                     />
                   )}
                 />
@@ -264,7 +264,7 @@ const Rent = () => {
                   name="wards"
                   render={({ field: { onChange } }) => (
                     <Input
-                      isDisabled={false}
+                      isdisabled="false"
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -283,7 +283,7 @@ const Rent = () => {
                   name="district"
                   render={({ field: { onChange } }) => (
                     <Input
-                      isDisabled={false}
+                      isdisabled="false"
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -312,12 +312,12 @@ const Rent = () => {
                       errors={errors}
                       placeholder="Tỉnh/Tp"
                       dataInput="city"
-                      isDisabled={true}
+                      isdisabled="true"
                     />
                   )}
                 />
                 <div className="absolute top-[12px] right-[8px]">
-                  <i class="bi bi-caret-down-fill"></i>
+                  <i className="bi bi-caret-down-fill"></i>
                 </div>
                 <div
                   ref={area}
@@ -367,7 +367,7 @@ const Rent = () => {
           {/* img  */}
           <div className="flex w-full mt-[60px] ">
             <div className="grow-[2] border-b-[1px] border-t-[1px] border-l-[1px] border-solid border-[#363636a3] min-w-[160px] flex justify-center items-center">
-              <input isDisabled={false} type="file" />
+              <input isdisabled="false" type="file" />
             </div>
             <div className="flex flex-col grow-[8] border-[1px] border-solid border-[#363636a3]">
               <div className="border-b-[1px] border-solid border-[#363636a3] py-[20px] relative">
@@ -376,7 +376,7 @@ const Rent = () => {
                   name="nameProduct"
                   render={({ field: { onChange } }) => (
                     <Input
-                      isDisabled={false}
+                      isdisabled="false"
                       register={register}
                       onChange={onChange}
                       errors={errors}
@@ -396,7 +396,7 @@ const Rent = () => {
                     name="weight"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -415,7 +415,7 @@ const Rent = () => {
                     name="quantity"
                     render={({ field: { onChange } }) => (
                       <Input
-                        isDisabled={false}
+                        isdisabled="false"
                         register={register}
                         onChange={onChange}
                         errors={errors}
@@ -439,7 +439,7 @@ const Rent = () => {
                 name="collection"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled={false}
+                    isdisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -456,7 +456,7 @@ const Rent = () => {
                 name="valueProduct"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled={false}
+                    isDisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -472,7 +472,7 @@ const Rent = () => {
                 name="detailProduct"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled={false}
+                    isDisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -488,7 +488,7 @@ const Rent = () => {
                 name="note"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled={false}
+                    isDisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}

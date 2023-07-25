@@ -25,7 +25,7 @@ const SreachCode = () => {
               htmlFor="input"
               className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center"
             >
-              <i class="bi bi-search   "></i>
+              <i className="bi bi-search   "></i>
             </label>
             <input
               id="input"
@@ -43,7 +43,7 @@ const SreachCode = () => {
                 <div className="w-full py-[10px] flex items-center">
                   <label htmlFor="mailbox" className="px-[6px] ">
                     {" "}
-                    <i class="bi bi-envelope"></i>
+                    <i className="bi bi-envelope"></i>
                   </label>
                   <input
                     type="text"
@@ -55,7 +55,7 @@ const SreachCode = () => {
                 <div className="w-full py-[10px] flex items-center">
                   <label htmlFor="call" className="px-[6px]">
                     {" "}
-                    <i class="bi bi-telephone"></i>
+                    <i className="bi bi-telephone"></i>
                   </label>
                   <input
                     type="text"
@@ -67,7 +67,7 @@ const SreachCode = () => {
                 <div className="w-full py-[10px] flex items-center">
                   <label htmlFor="facebook" className="px-[6px]">
                     {" "}
-                    <i class="bi bi-facebook"></i>
+                    <i className="bi bi-facebook"></i>
                   </label>
                   <input
                     type="text"

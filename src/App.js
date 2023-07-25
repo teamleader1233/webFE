@@ -12,16 +12,16 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Houseware from "./component/Houseware/Houseware";
+
 import InlandTransport from "./component/InlandTransport/InlandTransport";
-import OutlandTransport from "./component/OutlandTransport/OutlandTransport";
+
 import Rent from "./component/Rent/Rent";
 
-import HousewareDetail from "./component/Detail/HousewareDetail";
+
 import SreachCode from "./component/SearchCode/SreachCode";
 import SignIn from "./component/Login/SignIn/SignIn";
 
-import Detail from "./component/Detail/HousewareDetail";
+
 import NavHeader from "./component/Nav/NavHeader";
 
 function App() {

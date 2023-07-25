@@ -12,14 +12,13 @@
   display: flex;
   color: black;
 
-  justify-content: center;
-
   .nav_header_title_responsive_open {
     display: none;
   }
   .nav_header_title {
     align-items: center;
     display: flex;
+
     // flex-wrap: wrap;
     .nav_header_title_responsive {
       display: flex;
@@ -41,7 +40,7 @@
       flex-direction: column;
 
       cursor: pointer;
-      text-align: center;
+
       min-width: 120px;
       padding: 0px 12px;
       margin: 0 8px;
