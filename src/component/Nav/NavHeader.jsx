@@ -61,7 +61,7 @@ const NavHeader = () => {
             </div>
           </div>
           <div className="flex  flex-col   justify-center ">
-            <div className="flex justify-start items-start mb-[10px]">
+            <div className="flex justify-end items-start mb-[10px]">
               <img
                 src={vietnam}
                 alt="vietnam"

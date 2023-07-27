@@ -1,69 +1,90 @@
-import React from "react";
-import imgRent from "./../../data/img/imgRent.png";
+// import React, { useEffect } from "react";
+
 import Footer from "../Footer/Footer";
-import img8 from "./../../data/img/image8.png";
+
+import bgUrl from "../../data/img/bgUrl.png";
+import imgMain from "../../data/img/imgMain.png";
+// import axios from "axios";
 const Home = () => {
+  // const data = {
+  //   username: "avnadmin",
+  //   password: "SvnUser2023!",
+  // };
+  // const getData = async () => {
+  //   try {
+  //     const response = await axios.post(
+  //       "http://127.0.0.1:8000/v1/jwt/create/",
+  //       {
+  //         headers: {},
+  //         data: data,
+  //       }
+  //     );
+  //     console.log(response);
+  //   } catch (e) {
+  //     console.log(e);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getData();
+  // });
+
   return (
     <div
       id="home"
       className="relative w-full overflow-x-hidden flex justify-around flex-col items-center "
     >
+      <img src={bgUrl} alt="bgUrl" className="fixed w-screen top-0" />
       <div className="flex  w-4/5 mt-[40px] flex-col">
-        <div className="w-full flex justify-between">
+        <div className="w-full flex justify-center">
           <div className="w-[40%] mb-[40px]">
-            <h1 className="text-[20px] font-bold my-[20px]">Giới Thiệu</h1>
+            <h1 className="text-[24px] font-bold my-[20px]">Giới Thiệu</h1>
             <p className="mt-[6px]">
               SVN LOGISTICS IMPORT EXPORT., JSC là nhà cung cấp dịch vụ
               Logistics chuyên nghiệp và tin cậy, hoạt động trong lĩnh vực vận
               tải nội địa, quốc tế và các dịch vụ ngoại thương. Chúng tôi cam
               kết đem đến môi trường tốt và sự hài lòng cao nhất cho khách hàng.
-              Các dịch vụ LOGISTICS của SVN bao gồm:
             </p>
             <p className="mt-[6px]">
-              Vận chuyển quốc tế: Đường bộ, đường biển, đường hàng không và
-              nhiều phương tiện khác, đảm bảo hàng hóa được vận chuyển an toàn
-              và đúng thời gian.
-            </p>
-            <p className="mt-[6px]">
-              Xuất nhập khẩu ủy thác: Chúng tôi hỗ trợ khách hàng trong mọi thủ
-              tục xuất nhập khẩu, giúp đơn giản hóa quy trình kinh doanh.  Thông
-              quan và dịch vụ cảng: Đội ngũ chuyên nghiệp của chúng tôi sẽ xử lý
-              các thủ tục hải quan và dịch vụ cảng một cách chính xác và nhanh
-              chóng.
-            </p>
-            <p className="mt-[6px]">
-              Chuyển phát nhanh nội địa: Đảm bảo hàng hóa được giao nhận nhanh
-              chóng và đúng địa điểm.
-            </p>
-            <p className="mt-[6px]">
-              Chúng tôi đặt trách nhiệm công việc và sự tin tưởng của khách hàng
-              lên hàng đầu. Để tận hưởng các dịch vụ xuất sắc của SVN LOGISTICS.
+              Xem thêm.... ( bấm vào xem thêm ra thẳng link về chúng tôi )
             </p>
           </div>
+          <div className="w-[20%]  flex justify-center">
+            <div className="w-[4px] h-full bg-slate-300 rounded-md"></div>
+          </div>
           <div className="w-[40%]">
-            <img src={imgRent} alt="imgRent" />
+            <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl ">
+              <h1 className="text-center font-medium text-[24px]">
+                Bảng Tin Hàng Về
+              </h1>
+              <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+            </div>
           </div>
         </div>
-        <div className="w-full flex justify-between mt-[80px]">
-          <div className="w-[40%]">
-            <img src={imgRent} alt="imgRent" />
+        <div className=" flex justify-between mt-[200px]">
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[30%] relative">
+            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
+              Bài Báo{" "}
+            </div>
           </div>
-          <div className="w-[40%]">
-            <img src={imgRent} alt="imgRent" />
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl relative w-[30%]">
+            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
+              Bài Báo{" "}
+            </div>
           </div>
-        </div>
-        <div className="w-full flex justify-between mt-[80px]">
-          <div className="w-[40%]">
-            <img src={imgRent} alt="imgRent" />
-          </div>
-          <div className="w-[40%]">
-            <img src={imgRent} alt="imgRent" />
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl relative w-[30%]">
+            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
+              Bài Báo{" "}
+            </div>
           </div>
         </div>
       </div>
-      <div className="w-screen mt-[80px]">
+      <div className=" mt-[160px]">
         <img
-          src={img8}
+          src={imgMain}
           alt="imgRent"
           className="w-full object-cover xl:h-[300px] sm:[100px]"
         />
