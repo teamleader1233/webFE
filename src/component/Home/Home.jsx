@@ -57,25 +57,25 @@ const Home = () => {
               <h1 className="text-center font-medium text-[24px]">
                 Bảng Tin Hàng Về
               </h1>
-              <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+              <div className="mt-[20px] break-words">asdasdasdasdasdasdasd</div>
             </div>
           </div>
         </div>
-        <div className=" flex justify-between mt-[200px]">
-          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[30%] relative">
-            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+        <div className=" flex justify-between mt-[200px] flex-wrap">
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+            <div className="mt-[20px] break-words">asdasdasdasdasdasdasd</div>
             <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
               Bài Báo{" "}
             </div>
           </div>
-          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl relative w-[30%]">
-            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+            <div className="mt-[20px] break-words">asdasdasdasdasdasdasd</div>
             <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
               Bài Báo{" "}
             </div>
           </div>
-          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl relative w-[30%]">
-            <div className="mt-[20px]">asdasdasdasdasdasdasd</div>
+          <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+            <div className="mt-[20px] break-words">asdasdasdasdasdasdasd</div>
             <div className="absolute bottom-[-40px] left-0 right-0 text-center text-[24px] font-medium">
               Bài Báo{" "}
             </div>
@@ -86,7 +86,7 @@ const Home = () => {
         <img
           src={imgMain}
           alt="imgRent"
-          className="w-full object-cover xl:h-[300px] sm:[100px]"
+          className="w-full object-cover xl:h-[200px] sm:h-[100px]"
         />
       </div>
       <Footer />

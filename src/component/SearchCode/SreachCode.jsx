@@ -2,20 +2,20 @@ import React, { useRef } from "react";
 import NavHeader from "../Nav/NavHeader";
 import IconContact from "../IconContact/IconContact";
 import Footer from "../Footer/Footer";
-import imgSearchCode from "../../data/img/imgSearchCode.png";
+import imgSearchCode from "../../data/img/imgFooter.png";
 const SreachCode = () => {
   return (
     <div className="flex flex-col justify-between md:h-screen">
       <div className="grow-[1] max-[1280px]:h-[120px]">
         <IconContact />
       </div>
-      <div className="w-full  grow-[8] flex  justify-center items-center max-[1280px]:mb-[40px] ">
+      <div className="w-full  grow-[8] flex  justify-center  max-[1280px]:mb-[40px] ">
         <img
           src={imgSearchCode}
           alt="img avar"
           className="h-screen w-screen object-cover"
         />
-        <div className="absolute bg-[#ffffffae] max-[640px]:w-[300px]  max-[1280px]:w-[400px] xl:w-[600px] rounded-2xl min-h-[300px] flex items-center justify-around flex-col py-[20px] my-[10px] z-[10]">
+        <div className="mt-[120px] absolute bg-[#ffffffae] max-[640px]:w-[300px]  max-[1280px]:w-[400px] xl:w-[600px] rounded-2xl min-h-[300px] flex items-center justify-around flex-col py-[20px] my-[10px] z-[10]">
           <div className="text-black font-semibold text-[20px]">
             <span>SVN Logistic</span> <span>|</span>{" "}
             <span>Tra cứu đơn hàng </span>
@@ -84,6 +84,7 @@ const SreachCode = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

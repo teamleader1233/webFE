@@ -4,26 +4,30 @@ import logoName from "../../data/img/logoName.png";
 import location from "../../data/img/location.png";
 const Footer = () => {
   return (
-    <div className="w-full flex justify-center relative h-[400px]">
+    <div className="w-full flex justify-center relative overflow-hidden">
       <img
         src={logoFooter}
         alt="imgFooter"
-        className="w-screen brightness-[0.8] object-cover opacity-30"
+        className="w-screen brightness-[0.8] object-cover opacity-30 h-[200px]"
       />
-      <div className="w-4/5 absolute flex justify-between items-center h-full">
-        <img src={logoName} alt="logo" className="sm:hidden xl:block" />
-        <div className="xl:w-[30%] sm:w-1/2 mx-[20px] px-[20px] py-[40px] b border-x-[2px] font-medium text-black border-[white] border-solid  flex flex-col justify-between ">
-          <h1 className="text-[22px] font-bold">THÔNG TIN LIÊN HỆ :</h1>
-          <div className="text-[18px]">
+      <div className="w-4/5 absolute flex justify-between items-center h-full ">
+        <img
+          src={logoName}
+          alt="logo"
+          className=" xl:block xl:h-[160px] hidden"
+        />
+        <div className=" sm:w-1/2 mx-[20px] lg:px-[40px] sm:px-[8px] py-[20px] px-[6px] max-[639px]:justify-center   b border-x-[2px] font-medium text-black border-[white] border-solid  flex flex-col justify-between h-auto ">
+          <h1 className="text-[1.2rem] font-bold">THÔNG TIN LIÊN HỆ :</h1>
+          <div className="text-[0.8rem]">
             <p>Liên hệ : 0837.239.888 / 0985.986.883 </p>
             <p>Địa Chỉ: Số 59, Đường Nguyễn Văn Giáp, Nam Từ Liêm, Hà Nội.</p>
           </div>
-          <p className="text-[18px] break-words">
+          <p className="text-[0.8rem] break-words">
             Email: svn.logistics99@gmail.com
           </p>
         </div>
         <a
-          className="xl:w-[30%] sm:w-1/2"
+          className=" "
           href="https://www.google.com/maps/place/SVN+LOGISTICS/@21.0387667,105.7606313,19z/data=!4m6!3m5!1s0x3135a99b0f2f1635:0xcb0ee68bd8b2a67d!8m2!3d21.0387809!4d105.761211!16s%2Fg%2F11t7mr_1_c?hl=vi-VN&entry=ttu"
           target="_blank"
           rel="noopener noreferrer"
@@ -33,7 +37,11 @@ const Footer = () => {
             window.open(href, "_blank");
           }}
         >
-          <img src={location} alt="location" className="h-[300px] rounded-md" />
+          <img
+            src={location}
+            alt="location"
+            className="rounded-md w-[160px] "
+          />
         </a>
       </div>
     </div>

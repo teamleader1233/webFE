@@ -7,6 +7,13 @@ import china from "../../data/img/china.jpg";
 import vietnam from "../../data/img/vietnam.jpg";
 import english from "../../data/img/english.jpg";
 import { useState } from "react";
+import Footer from "../Footer/Footer";
+import vcqt from "../../data/img/vcqt.png";
+import order from "../../data/img/order.png";
+import xnk from "../../data/img/xnk.png";
+import vc24h from "../../data/img/vc24h.png";
+import tq from "../../data/img/tq.png";
+import vc2c from "../../data/img/vc2c.png";
 const NavHeader = () => {
   const [iconflexible, setIconFlexible] = useState("bi-list");
   const show = useRef();
@@ -45,17 +52,17 @@ const NavHeader = () => {
     >
       <div className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] ">
         <div className="flex justify-between  w-4/5 h-[100px] ">
-          <div className=" flex items-center">
+          <div className=" flex items-center   ">
             <Link to={"/"} onClick={handeBackHome}>
               <div className={style.nav_header_title_logo}>
                 <img src={logo} alt="logo" />
               </div>
             </Link>
-            <div className=" ml-[40px] flex flex-col text-[#d11908] ">
-              <span className="font-semibold xl:text-[22px] sm:text-[16px]">
+            <div className=" ml-[40px] xl:flex flex-col text-[#d11908] hidden ">
+              <span className="font-semibold xl:text-[22px] sm:text-[16px] text-[8px]">
                 CÔNG TY CỔ PHẦN SVN LOGISTICS
               </span>
-              <span className="font-medium xl:text-[16px] sm:text-[12px]">
+              <span className="font-medium xl:text-[16px] sm:text-[12px] text-[8px]">
                 SVN LOGISTICS IMPORT EXPORT.,JSC
               </span>
             </div>
@@ -95,7 +102,7 @@ const NavHeader = () => {
               </div>
               <div className="2xl:px-[40px] sm:px-[20px] 2xl:text-[16px] sm:text-[10px]">
                 <h2>
-                  <i className="bi bi-envelope pr-[6px] text-[#ff7134]"></i>
+                  <i className="bi bi-envelope pr-[6px] text-[#d4240e]"></i>
                   Email:
                 </h2>
                 <h2>svn.logistics99@gmail.com</h2>
@@ -104,25 +111,25 @@ const NavHeader = () => {
           </div>
         </div>
         <div className="w-full flex h-[100px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative">
-          <div className="w-[40%] ">
-            <div className="h-[50px] bg-white relative"></div>
-            <div className="bg-transparent h-[50px] relative">
-              <div className="h-[0] w-[0] absolute  top-[-49px] right-[-49px] border-l-[50px] border-r-[50px]  border-l-[transparent] border-r-[transparent] border-b-[50px] border-b-[#d73214] border-solid"></div>
+          <div className="xl:w-[40%] w-0 ">
+            <div className="h-[50px] bg-white relative hidden xl:block"></div>
+            <div className="bg-transparent h-[50px] relative  hidden xl:block">
+              <div className=" h-[0] w-[0] absolute  top-[-49px] right-[-49px] border-l-[50px] border-r-[50px]  border-l-[transparent] border-r-[transparent] border-b-[50px] border-b-[#d4240e] border-solid"></div>
             </div>
           </div>
           <div
-            className={`${style.nav_header} sm:justify-end xl:justify-start`}
+            className={`${style.nav_header} xl:justify-start w-full sm:justify-center`}
           >
             <div className={`${style.nav_header_title} `}>
               <div
-                className=" lg:hidden sm:w-full sm:flex sm:mr-[40px] "
+                className=" lg:hidden  sm:w-full sm:flex sm:mr-[40px] flex justify-end w-full "
                 onClick={() => handeClickDetail()}
               >
-                <i className={`bi ${iconflexible} text-[30px]`}></i>
+                <i className={`bi ${iconflexible} text-[30px] `}></i>
               </div>
               <div
                 ref={showDetail}
-                className={`lg:text-center sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0b  `}
+                className={`lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
               >
                 {/* Dịch Vụ Săn Hàng */}
                 <NavLink
@@ -151,59 +158,62 @@ const NavHeader = () => {
                   <span className="sm:hidden lg:block"></span>
                   <div
                     ref={show}
-                    className=" opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute w-screen left-0 right-0 flex items-center bottom-[-300px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[300px] "
+                    className=" flex-wrap opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute  left-0 right-0 flex items-center bottom-[-300px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[320px] overflow-auto  w-[100%]"
                   >
-                    <div
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center "
+                    <Link
+                      to={"/Logistic"}
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center "
                       onClick={(e) => handleClose(e)}
                     >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">
-                        XUẤT NHẬU KHẨU CHÍNH NGẠCH
+                      <img src={vcqt} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">
+                        VẬN CHUYỂN QUỐC TẾ
                       </div>
-                    </div>
-                    <div
+                    </Link>
+                    <Link
+                      to={"/Order"}
                       onClick={(e) => handleClose(e)}
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">
+                      <img src={order} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">
                         ĐẶT HÀNG ONLINE TRÊN CÁC SÀN TMĐT TRUNG QUỐC
                       </div>
+                    </Link>
+                    <Link
+                      to="/TrustImports"
+                      onClick={(e) => handleClose(e)}
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={xnk} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">
+                        XUẤT NHẬP KHẨU ỦY THÁC
+                      </div>
+                    </Link>
+                    <div
+                      onClick={(e) => handleClose(e)}
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                    >
+                      <img src={vc2c} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">CHUYỂN PHÁT 24H</div>
                     </div>
                     <div
                       onClick={(e) => handleClose(e)}
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">
-                        VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT-TRUNG
+                      <img src={tq} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">
+                        THÔNG QUAN VÀ DỊCH VỤ CẢNG
                       </div>
                     </div>
                     <div
                       onClick={(e) => handleClose(e)}
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
+                      className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">
-                        THANH TOÁN MAU BÁN NHƯỢNG QUYỀN GIAO DỊCH
+                      <img src={vc24h} alt="ss" />
+                      <div className="mt-[20px] h-[40px]">
+                        VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT - TRUNG
                       </div>
-                    </div>
-                    <div
-                      onClick={(e) => handleClose(e)}
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
-                    >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">
-                        NHẬN CHUYỂN TIỀN TRUNG QUỐC VỀ VIỆT NAM
-                      </div>
-                    </div>
-                    <div
-                      onClick={(e) => handleClose(e)}
-                      className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
-                    >
-                      <img src={logo} alt="ss" />
-                      <div className="mt-[20px]">VẬN CHUYỂN 24H</div>
                     </div>
                   </div>
                 </div>
@@ -248,7 +258,7 @@ const NavHeader = () => {
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
                 <NavLink
-                  to="/"
+                  to="/About-us"
                   className={({ isActive }) =>
                     isActive
                       ? "border-b-[2px] border-solid border-white"
