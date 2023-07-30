@@ -8,11 +8,11 @@ const Footer = () => {
       <img
         src={logoFooter}
         alt="imgFooter"
-        className="w-screen brightness-[0.8] object-cover opacity-30"
+        className="w-screen brightness-50 object-cover"
       />
       <div className="w-4/5 absolute flex justify-between items-center h-full">
         <img src={logoName} alt="logo" className="sm:hidden xl:block" />
-        <div className="xl:w-[30%] sm:w-1/2 mx-[20px] px-[20px] py-[40px] b border-x-[2px] font-medium text-black border-[white] border-solid  flex flex-col justify-between ">
+        <div className="xl:w-[30%] sm:w-1/2 mx-[20px] px-[20px] py-[40px] b border-x-[2px] font-medium border-[white] border-solid  flex flex-col justify-between text-white">
           <h1 className="text-[22px] font-bold">THÔNG TIN LIÊN HỆ :</h1>
           <div className="text-[18px]">
             <p>Liên hệ : 0837.239.888 / 0985.986.883 </p>

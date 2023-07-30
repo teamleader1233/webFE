@@ -198,13 +198,13 @@ const NavHeader = () => {
                         NHẬN CHUYỂN TIỀN TRUNG QUỐC VỀ VIỆT NAM
                       </div>
                     </div>
-                    <div
+                    <Link to={"/Delivery24h"}
                       onClick={(e) => handleClose(e)}
                       className="w-[15%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
                       <img src={logo} alt="ss" />
                       <div className="mt-[20px]">VẬN CHUYỂN 24H</div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
 

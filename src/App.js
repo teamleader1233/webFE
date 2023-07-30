@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import Delivery24h from "./component/Delivery24h/Delivery24h"
 
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 
@@ -45,6 +45,7 @@ function App() {
           <Route path="/Rent" element={<Rent />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>
+          <Route path="/Delivery24h" element={<Delivery24h />}></Route>
         </Route>
       </Routes>
     </div>

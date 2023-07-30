@@ -1,0 +1,55 @@
+import Footer from "../Footer/Footer"
+import delivery24h from "../../data/img/delivery24h.png"
+import imgMain from "../../data/img/imgMain.png"
+import image24h from "../../data/img/image24h.png";
+const Delivery24h = () =>{
+    return <div className="w-full flex flex-col items-center">
+      <div className="w-4/5 ">
+        <div className="flex space-x-3 place-content-center mt-[40px]">
+
+
+
+        <div className=" flex items-center"> 
+        
+          <div className="w-[160px] h-[4px] bg-black rounded-md">
+          
+          </div>  
+        
+        </div>
+
+
+
+
+        <div><h1 className="text-center text-4xl ">Vận chuyển 24h</h1> </div>
+        <div className=" flex items-center"> 
+        
+          <div className="w-[160px] h-[4px] bg-black rounded-md">
+          
+          </div>  
+        
+        </div>
+        </div>
+        <div className=" mt-10   flex justify-center	 ">
+            <img
+            className="w-full"
+            src={delivery24h}
+            alt="imgMap"/>
+
+        </div>
+          <p className="text-justify mt-10 text-3xl">
+        SVN LOGISTICS sở hữu đội ngũ xe tải đa dạng với nhiều tải trọng và kích cỡ, đáp ứng mọi nhu cầu vận chuyển hàng hóa của khách hàng.
+         Dịch vụ Door to Door chuyên nghiệp, đưa hàng hóa tận tay khách hàng, chuyển nhà ở hoặc văn phòng một cách thuận tiện và tin cậy. Chúng tôi luôn tuân thủ đúng hẹn và sẵn sàng đáp ứng mọi yêu cầu vận chuyển của quý khách trong mọi khung giờ. 
+        </p>
+        </div>
+        <div className="w-[800px] h-[2px] bg-black rounded-md mt-20 "/>
+        <div className=" mt-[160px]">
+        <img
+          src={imgMain}
+          alt="imgRent"
+          className="w-full object-cover xl:h-[300px] sm:[100px]"
+        />
+      </div>
+      <Footer />
+        </div>
+}
+export default Delivery24h
