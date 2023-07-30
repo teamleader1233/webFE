@@ -166,9 +166,7 @@ const NavHeader = () => {
                       onClick={(e) => handleClose(e)}
                     >
                       <img src={vcqt} alt="ss" />
-                      <div className="mt-[20px] h-[40px]">
-                        VẬN CHUYỂN QUỐC TẾ
-                      </div>
+                      <div className="mt-[20px] h-[40px]">LOGISTIC QUỐC TẾ</div>
                     </Link>
                     <Link
                       to={"/Order"}
@@ -177,7 +175,7 @@ const NavHeader = () => {
                     >
                       <img src={order} alt="ss" />
                       <div className="mt-[20px] h-[40px]">
-                        ĐẶT HÀNG ONLINE TRÊN CÁC SÀN TMĐT TRUNG QUỐC
+                        ORDER TMĐT NỘI ĐỊA TRUNG QUỐC
                       </div>
                     </Link>
                     <Link
@@ -195,9 +193,10 @@ const NavHeader = () => {
                       className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
                       <img src={vc2c} alt="ss" />
-                      <div className="mt-[20px] h-[40px]">CHUYỂN PHÁT 24H</div>
+                      <div className="mt-[20px] h-[40px]">VẬN CHUYỂN 24H</div>
                     </div>
-                    <div
+                    <Link
+                      to={"/Clearance_Service"}
                       onClick={(e) => handleClose(e)}
                       className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
@@ -205,8 +204,9 @@ const NavHeader = () => {
                       <div className="mt-[20px] h-[40px]">
                         THÔNG QUAN VÀ DỊCH VỤ CẢNG
                       </div>
-                    </div>
-                    <div
+                    </Link>
+                    <Link
+                      to={"Delivery2Way"}
                       onClick={(e) => handleClose(e)}
                       className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
@@ -214,7 +214,7 @@ const NavHeader = () => {
                       <div className="mt-[20px] h-[40px]">
                         VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT - TRUNG
                       </div>
-                    </div>
+                    </Link>
                   </div>
                 </div>
 

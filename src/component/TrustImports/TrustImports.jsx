@@ -67,13 +67,7 @@ const TrustImports = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[60px]">
-        <img
-          src={imgMain}
-          alt="imgRent"
-          className="w-full object-cover xl:h-[200px] sm:h-[100px]"
-        />
-      </div>
+
       <Footer />
     </div>
   );

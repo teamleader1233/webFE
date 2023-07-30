@@ -14,7 +14,7 @@ const Order = () => {
       <div className="w-4/5">
         <ButtonSearch />
         <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider    ">
-          Đặt Hàng Online Trên Các Sàn TMĐT Trung Quốc{" "}
+          ORDER TMĐT NỘI ĐỊA TRUNG QUỐC
         </h1>
         <div>
           <h1 className="text-[18px] font-semibold">Hướng Dẫn</h1>
@@ -74,13 +74,7 @@ const Order = () => {
           />
         </div>
       </div>
-      <div className="mt-[60px]">
-        <img
-          src={imgMain}
-          alt="imgRent"
-          className="w-full object-cover xl:h-[200px] sm:h-[100px]"
-        />
-      </div>
+     
       <Footer />
     </div>
   );

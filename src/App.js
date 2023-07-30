@@ -24,6 +24,9 @@ import AboutUs from "./component/AboutUs/AboutUs";
 import Logistic from "./component/Logistic/Logistic";
 import Order from "./component/Order/Order";
 import TrustImports from "./component/TrustImports/TrustImports";
+import Clearance_Service from "./component/Clearance-service/ClearanceService";
+import ClearanceService from "./component/Clearance-service/ClearanceService";
+import Delivery2Way from "./component/Delivery2Way/Delivery2Way";
 
 function App() {
   return (
@@ -50,7 +53,11 @@ function App() {
           <Route path="/Logistic" element={<Logistic />}></Route>
           <Route path="/Order" element={<Order />}></Route>
           <Route path="/TrustImports" element={<TrustImports />}></Route>
-          
+          <Route
+            path="/Clearance_Service"
+            element={<ClearanceService />}
+          ></Route>
+          <Route path="/Delivery2Way" element={<Delivery2Way />}></Route>
         </Route>
       </Routes>
     </div>

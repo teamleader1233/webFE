@@ -25,13 +25,7 @@ const Logistic = () => {
           <img src={vcqt} alt="img" className="object-cover h-[600px]" />
         </div>
       </div>
-      <div className="">
-        <img
-          src={imgMain}
-          alt="imgRent"
-          className="w-full object-cover xl:h-[200px] sm:h-[100px]"
-        />
-      </div>
+
       <Footer />
     </div>
   );
