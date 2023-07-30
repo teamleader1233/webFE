@@ -7,7 +7,7 @@ import china from "../../data/img/china.jpg";
 import vietnam from "../../data/img/vietnam.jpg";
 import english from "../../data/img/english.jpg";
 import { useState } from "react";
-import Footer from "../Footer/Footer";
+import { useNavigate } from "react-router-dom";
 import vcqt from "../../data/img/vcqt.png";
 import order from "../../data/img/order.png";
 import xnk from "../../data/img/xnk.png";
@@ -18,10 +18,13 @@ const NavHeader = () => {
   const [iconflexible, setIconFlexible] = useState("bi-list");
   const show = useRef();
   const showDetail = useRef();
+  const navigate = useNavigate();
   const handeBackHome = () => {
-    window.scrollTo({ top: 0 });
+    console.log(1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const handleClose = (e) => {
+    window.scrollTo({ top: 0 });
     show &&
       show.current?.classList.add(
         ..."opacity-0 pointer-events-none".split(" ")
@@ -53,7 +56,7 @@ const NavHeader = () => {
       <div className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] ">
         <div className="flex justify-between  w-4/5 h-[100px] ">
           <div className=" flex items-center   ">
-            <Link to={"/"} onClick={handeBackHome}>
+            <Link to={"/"} onClick={() => handeBackHome()}>
               <div className={style.nav_header_title_logo}>
                 <img src={logo} alt="logo" />
               </div>
@@ -128,6 +131,7 @@ const NavHeader = () => {
                 <i className={`bi ${iconflexible} text-[30px] `}></i>
               </div>
               <div
+                onClick={() => handeBackHome()}
                 ref={showDetail}
                 className={`lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
               >
@@ -188,7 +192,8 @@ const NavHeader = () => {
                         XUẤT NHẬP KHẨU ỦY THÁC
                       </div>
                     </Link>
-                    <Link to={"/Delivery24h"}
+                    <Link
+                      to={"/Delivery24h"}
                       onClick={(e) => handleClose(e)}
                       className="xl:w-[15%] w-[30%] flex flex-col items-center px-[10px] hover:bg-[#e97d30b4] h-full justify-center"
                     >
@@ -219,7 +224,7 @@ const NavHeader = () => {
                 </div>
 
                 <NavLink
-                  onClick={handeBackHome}
+                  onClick={handeBackHome()}
                   to="/InlandTransport"
                   className={({ isActive }) =>
                     isActive

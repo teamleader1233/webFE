@@ -1,4 +1,4 @@
-// import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 
 import Footer from "../Footer/Footer";
 
@@ -6,6 +6,7 @@ import bgUrl from "../../data/img/bgUrl.png";
 import imgMain from "../../data/img/imgMain.png";
 // import axios from "axios";
 const Home = () => {
+  const show = useRef();
   // const data = {
   //   username: "avnadmin",
   //   password: "SvnUser2023!",
@@ -31,6 +32,7 @@ const Home = () => {
 
   return (
     <div
+      ref={show}
       id="home"
       className="relative w-full overflow-x-hidden flex justify-around flex-col items-center "
     >
@@ -39,7 +41,7 @@ const Home = () => {
         <div className="w-full flex justify-center">
           <div className="w-[40%] mb-[40px]">
             <h1 className="text-[24px] font-bold my-[20px]">Giới Thiệu</h1>
-            <p className="mt-[6px]">
+            <p className="mt-[6px] text-justify">
               SVN LOGISTICS IMPORT EXPORT., JSC là nhà cung cấp dịch vụ
               Logistics chuyên nghiệp và tin cậy, hoạt động trong lĩnh vực vận
               tải nội địa, quốc tế và các dịch vụ ngoại thương. Chúng tôi cam
