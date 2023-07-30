@@ -42,13 +42,7 @@ const Delivery24h = () =>{
         </p>
         </div>
         <div className="w-[800px] h-[2px] bg-black rounded-md mt-20 "/>
-        <div className=" mt-[160px]">
-        <img
-          src={imgMain}
-          alt="imgRent"
-          className="w-full object-cover xl:h-[300px] sm:[100px]"
-        />
-      </div>
+        
       <Footer />
         </div>
 }

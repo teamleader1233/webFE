@@ -8,14 +8,14 @@ const InlandTransport = () => {
   const show = useRef();
   useEffect(() => {
     show.current?.classList.remove(..."mt-[200px] opacity-0".split(" "));
-  }, []);
+  });
   return (
     <div
       id="top"
       className="overflow-x-hidden mt-[200px] transition-all duration-1000 ease-in-out opacity-0 "
       ref={show}
     >
-      <div id="product" className="pt-[160px] pb-[60px] flex justify-center">
+      <div id="product" className="mt-[60px] pb-[60px] flex justify-center">
         <h1 className="max-[1024px]:text-[20px] text-[32px] bg-[#f94f2f] text-white p-[6px] px-[20px] rounded-md select-none ">
           Vận Tải Nội Địa 24h
         </h1>
