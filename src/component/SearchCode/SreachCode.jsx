@@ -5,7 +5,7 @@ import Footer from "../Footer/Footer";
 import imgSearchCode from "../../data/img/imgFooter.png";
 const SreachCode = () => {
   return (
-    <div className="flex flex-col justify-between md:h-screen">
+    <div className="flex flex-col justify-between md:h-screen relative top-[-30px] ">
       <div className="grow-[1] max-[1280px]:h-[120px]">
         <IconContact />
       </div>

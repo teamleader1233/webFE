@@ -8,9 +8,21 @@ const ClearanceService = () => {
     <div className="flex flex-col justify-center items-center relative">
       <div className="w-4/5">
         <ButtonSearch />
-        <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider    ">
-          THÔNG QUAN VÀ DỊCH VỤ CẢNG
-        </h1>
+        <div className="flex space-x-3 place-content-center ">
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+
+          <div>
+            <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+              THÔNG QUAN VÀ DỊCH VỤ CẢNG
+            </h1>{" "}
+          </div>
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+        </div>
+
         <div className="leading-[26px] text-justify">
           <span className="ml-[40px]">SVN</span> LOGISTICS EXPORT IMPORT., JSC
           cung cấp các dịch vụ kê khai hải quan và làm chứng từ thông quan cho

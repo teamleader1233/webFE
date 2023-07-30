@@ -13,9 +13,21 @@ const Order = () => {
     <div className="flex flex-col justify-center items-center relative">
       <div className="w-4/5">
         <ButtonSearch />
-        <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider    ">
-          ORDER TMĐT NỘI ĐỊA TRUNG QUỐC
-        </h1>
+        <div className="flex space-x-3 place-content-center ">
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+
+          <div>
+            <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+              ORDER TMĐT NỘI ĐỊA TRUNG QUỐC
+            </h1>{" "}
+          </div>
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+        </div>
+
         <div>
           <h1 className="text-[18px] font-semibold">Hướng Dẫn</h1>
           <p>
@@ -74,7 +86,7 @@ const Order = () => {
           />
         </div>
       </div>
-     
+
       <Footer />
     </div>
   );

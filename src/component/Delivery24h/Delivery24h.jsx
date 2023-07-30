@@ -7,14 +7,14 @@ const Delivery24h = () => {
       <div className="w-4/5 ">
         <div className="flex space-x-3 place-content-center mt-[40px]">
           <div className=" flex items-center">
-            <div className="w-[160px] h-[4px] bg-black rounded-md"></div>
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
           </div>
 
           <div>
             <h1 className="text-center text-4xl ">Vận chuyển 24h</h1>{" "}
           </div>
           <div className=" flex items-center">
-            <div className="w-[160px] h-[4px] bg-black rounded-md"></div>
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
           </div>
         </div>
         <div className=" mt-10   flex justify-center	 ">

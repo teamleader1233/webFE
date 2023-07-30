@@ -7,9 +7,21 @@ const TrustImports = () => {
     <div className="w-full flex justify-between items-center flex-col">
       <div className="w-4/5">
         <ButtonSearch />
-        <h1 className="text-center font-medium text-[24px] my-[40px] tracking-wider    ">
-          Xuất Nhập Khẩu Ủy Thác
-        </h1>
+        <div className="flex space-x-3 place-content-center ">
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+
+          <div>
+            <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+              Xuất Nhập Khẩu Ủy Thác
+            </h1>
+          </div>
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+        </div>
+
         <div className="my-[40px]">
           <p>
             <span className="ml-[40px]">SVN LOGISTICS </span>EXPORT IMPORT., JSC

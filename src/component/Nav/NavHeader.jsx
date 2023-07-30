@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import style from "./style.module.scss";
 import logo from "../../data/img/logo.png";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { useRef } from "react";
 import china from "../../data/img/china.jpg";
 import vietnam from "../../data/img/vietnam.jpg";
@@ -18,7 +18,7 @@ const NavHeader = () => {
   const [iconflexible, setIconFlexible] = useState("bi-list");
   const show = useRef();
   const showDetail = useRef();
-  const navigate = useNavigate();
+
   const handeBackHome = () => {
     console.log(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -44,6 +44,7 @@ const NavHeader = () => {
       setIconFlexible("bi-list");
     }
   };
+
   return (
     <div
       onClick={() => {
@@ -113,8 +114,8 @@ const NavHeader = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex h-[100px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative">
-          <div className="xl:w-[40%] w-0 ">
+        <div className="w-full flex h-[70px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative bg-black">
+          <div className="xl:w-[40%] w-0">
             <div className="h-[50px] bg-white relative hidden xl:block"></div>
             <div className="bg-transparent h-[50px] relative  hidden xl:block">
               <div className=" h-[0] w-[0] absolute  top-[-49px] right-[-49px] border-l-[50px] border-r-[50px]  border-l-[transparent] border-r-[transparent] border-b-[50px] border-b-[#d4240e] border-solid"></div>
@@ -123,7 +124,7 @@ const NavHeader = () => {
           <div
             className={`${style.nav_header} xl:justify-start w-full sm:justify-center`}
           >
-            <div className={`${style.nav_header_title} `}>
+            <div className={`${style.nav_header_title} h-[80px]`}>
               <div
                 className=" lg:hidden  sm:w-full sm:flex sm:mr-[40px] flex justify-end w-full "
                 onClick={() => handeClickDetail()}
@@ -140,7 +141,7 @@ const NavHeader = () => {
                   to="/home"
                   className={({ isActive }) =>
                     isActive
-                      ? "border-b-[2px] border-solid border-white"
+                      ? "border-b-[1px] border-solid border-white"
                       : `${style.nav_header_title_content} ${style.nav_header_title_list} sm:py-[20px] sm:hover:opacity-80   `
                   }
                 >
@@ -159,10 +160,10 @@ const NavHeader = () => {
                   }}
                 >
                   Dịch Vụ
-                  <span className="sm:hidden lg:block"></span>
+                  <span className={`sm:hidden lg:block`}></span>
                   <div
                     ref={show}
-                    className=" flex-wrap opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute  left-0 right-0 flex items-center bottom-[-300px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[320px] overflow-auto  w-[100%]"
+                    className=" flex-wrap opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute  left-0 right-0 flex items-center bottom-[-320px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[320px] overflow-auto  w-[100%]"
                   >
                     <Link
                       to={"/Logistic"}
@@ -228,7 +229,7 @@ const NavHeader = () => {
                   to="/InlandTransport"
                   className={({ isActive }) =>
                     isActive
-                      ? "border-b-[2px] border-solid border-white"
+                      ? "border-b-[1px] border-solid border-white"
                       : `${style.nav_header_title_content} sm:py-[20px] sm:hover:opacity-80`
                   }
                 >
@@ -241,7 +242,7 @@ const NavHeader = () => {
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "border-b-[2px] border-solid border-white"
+                      ? "border-b-[1px] border-solid border-white"
                       : `${style.nav_header_title_content} sm:py-[20px] sm:hover:opacity-80`
                   }
                 >
@@ -254,7 +255,7 @@ const NavHeader = () => {
                   to="/"
                   className={({ isActive }) =>
                     isActive
-                      ? "border-b-[2px] border-solid border-white"
+                      ? "border-b-[1px] border-solid border-white"
                       : `${style.nav_header_title_content} sm:py-[20px] sm:hover:opacity-80`
                   }
                 >
@@ -266,7 +267,7 @@ const NavHeader = () => {
                   to="/About-us"
                   className={({ isActive }) =>
                     isActive
-                      ? "border-b-[2px] border-solid border-white"
+                      ? "border-b-[1px] border-solid border-white"
                       : `${style.nav_header_title_content} sm:py-[20px] sm:hover:opacity-80`
                   }
                 >

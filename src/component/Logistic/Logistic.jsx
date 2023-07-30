@@ -8,9 +8,21 @@ const Logistic = () => {
     <div className="w-full flex justify-center flex-col items-center">
       <ButtonSearch />
       <div className="w-4/5 my-[20px]">
-        <h1 className="text-center font-medium text-[24px] my-[40px] tracking-wider    ">
-          Logistic Quốc Tế{" "}
-        </h1>
+        <div className="flex space-x-3 place-content-center ">
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+
+          <div>
+            <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+              Logistic Quốc Tế
+            </h1>{" "}
+          </div>
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+        </div>
+
         <div className="my-[40px]">
           <p>
             Đội ngũ chuyên nghiệp của SVN cung cấp các dịch vụ hậu cần LOGISTICS

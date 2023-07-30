@@ -7,9 +7,21 @@ const Delivery2Way = () => {
     <div className="flex flex-col justify-center items-center relative">
       <div className="w-4/5">
         <ButtonSearch />
-        <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider    ">
-          VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT - TRUNG
-        </h1>
+        <div className="flex space-x-3 place-content-center mt-[40px]">
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+
+          <div>
+            <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+              VẬN CHUYỂN HÀNG HÓA 2 CHIỀU VIỆT - TRUNG
+            </h1>{" "}
+          </div>
+          <div className=" flex items-center">
+            <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+          </div>
+        </div>
+
         <div>
           <div>
             <span className="font-semibold">Mô Tả:</span> Sản phẩm tuyệt cà là

@@ -52,7 +52,7 @@ const Home = () => {
             </p>
           </div>
           <div className="w-[20%]  flex justify-center">
-            <div className="w-[4px] h-full bg-slate-300 rounded-md"></div>
+            <div className="w-[2px] h-full bg-slate-300 rounded-md"></div>
           </div>
           <div className="w-[40%]">
             <div className="bg-[#D9D9D9] h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl ">
