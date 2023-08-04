@@ -1,8 +1,28 @@
 import React from "react";
-import "./style.css";
 import Footer from "../Footer/Footer";
 const AboutUs = () => {
-  return <div w-full >sadasfas</div>;
+  return <div w-full >
+    <div className="page-name text-center font-medium text-[40px] p-[15px]">Về Chúng Tôi</div>
+
+    <div className="content h-auto pt-[15px] pb-0 px-[70px]">
+        <div className="box1 flex justify-between mb-[70px]">
+          <div className="information w-[1000px] text-xl bg-[gainsboro] border min-h-[200px] m-[15px] p-[30px] rounded-[50px] border-solid border-[gray]">
+          SVN LOGISTICS IMPORT EXPORT., JSC là nhà cung cấp dịch vụ Logistics chuyên nghiệp và tin cậy, hoạt động trong lĩnh vực vận tải nội địa, quốc tế và các dịch vụ ngoại thương. Chúng tôi cam kết đem đến môi trường tốt và sự hài lòng cao nhất cho khách hàng.
+          </div>
+
+          <div className="style w-[400px] bg-[gainsboro] border min-h-[200px] m-[15px] p-[30px] rounded-[50px] border-solid border-[gray]">
+            <div className="style-title text-center font-medium text-3xl">Phong cách</div>
+          </div>
+        </div>
+
+        
+        <div className="mission bg-[gainsboro] border min-h-[200px] m-[15px] p-[30px] rounded-[50px] border-solid border-[gray]">
+          <div className="mission-title text-center font-medium text-3xl">Sứ mệnh </div>
+        </div>
+         
+    </div>
+    <Footer />
+    </div>;
 };
 
 export default AboutUs;
