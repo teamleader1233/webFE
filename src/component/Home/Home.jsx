@@ -1,34 +1,30 @@
 import React, { useEffect, useRef } from "react";
 
 import Footer from "../Footer/Footer";
-
+import axios from "axios";
 import bgUrl from "../../data/img/bgUrl.png";
 import imgMain from "../../data/img/imgMain.png";
 // import axios from "axios";
 const Home = () => {
   const show = useRef();
-  // const data = {
-  //   username: "avnadmin",
-  //   password: "SvnUser2023!",
-  // };
-  // const getData = async () => {
-  //   try {
-  //     const response = await axios.post(
-  //       "http://127.0.0.1:8000/v1/jwt/create/",
-  //       {
-  //         headers: {},
-  //         data: data,
-  //       }
-  //     );
-  //     console.log(response);
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // };
+  const data = {
+    username: "admin",
+    password: "admin",
+  };
+  const getData = async () => {
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/token", {
+        data: data,
+      });
+      console.log(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
-  // useEffect(() => {
-  //   getData();
-  // });
+  useEffect(() => {
+    getData();
+  });
 
   return (
     <div
