@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Footer from "../Footer/Footer";
 import axios from "axios";
 import bgUrl from "../../data/img/bgUrl.png";
-import imgMain from "../../data/img/imgMain.png";
+
 // import axios from "axios";
 const Home = () => {
   const show = useRef();
@@ -13,10 +13,8 @@ const Home = () => {
   };
   const getData = async () => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/token", {
-        data: data,
-      });
-      console.log(response);
+      const response = await axios.post("http://127.0.0.1:8000/token/", data);
+      console.log(response.data);
     } catch (e) {
       console.log(e);
     }
