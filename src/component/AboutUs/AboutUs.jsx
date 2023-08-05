@@ -1,4 +1,5 @@
 import React from "react";
+
 import Footer from "../Footer/Footer";
 const AboutUs = () => {
   return (
@@ -37,6 +38,20 @@ const AboutUs = () => {
         <div className="mission bg-[gainsboro] border min-h-[200px] m-[15px] p-[30px] rounded-[50px] border-solid border-[gray]">
           <div className="mission-title text-center font-medium text-3xl">
             Sứ mệnh{" "}
+          </div>
+        </div>
+        <div className="values">
+          <div className="value-title text-center text-3xl font-semibold mt-[50px] mb-[25px]">GIÁ TRỊ</div>
+          <div className="value-contents flex justify-around">
+            <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">TRÁCH NHIỆM</div>
+              </div>
+            <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">KHÁCH HÀNG</div>
+            </div>
+            <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">MINH BẠCH</div>
+            </div>
           </div>
         </div>
       </div>
