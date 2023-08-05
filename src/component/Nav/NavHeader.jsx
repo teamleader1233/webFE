@@ -239,7 +239,7 @@ const NavHeader = () => {
                 </NavLink>
 
                 <NavLink
-                  to="/"
+                  to="/PriceList"
                   className={({ isActive }) =>
                     isActive
                       ? "border-b-[1px] border-solid border-white"

@@ -12,7 +12,7 @@ import axios from "axios";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import Delivery24h from "./component/Delivery24h/Delivery24h"
+import Delivery24h from "./component/Delivery24h/Delivery24h";
 
 import InlandTransport from "./component/InlandTransport/InlandTransport";
 
@@ -29,6 +29,7 @@ import TrustImports from "./component/TrustImports/TrustImports";
 import Clearance_Service from "./component/Clearance-service/ClearanceService";
 import ClearanceService from "./component/Clearance-service/ClearanceService";
 import Delivery2Way from "./component/Delivery2Way/Delivery2Way";
+import PriceList from "./component/PriceList/PriceList";
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>
 
-          <Route path="/Delivery24h" element={<Delivery24h/>}></Route>
+          <Route path="/Delivery24h" element={<Delivery24h />}></Route>
 
           <Route path="/About-us" element={<AboutUs />}></Route>
           <Route path="/Logistic" element={<Logistic />}></Route>
@@ -63,7 +64,7 @@ function App() {
             element={<ClearanceService />}
           ></Route>
           <Route path="/Delivery2Way" element={<Delivery2Way />}></Route>
-
+          <Route path="/PriceList" element={<PriceList />}></Route>
         </Route>
       </Routes>
     </div>
