@@ -40,16 +40,36 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="values">
-          <div className="value-title text-center text-3xl font-semibold mt-[50px] mb-[25px]">GIÁ TRỊ</div>
+          <div className="flex space-x-3 place-content-center">
+            <div className=" flex items-center">
+              <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+            </div>
+
+            <div>
+              <h1 className="text-center font-medium text-[26px] my-[60px] tracking-wider  ">
+                Giá Trị
+              </h1>{" "}
+            </div>
+            <div className=" flex items-center">
+              <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+            </div>
+          </div>
+
           <div className="value-contents flex justify-around">
             <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
-              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">TRÁCH NHIỆM</div>
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">
+                TRÁCH NHIỆM
               </div>
-            <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
-              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">KHÁCH HÀNG</div>
             </div>
             <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
-              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">MINH BẠCH</div>
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">
+                KHÁCH HÀNG
+              </div>
+            </div>
+            <div className="value-items bg-[#E46000B2] w-[200px] h-[200px] inline-block relative rounded-[50%]">
+              <div className="value-text absolute w-full -translate-y-2/4 text-center text-[22px] font-medium top-2/4">
+                MINH BẠCH
+              </div>
             </div>
           </div>
         </div>

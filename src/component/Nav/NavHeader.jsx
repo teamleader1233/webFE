@@ -14,11 +14,14 @@ import xnk from "../../data/img/xnk.png";
 import vc24h from "../../data/img/vc24h.png";
 import tq from "../../data/img/tq.png";
 import vc2c from "../../data/img/vc2c.png";
+import NoticeBill from "./NoticeBill";
+
 const NavHeader = () => {
   const [iconflexible, setIconFlexible] = useState("bi-list");
   const show = useRef();
   const showDetail = useRef();
-
+  const navigate = useNavigate();
+  const showNotice = useRef(false);
   const handeBackHome = () => {
     console.log(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -54,8 +57,11 @@ const NavHeader = () => {
           );
       }}
     >
-      <div className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] ">
-        <div className="flex justify-between  w-4/5 h-[100px] ">
+      <div
+        className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] "
+        onClick={() => showNotice.current.classList.add("hidden")}
+      >
+        <div className="flex justify-between  w-4/5 h-[100px] relative">
           <div className=" flex items-center   ">
             <Link to={"/"} onClick={() => handeBackHome()}>
               <div className={style.nav_header_title_logo}>
@@ -114,7 +120,24 @@ const NavHeader = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex h-[70px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative bg-black">
+        <div className="w-full flex h-[70px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative bg-black ">
+          {localStorage.getItem("role") === "admin" ? (
+            <div className="absolute right-[30px]  top-[22px] z-[102] select-none">
+              <i
+                className="bi bi-bell text-[24px] text-white cursor-pointer"
+                onClick={(e) => {
+                  showNotice.current.classList.toggle("hidden");
+                  e.stopPropagation();
+                }}
+              ></i>
+              <div ref={showNotice} className="hidden">
+                <NoticeBill />
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div className="xl:w-[40%] w-0">
             <div className="h-[50px] bg-white relative hidden xl:block"></div>
             <div className="bg-transparent h-[50px] relative  hidden xl:block">
@@ -275,6 +298,19 @@ const NavHeader = () => {
                   Về Chúng Tôi
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
+                {localStorage.getItem("role") === "admin" ? (
+                  <div
+                    onClick={() => {
+                      localStorage.clear();
+                      navigate("/Home");
+                    }}
+                    className="cursor-pointer text-black"
+                  >
+                    Đăng Xuất
+                  </div>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>

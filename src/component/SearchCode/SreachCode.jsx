@@ -4,7 +4,7 @@ import IconContact from "../IconContact/IconContact";
 import Footer from "../Footer/Footer";
 import imgSearchCode from "../../data/img/imgFooter.png";
 import InfoBill from "./InfoBill";
-import { logDOM } from "@testing-library/react";
+
 const SreachCode = () => {
   const [infor, setInfor] = useState(false);
   const [inputSearch, setInputSearch] = useState("");
@@ -14,9 +14,19 @@ const SreachCode = () => {
     }
     console.log(infor);
   };
+  const handleCloseInfor = () => {
+    setInfor(false);
+  };
   return (
     <div className="flex flex-col justify-between md:h-screen relative top-[-30px] ">
-      {infor ? <InfoBill inputSearch={inputSearch} /> : ""}
+      {infor ? (
+        <InfoBill
+          inputSearch={inputSearch}
+          handleCloseInfor={handleCloseInfor}
+        />
+      ) : (
+        ""
+      )}
       <div className="grow-[1] max-[1280px]:h-[120px]">
         <IconContact />
       </div>

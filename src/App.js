@@ -30,21 +30,12 @@ import Clearance_Service from "./component/Clearance-service/ClearanceService";
 import ClearanceService from "./component/Clearance-service/ClearanceService";
 import Delivery2Way from "./component/Delivery2Way/Delivery2Way";
 import PriceList from "./component/PriceList/PriceList";
+import EditBill from "./component/SearchCode/EditBill";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        {/* <Route path="/" element={<Nav />}>
-          <Route path="" element={<Home />}></Route>
-          <Route path="/Register" element={<Login />}></Route>
-          <Route path="/Houseware" element={<Houseware />}></Route>
-          <Route path="/Detail" element={<Detail />}></Route>
-          <Route path="/InlandTransport" element={<InlandTransport />}></Route>
-         
-          <Route path="/HousewareDetail" element={<HousewareDetail />}></Route>
-          <Route path="/Rent" element={<Rent />}></Route>
-        </Route> */}
         <Route element={<NavHeader />}>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/SearchCode" element={<SreachCode />}></Route>
@@ -68,6 +59,8 @@ function App() {
           ></Route>
           <Route path="/Delivery2Way" element={<Delivery2Way />}></Route>
           <Route path="/PriceList" element={<PriceList />}></Route>
+
+          <Route path="/EditBill" element={<EditBill />}></Route>
         </Route>
       </Routes>
     </div>
