@@ -1,28 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Footer from "../Footer/Footer";
-import axios from "axios";
+
 import bgUrl from "../../data/img/bgUrl.png";
+import InfoBill from "../SearchCode/InfoBill";
 
 // import axios from "axios";
 const Home = () => {
   const show = useRef();
-  const data = {
-    username: "admin",
-    password: "admin",
-  };
-  const getData = async () => {
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/token/", data);
-      console.log(response.data);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  });
+  const [infor, setInfor] = useState(false);
 
   return (
     <div

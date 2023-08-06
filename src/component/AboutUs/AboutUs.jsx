@@ -3,7 +3,7 @@ import Footer from "../Footer/Footer";
 const AboutUs = () => {
   return (
     <div className="w-full">
-      <div className="flex space-x-3 place-content-center mt-[40px]">
+      <div className="flex space-x-3 place-content-center">
         <div className=" flex items-center">
           <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
         </div>

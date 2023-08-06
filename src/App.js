@@ -48,7 +48,10 @@ function App() {
         <Route element={<NavHeader />}>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/SearchCode" element={<SreachCode />}></Route>
-          <Route path="/Login" element={<SignIn isAdmin={true} />}></Route>
+          <Route
+            path="/svn-admin-login"
+            element={<SignIn isAdmin={true} />}
+          ></Route>
           <Route path="/Rent" element={<Rent />}></Route>
           <Route path="*" element={<NotFound />}></Route>
           <Route path="/InlandTransport" element={<InlandTransport />}></Route>

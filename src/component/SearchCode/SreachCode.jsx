@@ -1,15 +1,26 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
 import NavHeader from "../Nav/NavHeader";
 import IconContact from "../IconContact/IconContact";
 import Footer from "../Footer/Footer";
 import imgSearchCode from "../../data/img/imgFooter.png";
+import InfoBill from "./InfoBill";
+import { logDOM } from "@testing-library/react";
 const SreachCode = () => {
+  const [infor, setInfor] = useState(false);
+  const [inputSearch, setInputSearch] = useState("");
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) {
+      setInfor(true);
+    }
+    console.log(infor);
+  };
   return (
     <div className="flex flex-col justify-between md:h-screen relative top-[-30px] ">
+      {infor ? <InfoBill inputSearch={inputSearch} /> : ""}
       <div className="grow-[1] max-[1280px]:h-[120px]">
         <IconContact />
       </div>
-      <div className="w-full  grow-[8] flex  justify-center  max-[1280px]:mb-[40px] ">
+      <div className="w-full  grow-[8] flex  justify-center   max-[1280px]:mb-[40px] ">
         <img
           src={imgSearchCode}
           alt="img avar"
@@ -32,6 +43,9 @@ const SreachCode = () => {
               type="text"
               placeholder="Tra cứu đơn hàng thuộc về bạn"
               className="outline-none px-[10px] py-[8px] grow-[8]"
+              onKeyDown={(e) => handleKeyDown(e)}
+              value={inputSearch}
+              onChange={(e) => setInputSearch(e.target.value.trim())}
             />
           </div>
           <div className="w-full flex flex-col items-center overflow-hidden ">
@@ -41,7 +55,11 @@ const SreachCode = () => {
               </div>
               <div className=" bg-white px-[10px] ">
                 <div className="w-full py-[10px] flex items-center">
-                  <label htmlFor="mailbox" className="px-[6px] ">
+                  <label
+                    htmlFor="mailbox"
+                    className="px-[6px] "
+                    onClick={() => setInfor(true)}
+                  >
                     {" "}
                     <i className="bi bi-envelope"></i>
                   </label>

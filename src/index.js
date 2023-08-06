@@ -6,6 +6,8 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
@@ -14,6 +16,16 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <App />
+        <ToastContainer
+          position="top-right"
+          autoClose={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          theme="colored"
+        />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
