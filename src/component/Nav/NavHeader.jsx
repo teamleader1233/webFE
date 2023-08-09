@@ -50,15 +50,18 @@ const NavHeader = () => {
 
   return (
     <div
-      onClick={() => {
+      onClick={(e) => {
         show &&
           show.current?.classList.add(
             ..."opacity-0 pointer-events-none".split(" ")
           );
+
+        showNotice.current.classList.add("hidden");
+        e.stopPropagation();
       }}
     >
       <div
-        className="fixed w-full flex flex-col items-center justify-center bg-white z-[20] "
+        className="fixed top-0 w-full flex flex-col items-center justify-center bg-white z-[20] "
         onClick={() => showNotice.current.classList.add("hidden")}
       >
         <div className="flex justify-between  w-4/5 h-[100px] relative">
@@ -121,23 +124,6 @@ const NavHeader = () => {
           </div>
         </div>
         <div className="w-full flex h-[70px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] relative bg-black ">
-          {localStorage.getItem("role") === "admin" ? (
-            <div className="absolute right-[30px]  top-[22px] z-[102] select-none">
-              <i
-                className="bi bi-bell text-[24px] text-white cursor-pointer"
-                onClick={(e) => {
-                  showNotice.current.classList.toggle("hidden");
-                  e.stopPropagation();
-                }}
-              ></i>
-              <div ref={showNotice} className="hidden">
-                <NoticeBill />
-              </div>
-            </div>
-          ) : (
-            ""
-          )}
-
           <div className="xl:w-[40%] w-0">
             <div className="h-[50px] bg-white relative hidden xl:block"></div>
             <div className="bg-transparent h-[50px] relative  hidden xl:block">
@@ -147,7 +133,12 @@ const NavHeader = () => {
           <div
             className={`${style.nav_header} xl:justify-start w-full sm:justify-center`}
           >
-            <div className={`${style.nav_header_title} h-[80px]`}>
+            <div
+              className={`${style.nav_header_title} h-[80px] w-full`}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+            >
               <div
                 className=" lg:hidden  sm:w-full sm:flex sm:mr-[40px] flex justify-end w-full "
                 onClick={() => handeClickDetail()}
@@ -155,9 +146,12 @@ const NavHeader = () => {
                 <i className={`bi ${iconflexible} text-[30px] `}></i>
               </div>
               <div
-                onClick={() => handeBackHome()}
+                onClick={(e) => {
+                  handeBackHome();
+                  handleClose(e);
+                }}
                 ref={showDetail}
-                className={`lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
+                className={`xl:justify-around  lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
               >
                 {/* Dịch Vụ Săn Hàng */}
                 <NavLink
@@ -173,7 +167,7 @@ const NavHeader = () => {
                 </NavLink>
 
                 <div
-                  className={`${style.nav_header_title_content} sm:py-[20px] sm:hover:opacity-80 lg:hover:opacity-100 `}
+                  className={`${style.nav_header_title_content} sm:py-[20px] opacity-100 `}
                   onClick={(e) => {
                     show &&
                       show.current?.classList.remove(
@@ -186,7 +180,7 @@ const NavHeader = () => {
                   <span className={`sm:hidden lg:block`}></span>
                   <div
                     ref={show}
-                    className=" flex-wrap opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute  left-0 right-0 flex items-center bottom-[-320px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[320px] overflow-auto  w-[100%]"
+                    className=" flex-wrap  opacity-0 pointer-events-none transition-all ease-in-out duration-200 absolute  left-0 right-0 flex items-center bottom-[-320px] justify-between text-black bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.5)] h-[320px] overflow-auto  w-[100%]"
                   >
                     <Link
                       to={"/Logistic"}
@@ -194,7 +188,9 @@ const NavHeader = () => {
                       onClick={(e) => handleClose(e)}
                     >
                       <img src={vcqt} alt="ss" />
-                      <div className="mt-[20px] h-[40px]">LOGISTIC QUỐC TẾ</div>
+                      <div className="mt-[20px] h-[40px] ">
+                        LOGISTIC QUỐC TẾ
+                      </div>
                     </Link>
                     <Link
                       to={"/Order"}
@@ -275,6 +271,7 @@ const NavHeader = () => {
                 </NavLink>
 
                 <NavLink
+                  onClick={(e) => handleClose(e)}
                   to="/"
                   className={({ isActive }) =>
                     isActive
@@ -287,6 +284,7 @@ const NavHeader = () => {
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
                 <NavLink
+                  onClick={(e) => handleClose(e)}
                   to="/About-us"
                   className={({ isActive }) =>
                     isActive
@@ -299,15 +297,31 @@ const NavHeader = () => {
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
                 {localStorage.getItem("role") === "admin" ? (
-                  <div
-                    onClick={() => {
-                      localStorage.clear();
-                      navigate("/Home");
-                    }}
-                    className="cursor-pointer text-black"
-                  >
-                    Đăng Xuất
-                  </div>
+                  <>
+                    <div
+                      onClick={(e) => {
+                        localStorage.clear();
+                        navigate("/Home");
+                        handleClose(e);
+                      }}
+                      className="cursor-pointer text-[#ffffff] font-bold"
+                    >
+                      Đăng Xuất
+                    </div>
+
+                    <div className=" right-[30px]  top-[22px] z-[102] select-none">
+                      <i
+                        className="bi bi-bell text-[24px] text-white cursor-pointer"
+                        onClick={(e) => {
+                          showNotice.current.classList.toggle("hidden");
+                          e.stopPropagation();
+                        }}
+                      ></i>
+                      <div ref={showNotice} className="hidden">
+                        <NoticeBill />
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   ""
                 )}

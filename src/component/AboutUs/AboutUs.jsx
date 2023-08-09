@@ -9,7 +9,7 @@ const AboutUs = () => {
         </div>
 
         <div>
-          <h1 className="text-center font-medium text-[26px] my-[40px] tracking-wider  ">
+          <h1 className="text-center font-semibold text-[26px] my-[40px] tracking-wider  ">
             Về Chúng Tôi
           </h1>{" "}
         </div>

@@ -8,7 +8,7 @@ import InfoBill from "../SearchCode/InfoBill";
 // import axios from "axios";
 const Home = () => {
   const show = useRef();
-  const [infor, setInfor] = useState(false);
+  
 
   return (
     <div

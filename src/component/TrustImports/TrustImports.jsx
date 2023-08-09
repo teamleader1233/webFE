@@ -24,11 +24,11 @@ const TrustImports = () => {
 
         <div className="my-[40px]">
           <p>
-            <span className="ml-[40px]">SVN LOGISTICS </span>EXPORT IMPORT., JSC
-            là đơn vị uy tín với nhiều năm kinh nghiệm trong lĩnh vực ngoại
-            thương và thương mại xuất nhập khẩu. Chúng tôi tự hào với đội ngũ
-            chuyên nghiệp và trình độ cao, cam kết mang đến sự hỗ trợ thuận lợi
-            cho hoạt động xuất nhập khẩu của khách hàng.
+            <span className="ml-[40px] text-justify">SVN LOGISTICS </span>EXPORT
+            IMPORT., JSC là đơn vị uy tín với nhiều năm kinh nghiệm trong lĩnh
+            vực ngoại thương và thương mại xuất nhập khẩu. Chúng tôi tự hào với
+            đội ngũ chuyên nghiệp và trình độ cao, cam kết mang đến sự hỗ trợ
+            thuận lợi cho hoạt động xuất nhập khẩu của khách hàng.
           </p>
           <p className="my-[40px] font-semibold">
             Dịch vụ ủy thác XNK tại SVN bao gồm:

@@ -15,11 +15,21 @@ const InlandTransport = () => {
       className="overflow-x-hidden mt-[200px] transition-all duration-1000 ease-in-out opacity-0 "
       ref={show}
     >
-      <div id="product" className="mt-[60px] pb-[60px] flex justify-center">
-        <h1 className="max-[1024px]:text-[20px] text-[32px] bg-[#f94f2f] text-white p-[6px] px-[20px] rounded-md select-none ">
-          Vận Tải Nội Địa 24h
-        </h1>
+      <div className="flex space-x-3 place-content-center mb-[40px]">
+        <div className=" flex items-center">
+          <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+        </div>
+
+        <div>
+          <h1 className="text-center font-semibold text-[26px] my-[40px] tracking-wider  ">
+            Vận Tải Nội Địa 24h
+          </h1>{" "}
+        </div>
+        <div className=" flex items-center">
+          <div className="w-[160px] h-[2px] bg-black rounded-md"></div>
+        </div>
       </div>
+
       <div className="w-full flex justify-center">
         <div className="w-4/5 flex justify-between sm:flex-col md:flex-row">
           <img
