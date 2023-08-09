@@ -11,6 +11,9 @@ import {
   isUseSingle,
 } from "../../../features/SignIn_SignOut/SliceSignInSignOut";
 import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { setTokenReset } from "../../../features/Token/SliceTokenReset";
 const SignIn = ({ isAdmin }) => {
   const [focusInputEmail, setfocusInputEmail] = useState(true);
   const [focusInputPassword, setfocusInputPassword] = useState(true);
@@ -18,30 +21,39 @@ const SignIn = ({ isAdmin }) => {
   const [inputPassword, setInputPassword] = useState("");
   const [checkErrorEmail, setCheckErrorEmail] = useState(true);
   const [checkErrorPassword, setCheckErrorPassword] = useState(true);
+  const navigate = useNavigate();
   const blockedSubmit = useRef();
 
   const dispatch = useDispatch();
   // checkPassword
-  const getApi = async () => {
+  const getApi = async (data) => {
     try {
-      const response = await axios.get();
+      const response = await axios.post("http://127.0.0.1:8000/token/", data);
+      console.log(response.data);
+      localStorage.setItem("token", response.data.access);
+      dispatch(setTokenReset(response.data.refresh));
+      try {
+        await axios.post(
+          "http://127.0.0.1:8000//verify",
+          {},
+          { headers: { Authorization: `Bearer ${response.data.access}` } }
+        );
+        localStorage.setItem("role", "admin");
+
+        navigate("/home");
+        toast.success("login success");
+      } catch (e) {}
     } catch (e) {
-      console.log(e);
+      toast.error("Account Doesn't exist");
     }
   };
   // check login
   const handerLogin = () => {
-    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    var isEmail = emailPattern.test(inputEmail);
-    if (isEmail && inputPassword) {
+    if (inputEmail && inputPassword) {
       // lam gi do o day
       if (isAdmin) {
-        getApi();
+        getApi({ username: inputEmail, password: inputPassword });
       }
-
-      // setCheckErrorPassword(true);
-      // setCheckErrorEmail(true);
-      //
     } else {
       if (inputEmail.trim().length === 0 && inputPassword.trim().length === 0) {
         setCheckErrorEmail(false);
@@ -80,12 +92,13 @@ const SignIn = ({ isAdmin }) => {
   };
   return (
     <div>
-      <div className={style.signUp}>
+      <div className="flex justify-center">
         <form
           action="/SignIn"
           onSubmit={(e) => {
             e.preventDefault();
           }}
+          className="mt-[60px]"
         >
           <h1 className="font-semibold text-[32px]">Sign in </h1>
           {/* <div className={style.signUp_google}>
@@ -102,8 +115,8 @@ const SignIn = ({ isAdmin }) => {
                 value={inputEmail}
                 onChange={(e) => handleChangeInputEmail(e)}
                 className={style.signUp_input_email}
-                type="email"
-                placeholder="Email"
+                type="text"
+                placeholder="Name"
                 autoComplete="username"
                 autoCapitalize="off"
                 autoCorrect="off"
