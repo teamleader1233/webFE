@@ -52,8 +52,9 @@ const InlandTransport = () => {
             Hà Nội - Bắc Ninh - Hà Nam - Nam Định - Thái Bình - Hải Phòng
           </div>
           <div
-            onClick={() => {
+            onClick={(e) => {
               navigate("/Rent");
+              e.stopPropagation();
             }}
             className="max-[1024px]:w-full bg-black text-white text-center w-[200px] py-[10px] rounded-md text-[24px] hover:shadow-[0_0_5px_rgba(0,0,0,0.8)] cursor-pointer transition-all duration-150 hover:translate-y-[-6px]"
           >

@@ -5,9 +5,15 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../Input/Input";
 import Footer from "../Footer/Footer";
 import { useState } from "react";
+import axios from "axios";
+import InforBill from "./InforBill";
 const Rent = () => {
-  const [location, setLocation] = useState("");
+  const [infor, setInfor] = useState([]);
+  const [activeNotice, setIsActiveNotice] = useState(false);
   const area = useRef();
+  const closeNotice = () => {
+    setIsActiveNotice(false);
+  };
   const handleSelect = () => {
     area.current.classList.toggle("hidden");
   };
@@ -35,6 +41,10 @@ const Rent = () => {
     senderPhoneNumber: yub.string().required("Vui lòng nhập số điện thoại."),
     senderName: yub.string().required("Vui lòng nhập tên."),
     senderAddress: yub.string().required("Vui lòng nhập địa chỉ"),
+    collection: yub.string(),
+    priceProduct: yub.string(),
+    detailProduct: yub.string(),
+    note: yub.string(),
   });
 
   const {
@@ -56,17 +66,55 @@ const Rent = () => {
       nameProduct: "",
       weight: "",
       quantity: "",
+      collection: "",
+      priceProduct: "",
+      detailProduct: "",
+      note: "",
     },
     resolver: yupResolver(schema),
   });
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
-  const onSubmit = () => {
-    alert("success");
+  const postData = async (dataCreate) => {
+    console.log(dataCreate);
+    try {
+      const response = await axios.post(
+        "http://127.0.0.1:8000/bills",
+        dataCreate
+      );
+      setIsActiveNotice(true);
+      setInfor(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const onSubmit = (data) => {
+    const dataCreate = {
+      sender_name: data.senderName,
+      sender_phone: data.senderPhoneNumber,
+      sender_address: data.senderAddress,
+      receiver_name: data.name,
+      receiver_phone: data.phoneNumber,
+      receiver_address: data.address,
+      product_name: data.nameProduct,
+      product_price: parseInt(data.priceProduct) || 0,
+      product_weight: data.weight.toString(),
+      product_description: data.detailProduct,
+      location: `${data.building}/${data.wards}/${data.district}/${data.city}`,
+      quantity: parseInt(data.quantity),
+      status: "pending",
+    };
+    postData(dataCreate);
   };
   return (
-    <div>
+    <div onClick={(e) => e.stopPropagation()}>
+      {activeNotice ? (
+        <InforBill infor={infor} closeNotice={closeNotice} />
+      ) : (
+        ""
+      )}
+
       <div className="w-full flex justify-center">
         <form className="w-4/5   " onSubmit={handleSubmit(onSubmit)}>
           {/* header  */}
@@ -453,15 +501,15 @@ const Rent = () => {
             <div className="border-b-[1px] border-solid border-[#363636a3]">
               <Controller
                 control={control}
-                name="valueProduct"
+                name="priceProduct"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled="false"
+                    isdisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
                     placeholder="Giá Trị Hàng Hóa (VNĐ)"
-                    dataInput="valueProduct"
+                    dataInput="priceProduct"
                   />
                 )}
               />
@@ -472,7 +520,7 @@ const Rent = () => {
                 name="detailProduct"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled="false"
+                    isdisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -488,7 +536,7 @@ const Rent = () => {
                 name="note"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isDisabled="false"
+                    isdisabled="false"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -501,6 +549,7 @@ const Rent = () => {
           </div>
           <div className="flex justify-center mb-[60px] mt-[20px]">
             <button
+              onClick={(e) => e.stopPropagation()}
               type="submit"
               className="bg-[#ff9232] inline-block text-white px-[18px] py-[10px] rounded-md text-[24px] cursor-pointer active:shadow-[0_0px_10px_6px_#F46000E8] hover:shadow-[0_0px_10px_2px_#E46000E8] transition-all ease-in-out duration-200 select-none"
             >

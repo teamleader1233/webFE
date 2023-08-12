@@ -3,20 +3,21 @@ import * as yub from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
 import Input from "../Input/Input";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 const EditBill = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
+
   const schema = yub.object().shape({
-    code: yub.string().required("Vui Lòng Nhập Trường Này."),
+    code: yub.string(),
     status: yub.string().required("Vui Lòng Nhập Trường Này."),
     area: yub.string().required("Vui Lòng Nhập Trường Này."),
-    timeUpdate: yub.string().required("Vui Lòng Nhập Trường Này."),
     quantity: yub.string().required("Vui Lòng Nhập Trường Này."),
-    price: yub.string().required("Vui Lòng Nhập Trường Này."),
   });
 
   const {
-    setValue,
     register,
     handleSubmit,
     control,
@@ -24,16 +25,43 @@ const EditBill = () => {
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      code: "",
-      status: "",
+      code: state.id,
+      status: state.status,
       area: "",
-      timeUpdate: "",
-      quantity: "",
-      price: "",
+
+      quantity: state.quantity,
     },
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {};
+  const onSubmit = async (data) => {
+    try {
+      console.log({
+        status: data.status,
+        current_location: data.area,
+        quantity: data.quantity,
+      });
+      const res = await axios.patch(
+        `http://127.0.0.1:8000/bills/${data.code}`,
+        {
+          Headers: {
+            Authorization: "****",
+          },
+          data: {
+            status: data.status,
+            current_location: data.area,
+            quantity: data.quantity,
+          },
+        }
+      );
+
+      console.log(res);
+      toast.success("Chỉnh Sửa Thành Công !");
+      navigate(-1);
+    } catch (e) {
+      console.log(e);
+      toast.error("Chỉnh Sửa Thất Bại ");
+    }
+  };
   return (
     <div className="w-full flex justify-center flex-col px-[40px] items-center">
       <div className="flex space-x-3 place-content-center my-[20px]">
@@ -66,9 +94,8 @@ const EditBill = () => {
                 name="code"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isdisabled="false"
+                    isdisabled="true"
                     register={register}
-                    onChange={onChange}
                     errors={errors}
                     placeholder="Nhập Mã Sản Phẩm..."
                     dataInput="code"
@@ -76,7 +103,6 @@ const EditBill = () => {
                 )}
               />
             </div>
-            <p className="text-red-400 text-left">{errors.code?.message}</p>
           </div>
           <div className="mb-[10px] ">
             <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">
@@ -130,34 +156,7 @@ const EditBill = () => {
             </div>
             <p className="text-red-400 text-left">{errors.area?.message}</p>
           </div>
-          <div className="mb-[10px] ">
-            <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">
-              <label htmlFor="timeUpdate">
-                <div className="w-[180px] break-normal">
-                  {" "}
-                  Thời Gian Cập Nhật Sản Phẩm
-                </div>
-              </label>
 
-              <Controller
-                control={control}
-                name="timeUpdate"
-                render={({ field: { onChange } }) => (
-                  <Input
-                    isdisabled="false"
-                    register={register}
-                    onChange={onChange}
-                    errors={errors}
-                    placeholder="Nhập Thời Gian Cập Nhật Sản Phẩm..."
-                    dataInput="timeUpdate"
-                  />
-                )}
-              />
-            </div>
-            <p className="text-red-400 text-left">
-              {errors.timeUpdate?.message}
-            </p>
-          </div>
           <div className="mb-[10px] ">
             <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">
               <label htmlFor="quantity">

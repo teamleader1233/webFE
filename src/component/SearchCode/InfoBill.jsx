@@ -1,21 +1,31 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef } from "react";
-import { ResetToken } from "../../api/ResetToken";
+import React, { useEffect, useState } from "react";
+import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const InfoBill = ({ inputSearch, handleCloseInfor }) => {
-  ResetToken();
   const navigate = useNavigate();
   const [notice, setNotice] = useState("Loading...");
-  const [data, setData] = useState("13123");
+  const [data, setData] = useState();
   const [isAdmin, setIsAdmin] = useState(false);
   const getData = async () => {
     try {
       const responsive = await axios.get(
         `http://127.0.0.1:8000/bills/${inputSearch}`
       );
+      console.log(responsive.data);
       setData(responsive.data);
     } catch (e) {
       setNotice("Không Tồn Tại Đơn Hàng !");
+    }
+  };
+  const deleteBill = async (id) => {
+    try {
+      const res = await axios.delete(`http://127.0.0.1:8000/bills/${id}`);
+      console.log(res);
+    } catch (e) {
+      toast.error("Error deleting");
+      console.log(e);
     }
   };
   useEffect(() => {
@@ -24,7 +34,7 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
     if (role === "admin") {
       setIsAdmin(true);
     }
-  });
+  }, []);
   return (
     <div
       className="fixed h-screen w-screen bg-[#abababc4] z-[200] flex justify-center items-center px-[20px] "
@@ -33,7 +43,7 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
       }}
     >
       <div
-        className="w-[480px] h-auto bg-[white] mt-[-184px] rounded-md relative pb-[20px]"
+        className="w-[480px] min-h-[260px] bg-[white] mt-[-184px] rounded-md relative pb-[20px]"
         onClick={(e) => e.stopPropagation()}
       >
         {" "}
@@ -62,24 +72,35 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
         </div>
         {data ? (
           <div className="mt-[20px] px-[20px] text-[#6c6c6c]">
-            <div className="mt-[10px] ">Mã Sản Phẩm : 123213</div>
+            <div className="mt-[10px]  ">
+              Mã Sản Phẩm : <span className="text-[#ec904d]">{data.id}</span>{" "}
+            </div>
             <div className="mt-[10px]">
-              Trạng Thái : <span>123213</span>
+              Trạng Thái : <span>{data.status}</span>
             </div>
             <div className="mt-[10px]"> Địa Điểm : Hà Nội </div>
             <div className="mt-[10px]">
               {" "}
-              Thời Gian Cập Nhật Đơn Hàng Của Của Bạn Gần Nhất: 12/2/2023{" "}
+              Thời Gian Cập Nhật Đơn Hàng Của Của Bạn Gần Nhất:{" "}
+              <span className="text-[#ec904d]">
+                {dayjs(data.date).format("HH:mm:ss - DD/MM/YYYY")}
+              </span>
             </div>
-            <div className="mt-[10px]">Số Lượng Sản Phẩm :12</div>
-            <div className="mt-[10px]">Giá : 120000 VND </div>
+            <div className="mt-[10px]">Số Lượng Sản Phẩm : {data.quantity}</div>
+            <div className="mt-[10px]">Giá : {data.total} VND</div>
             {isAdmin ? (
-              <div className="flex justify-center ">
+              <div className="flex justify-between ">
                 <div
-                  onClick={() => navigate("/EditBill", { data: data })}
+                  onClick={() => navigate("/EditBill", { state: data })}
                   className="bg-[#e6712c] text-[white] my-[20px] py-[10px] px-[10px] rounded-md inline-block cursor-pointer hover:opacity-80"
                 >
                   Chỉnh Sửa Đơn Hàng{" "}
+                </div>
+                <div
+                  onClick={() => deleteBill(data.id)}
+                  className="bg-[#6a6a6a] text-[white] my-[20px] py-[10px] px-[10px] rounded-md inline-block cursor-pointer hover:opacity-80"
+                >
+                  Xóa Đơn Hàng
                 </div>
               </div>
             ) : (
@@ -87,7 +108,7 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
             )}
           </div>
         ) : (
-          <div>{notice}</div>
+          <div className="text-center mt-[20px] text-[18px]">{notice}</div>
         )}
       </div>
     </div>

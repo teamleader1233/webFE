@@ -5,20 +5,32 @@ const Input = ({
   errors,
   placeholder,
   dataInput,
-  isDisabled,
+  isdisabled,
+  value,
   ...prop
 }) => {
   return (
     <div className="w-full">
-      <input
-        className="w-full p-[10px] outline-none bg-transparent"
-        type="text"
-        placeholder={placeholder}
-        id={dataInput}
-        disabled={isDisabled === true ? true : false}
-        {...register(`${dataInput}`)}
-        {...prop}
-      />
+      {isdisabled !== "true" ? (
+        <input
+          className="w-full p-[10px] outline-none bg-transparent"
+          type="text"
+          placeholder={placeholder}
+          id={dataInput}
+          {...register(`${dataInput}`)}
+          {...prop}
+        />
+      ) : (
+        <input
+          className="w-full p-[10px] outline-none bg-[#dcdcdc6c]"
+          type="text"
+          placeholder={placeholder}
+          id={dataInput}
+          disabled
+          {...register(`${dataInput}`)}
+          {...prop}
+        />
+      )}
     </div>
   );
 };

@@ -17,7 +17,6 @@ import vc2c from "../../data/img/vc2c.png";
 import NoticeBill from "./NoticeBill";
 
 const NavHeader = () => {
-  const [iconflexible, setIconFlexible] = useState("bi-list");
   const show = useRef();
   const showDetail = useRef();
   const navigate = useNavigate();
@@ -35,17 +34,9 @@ const NavHeader = () => {
     e.stopPropagation();
   };
   const handeClickDetail = () => {
-    if (iconflexible === "bi-list") {
-      showDetail.current?.classList.remove(
-        ..."sm:opacity-0 sm:pointer-events-none".split(" ")
-      );
-      setIconFlexible("bi-x-lg");
-    } else {
-      showDetail.current?.classList.add(
-        ..."sm:opacity-0 sm:pointer-events-none".split(" ")
-      );
-      setIconFlexible("bi-list");
-    }
+    showDetail.current?.classList.remove(
+      ..."sm:opacity-0 sm:pointer-events-none".split(" ")
+    );
   };
 
   return (
@@ -55,9 +46,10 @@ const NavHeader = () => {
           show.current?.classList.add(
             ..."opacity-0 pointer-events-none".split(" ")
           );
-
+        showDetail.current.classList.add(
+          ..."sm:opacity-0 sm:pointer-events-none".split(" ")
+        );
         showNotice.current.classList.add("hidden");
-        e.stopPropagation();
       }}
     >
       <div
@@ -143,7 +135,7 @@ const NavHeader = () => {
                 className=" lg:hidden  sm:w-full sm:flex sm:mr-[40px] flex justify-end w-full "
                 onClick={() => handeClickDetail()}
               >
-                <i className={`bi ${iconflexible} text-[30px] `}></i>
+                <i className={`bi bi-list text-[30px] `}></i>
               </div>
               <div
                 onClick={(e) => {
@@ -151,9 +143,8 @@ const NavHeader = () => {
                   handleClose(e);
                 }}
                 ref={showDetail}
-                className={`xl:justify-around  lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
+                className={`justify-around sm: lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
               >
-                {/* Dịch Vụ Săn Hàng */}
                 <NavLink
                   to="/home"
                   className={({ isActive }) =>

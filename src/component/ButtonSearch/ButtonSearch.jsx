@@ -4,7 +4,8 @@ const ButtonSearch = () => {
   const navigate = useNavigate();
   return (
     <div
-      onClick={() => {
+      onClick={(e) => {
+        e.stopPropagation();
         navigate("/SearchCode");
         window.scrollTo({ top: 0 });
       }}

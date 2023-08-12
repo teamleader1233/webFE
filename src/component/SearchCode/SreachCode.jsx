@@ -8,11 +8,11 @@ import InfoBill from "./InfoBill";
 const SreachCode = () => {
   const [infor, setInfor] = useState(false);
   const [inputSearch, setInputSearch] = useState("");
+
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
       setInfor(true);
     }
-    console.log(infor);
   };
   const handleCloseInfor = () => {
     setInfor(false);
@@ -46,7 +46,13 @@ const SreachCode = () => {
               htmlFor="input"
               className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center"
             >
-              <i className="bi bi-search   "></i>
+              <i
+                className="bi bi-search   "
+                onClick={(e) => {
+                  setInfor(true);
+                  e.stopPropagation();
+                }}
+              ></i>
             </label>
             <input
               id="input"

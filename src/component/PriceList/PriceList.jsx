@@ -162,7 +162,7 @@ const PriceList = () => {
           <div className="pb-20">
             <ul>
               <div className="flex text-[#d84040] text-[18px] underline">
-                <i class="bi bi-exclamation-circle-fill mr-[10px]"></i>
+                <i className="bi bi-exclamation-circle-fill mr-[10px]"></i>
                 <h3 className="pb-4 font-semibold">Lưu ý :</h3>
               </div>
               <li className="list-decimal pb-1">
@@ -434,10 +434,10 @@ const PriceList = () => {
             Biểu phí đóng kiện sản phẩm (m3)
           </p>
 
-          <div class="warning">
+          <div className="warning">
             <ul>
               <div className="flex text-[#d84040] text-[18px] underline">
-                <i class="bi bi-exclamation-circle-fill mr-[10px]"></i>
+                <i className="bi bi-exclamation-circle-fill mr-[10px]"></i>
                 <h3 className="pb-4 font-semibold">Lưu ý :</h3>
               </div>
               <TextDetail

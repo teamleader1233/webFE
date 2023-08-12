@@ -13,7 +13,7 @@ import {
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { setTokenReset } from "../../../features/Token/SliceTokenReset";
+
 const SignIn = ({ isAdmin }) => {
   const [focusInputEmail, setfocusInputEmail] = useState(true);
   const [focusInputPassword, setfocusInputPassword] = useState(true);
@@ -28,21 +28,16 @@ const SignIn = ({ isAdmin }) => {
   // checkPassword
   const getApi = async (data) => {
     try {
-      const response = await axios.post("http://127.0.0.1:8000/token/", data);
+      const response = await axios.post("http://127.0.0.1:8000/token", data);
       console.log(response.data);
-      localStorage.setItem("token", response.data.access);
-      dispatch(setTokenReset(response.data.refresh));
-      try {
-        await axios.post(
-          "http://127.0.0.1:8000//verify",
-          {},
-          { headers: { Authorization: `Bearer ${response.data.access}` } }
-        );
-        localStorage.setItem("role", "admin");
 
-        navigate("/home");
-        toast.success("login success");
-      } catch (e) {}
+      if (response.data.is_staff) {
+        localStorage.setItem("role", "admin");
+      } else if (!response.data.is_staff) {
+        localStorage.setItem("role", "member");
+      }
+      navigate("/home");
+      toast.success("login success");
     } catch (e) {
       toast.error("Account Doesn't exist");
     }
@@ -92,7 +87,7 @@ const SignIn = ({ isAdmin }) => {
   };
   return (
     <div>
-      <div className="flex justify-center">
+      <div className="flex justify-center" onClick={(e) => e.stopPropagation()}>
         <form
           action="/SignIn"
           onSubmit={(e) => {
