@@ -1,9 +1,11 @@
 import Footer from "../Footer/Footer";
 import delivery24h from "../../data/img/delivery24h.png";
+import ButtonSearch from "../ButtonSearch/ButtonSearch";
 
 const Delivery24h = () => {
   return (
     <div className="w-full flex flex-col items-center">
+      <ButtonSearch />
       <div className="w-4/5 ">
         <div className="flex space-x-3 place-content-center mt-[40px]">
           <div className=" flex items-center">

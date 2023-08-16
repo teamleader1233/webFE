@@ -1,12 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import style from "./style.module.scss";
 import logo from "../../data/img/logo.png";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { useRef } from "react";
 import china from "../../data/img/china.jpg";
 import vietnam from "../../data/img/vietnam.jpg";
 import english from "../../data/img/english.jpg";
-import { useState } from "react";
+
 import { useNavigate } from "react-router-dom";
 import vcqt from "../../data/img/vcqt.png";
 import order from "../../data/img/order.png";
@@ -15,6 +15,7 @@ import vc24h from "../../data/img/vc24h.png";
 import tq from "../../data/img/tq.png";
 import vc2c from "../../data/img/vc2c.png";
 import NoticeBill from "./NoticeBill";
+import IconContact from "../IconContact/IconContact";
 
 const NavHeader = () => {
   const show = useRef();
@@ -46,14 +47,16 @@ const NavHeader = () => {
           show.current?.classList.add(
             ..."opacity-0 pointer-events-none".split(" ")
           );
-        showDetail.current.classList.add(
+        showDetail.current?.classList.add(
           ..."sm:opacity-0 sm:pointer-events-none".split(" ")
         );
-        showNotice.current.classList.add("hidden");
+        if (localStorage.getItem("role") === "admin") {
+          showNotice?.current?.classList.add("hidden".split(" "));
+        }
       }}
     >
       <div
-        className="fixed top-0 w-full flex flex-col items-center justify-center bg-white z-[20] "
+        className="top-0 w-full flex flex-col items-center justify-center bg-white z-[20] "
         onClick={() => showNotice.current.classList.add("hidden")}
       >
         <div className="flex justify-between  w-4/5 h-[100px] relative">
@@ -143,14 +146,14 @@ const NavHeader = () => {
                   handleClose(e);
                 }}
                 ref={showDetail}
-                className={`justify-around sm: lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
+                className={` justify-around sm: lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
               >
                 <NavLink
                   to="/home"
                   className={({ isActive }) =>
                     isActive
                       ? "border-b-[1px] border-solid border-white"
-                      : `${style.nav_header_title_content} ${style.nav_header_title_list} sm:py-[20px] sm:hover:opacity-80   `
+                      : `${style.nav_header_title_content} ${style.nav_header_title_list} sm:py-[20px] sm:hover:opacity-80  `
                   }
                 >
                   Trang Chủ
@@ -236,7 +239,7 @@ const NavHeader = () => {
 
                 <NavLink
                   onClick={handeBackHome()}
-                  to="/InlandTransport"
+                  to="/SearchCode"
                   className={({ isActive }) =>
                     isActive
                       ? "border-b-[1px] border-solid border-white"
@@ -244,7 +247,7 @@ const NavHeader = () => {
                   }
                 >
                   {" "}
-                  Vận Đơn
+                  Tra Cứu Đơn Hàng
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
 
@@ -321,7 +324,8 @@ const NavHeader = () => {
           </div>
         </div>
       </div>
-      <div className="relative top-[200px]">
+      <div className="relative top-[40px]">
+        <IconContact />
         <Outlet />
       </div>
     </div>

@@ -45,7 +45,6 @@ function App() {
           ></Route>
           <Route path="/Rent" element={<Rent />}></Route>
           <Route path="*" element={<NotFound />}></Route>
-          <Route path="/InlandTransport" element={<InlandTransport />}></Route>
 
           <Route path="/Delivery24h" element={<Delivery24h />}></Route>
 

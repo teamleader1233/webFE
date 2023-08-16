@@ -7,6 +7,7 @@ import Footer from "../Footer/Footer";
 import { useState } from "react";
 import axios from "axios";
 import InforBill from "./InforBill";
+import { toast } from "react-toastify";
 const Rent = () => {
   const [infor, setInfor] = useState([]);
   const [activeNotice, setIsActiveNotice] = useState(false);
@@ -85,6 +86,7 @@ const Rent = () => {
       );
       setIsActiveNotice(true);
       setInfor(response.data);
+      toast.success("Tạo Đơn Thành Công");
     } catch (e) {
       console.log(e);
     }
@@ -101,9 +103,10 @@ const Rent = () => {
       product_price: parseInt(data.priceProduct) || 0,
       product_weight: data.weight.toString(),
       product_description: data.detailProduct,
-      location: `${data.building}/${data.wards}/${data.district}/${data.city}`,
+      delivery_address: `${data.building}/${data.wards}/${data.district}/${data.city}`,
       quantity: parseInt(data.quantity),
       status: "pending",
+      total_price: 0,
     };
     postData(dataCreate);
   };
@@ -283,8 +286,9 @@ const Rent = () => {
           {/* main  */}
           <div className="flex justify-between mt-[40px] sm:flex-col xl:flex-row flex-wrap">
             <div className="flex flex-col items-center relative mx-[20px] mb-[20px]">
-              <i className="bi bi-geo-alt-fill text-[40px] "></i>
-              <div className="w-[60px] h-[40px] rounded-[50%] border-solid border-[black] border-[1px] absolute top-[40px] "></div>
+              <i className="bi bi-geo-alt-fill text-[40px] text-[#d83716] "></i>
+              <div className="w-[60px] h-[40px] rounded-[50%] border-solid border-[#d83716] border-[1px] absolute top-[40px] "></div>
+              <div className="mt-[40px]">Địa Điểm Nhận Hàng </div>
             </div>
             <div className="xl:mr-[20px]">
               <div className="border-solid border-[1px] border-[#363636a3] sm:full  xl:w-[500px] mt-[20px]">
@@ -406,6 +410,12 @@ const Rent = () => {
                     onClick={() => setValue("city", "Hải Phòng")}
                   >
                     Hải Phòng
+                  </span>
+                  <span
+                    className="py-[8px] px-[14px] hover:bg-[#cc7428]"
+                    onClick={() => setValue("city", "Trung Quốc")}
+                  >
+                    Trung Quốc
                   </span>
                 </div>
               </div>

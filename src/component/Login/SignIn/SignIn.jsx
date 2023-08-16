@@ -13,6 +13,8 @@ import {
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
 const SignIn = ({ isAdmin }) => {
   const [focusInputEmail, setfocusInputEmail] = useState(true);
@@ -29,7 +31,8 @@ const SignIn = ({ isAdmin }) => {
   const getApi = async (data) => {
     try {
       const response = await axios.post("http://127.0.0.1:8000/token", data);
-      console.log(response.data);
+
+      cookies.set("access", `${response.data.access}`, { path: "/" });
 
       if (response.data.is_staff) {
         localStorage.setItem("role", "admin");
@@ -45,7 +48,6 @@ const SignIn = ({ isAdmin }) => {
   // check login
   const handerLogin = () => {
     if (inputEmail && inputPassword) {
-      // lam gi do o day
       if (isAdmin) {
         getApi({ username: inputEmail, password: inputPassword });
       }

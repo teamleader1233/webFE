@@ -6,15 +6,18 @@ import Input from "../Input/Input";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 const EditBill = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-
+  console.log(state);
   const schema = yub.object().shape({
     code: yub.string(),
     status: yub.string().required("Vui Lòng Nhập Trường Này."),
     area: yub.string().required("Vui Lòng Nhập Trường Này."),
     quantity: yub.string().required("Vui Lòng Nhập Trường Này."),
+    total_price: yub.string().required("Vui Lòng Nhập Trường Này."),
   });
 
   const {
@@ -28,29 +31,36 @@ const EditBill = () => {
       code: state.id,
       status: state.status,
       area: "",
-
+      total_price: state.total_price,
       quantity: state.quantity,
     },
     resolver: yupResolver(schema),
   });
   const onSubmit = async (data) => {
+    const token = cookies.get("access");
+    console.log(token);
     try {
       console.log({
         status: data.status,
         current_location: data.area,
         quantity: data.quantity,
+        total_price: data.total_price,
       });
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      console.log(data.code);
       const res = await axios.patch(
         `http://127.0.0.1:8000/bills/${data.code}`,
+
         {
-          Headers: {
-            Authorization: "****",
-          },
-          data: {
-            status: data.status,
-            current_location: data.area,
-            quantity: data.quantity,
-          },
+          status: data.status,
+          current_location: data.area,
+          quantity: data.quantity,
+          total_price: parseInt(data.total_price),
+        },
+        {
+          headers,
         }
       );
 
@@ -179,6 +189,34 @@ const EditBill = () => {
               />
             </div>
             <p className="text-red-400 text-left">{errors.quantity?.message}</p>
+          </div>
+          <div className="mb-[10px] ">
+            <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">
+              <label htmlFor="total_price">
+                <div className="w-[180px] break-normal">
+                  {" "}
+                  Tổng Giá Trị Sản Phẩm{" "}
+                </div>
+              </label>
+
+              <Controller
+                control={control}
+                name="total_price"
+                render={({ field: { onChange } }) => (
+                  <Input
+                    isdisabled="false"
+                    register={register}
+                    onChange={onChange}
+                    errors={errors}
+                    placeholder="Nhập Giá Trị Sản Phẩm..."
+                    dataInput="total_price"
+                  />
+                )}
+              />
+            </div>
+            <p className="text-red-400 text-left">
+              {errors.total_price?.message}
+            </p>
           </div>
         </div>
         <div className="flex justify-end my-[40px]">

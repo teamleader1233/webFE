@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+
 const InfoBill = ({ inputSearch, handleCloseInfor }) => {
   const navigate = useNavigate();
   const [notice, setNotice] = useState("Loading...");
@@ -13,19 +16,25 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
       const responsive = await axios.get(
         `http://127.0.0.1:8000/bills/${inputSearch}`
       );
-      console.log(responsive.data);
+
       setData(responsive.data);
     } catch (e) {
       setNotice("Không Tồn Tại Đơn Hàng !");
     }
   };
   const deleteBill = async (id) => {
+    const token = cookies.get("access");
+
     try {
-      const res = await axios.delete(`http://127.0.0.1:8000/bills/${id}`);
-      console.log(res);
+      await axios.delete(`http://127.0.0.1:8000/bills/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      toast.success("Xóa Đơn Hàng Thành Công !");
+      handleCloseInfor();
     } catch (e) {
       toast.error("Error deleting");
-      console.log(e);
     }
   };
   useEffect(() => {
@@ -35,11 +44,13 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
       setIsAdmin(true);
     }
   }, []);
+
   return (
     <div
-      className="fixed h-screen w-screen bg-[#abababc4] z-[200] flex justify-center items-center px-[20px] "
-      onClick={() => {
+      className="fixed h-screen w-screen bg-[#828181bd] z-[200] flex justify-center items-center px-[20px] top-0 "
+      onClick={(e) => {
         handleCloseInfor();
+        e.stopPropagation();
       }}
     >
       <div
@@ -87,7 +98,16 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
               </span>
             </div>
             <div className="mt-[10px]">Số Lượng Sản Phẩm : {data.quantity}</div>
-            <div className="mt-[10px]">Giá : {data.total} VND</div>
+            <div className="mt-[10px] font-semibold">
+              Giá :
+              {data.total_price !== 0
+                ? " " +
+                  data.total_price
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+                  " VND"
+                : " Đang xử lí...."}
+            </div>
             {isAdmin ? (
               <div className="flex justify-between ">
                 <div
