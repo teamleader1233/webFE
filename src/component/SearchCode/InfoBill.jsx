@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
+import emptyBill from "../../data/img/emptybill.jpg";
 const cookies = new Cookies();
 
 const InfoBill = ({ inputSearch, handleCloseInfor }) => {
@@ -44,7 +45,26 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
       setIsAdmin(true);
     }
   }, []);
-
+  const InforStatus = (status) => {
+    if (status === "pending") {
+      return (
+        <span className="text-[#50d53c] font-semibold"> Đang Chuẩn Bị</span>
+      );
+    } else if (status === "paid") {
+      return (
+        <span className="text-[#4bff4b] font-semibold">
+          {" "}
+          Đã Thanh Toán <i class="bi bi-check-lg font-semibold"></i>
+        </span>
+      );
+    } else if (status === "delivered") {
+      return (
+        <span className="text-[#ff994a] font-semibold">Đang giao hàng</span>
+      );
+    } else if (status === "canceled") {
+      return <span className="text-[#ff4b4b] font-semibold"> Đã hủy</span>;
+    }
+  };
   return (
     <div
       className="fixed h-screen w-screen bg-[#828181bd] z-[200] flex justify-center items-center px-[20px] top-0 "
@@ -86,8 +106,14 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
             <div className="mt-[10px]  ">
               Mã Sản Phẩm : <span className="text-[#ec904d]">{data.id}</span>{" "}
             </div>
+            <div className="mt-[10px]  ">
+              Loại Vận Chuyển:{" "}
+              <span className="text-[#ec904d]">
+                {data.delivery_option === "nd" ? "Nội Địa" : "Việt Trung"}{" "}
+              </span>
+            </div>
             <div className="mt-[10px]">
-              Trạng Thái : <span>{data.status}</span>
+              Trạng Thái : {InforStatus(data.status)}
             </div>
             <div className="mt-[10px]"> Địa Điểm : Hà Nội </div>
             <div className="mt-[10px]">
@@ -128,7 +154,10 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
             )}
           </div>
         ) : (
-          <div className="text-center mt-[20px] text-[18px]">{notice}</div>
+          <div className="text-center mt-[20px] text-[18px] flex flex-col items-center">
+            <img src={emptyBill} alt="empty" className="object-cover" />
+            <div className="font-semibold">{notice}</div>
+          </div>
         )}
       </div>
     </div>

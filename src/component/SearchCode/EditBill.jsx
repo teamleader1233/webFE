@@ -11,7 +11,7 @@ const cookies = new Cookies();
 const EditBill = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state);
+
   const schema = yub.object().shape({
     code: yub.string(),
     status: yub.string().required("Vui Lòng Nhập Trường Này."),
@@ -38,19 +38,13 @@ const EditBill = () => {
   });
   const onSubmit = async (data) => {
     const token = cookies.get("access");
-    console.log(token);
+
     try {
-      console.log({
-        status: data.status,
-        current_location: data.area,
-        quantity: data.quantity,
-        total_price: data.total_price,
-      });
       const headers = {
         Authorization: `Bearer ${token}`,
       };
-      console.log(data.code);
-      const res = await axios.patch(
+
+      await axios.patch(
         `http://127.0.0.1:8000/bills/${data.code}`,
 
         {
@@ -64,11 +58,9 @@ const EditBill = () => {
         }
       );
 
-      console.log(res);
       toast.success("Chỉnh Sửa Thành Công !");
       navigate(-1);
     } catch (e) {
-      console.log(e);
       toast.error("Chỉnh Sửa Thất Bại ");
     }
   };

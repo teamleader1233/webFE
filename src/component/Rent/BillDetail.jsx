@@ -8,15 +8,19 @@ import { useState } from "react";
 import axios from "axios";
 import InforBill from "./InforBill";
 import { toast } from "react-toastify";
+import { useLocation, useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
+const BillDetail = () => {
+  const navigate = useNavigate();
 
-const Rent = () => {
-  const [infor, setInfor] = useState([]);
-  const [activeNotice, setIsActiveNotice] = useState(false);
   const area = useRef();
+  const { state } = useLocation();
 
-  const closeNotice = () => {
-    setIsActiveNotice(false);
-  };
+  const [address] = useState(() => {
+    return state.delivery_address.split("/");
+  });
+
   const handleSelect = () => {
     area.current.classList.toggle("hidden");
   };
@@ -59,38 +63,47 @@ const Rent = () => {
   } = useForm({
     mode: "onChange",
     defaultValues: {
-      phoneNumber: "",
-      name: "",
-      address: "",
-      building: "",
-      wards: "",
-      district: "",
-      city: "",
-      nameProduct: "",
-      weight: "",
-      quantity: "",
-      collection: "",
+      phoneNumber: state.receiver_phone,
+      name: state.receiver_name,
+      address: state.receiver_address,
+      senderPhoneNumber: state.sender_phone,
+      senderName: state.sender_name,
+      senderAddress: state.sender_address,
+      building: address[0],
+      wards: address[1],
+      district: address[2],
+      city: address[3],
+      nameProduct: state.product_name,
+      weight: state.product_weight,
+      quantity: state.quantity,
+      collection: state.precollected_price,
       priceProduct: "",
-      detailProduct: "",
-      note: "",
+      detailProduct: state.precollected_price,
+      note: state.note,
     },
     resolver: yupResolver(schema),
   });
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, []);
-  const postData = async (dataCreate) => {
+  const editData = async (dataCreate) => {
+    const token = cookies.get("access");
     try {
-      const response = await axios.post(
-        "http://127.0.0.1:8000/bills",
-        dataCreate
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+      await axios.patch(
+        `http://127.0.0.1:8000/bills/${state.id}`,
+        { dataCreate },
+        {
+          headers,
+        }
       );
-      setIsActiveNotice(true);
-      setInfor(response.data);
 
-      toast.success("Tạo Đơn Thành Công");
+      toast.success("EDIT Thành Công");
+      navigate("/");
     } catch (e) {
-      toast.error("Tạo Đơn Không Thành Công");
+      toast.error("EDIT Không Thành Công");
     }
   };
   const onSubmit = (data) => {
@@ -108,20 +121,12 @@ const Rent = () => {
       delivery_address: `${data.building}/${data.wards}/${data.district}/${data.city}`,
       quantity: parseInt(data.quantity),
       status: "pending",
-      total_price: 0,
-      precollected_price: parseInt(data.collection),
-      note: data.note,
+      total_price: parseInt(data.priceProduct),
     };
-    postData(dataCreate);
+    editData(dataCreate);
   };
   return (
     <div onClick={(e) => e.stopPropagation()}>
-      {activeNotice ? (
-        <InforBill infor={infor} closeNotice={closeNotice} />
-      ) : (
-        ""
-      )}
-
       <div className="w-full flex justify-center">
         <form className="w-4/5   " onSubmit={handleSubmit(onSubmit)}>
           {/* header  */}
@@ -570,7 +575,7 @@ const Rent = () => {
               type="submit"
               className="bg-[#ff9232] inline-block text-white px-[18px] py-[10px] rounded-md text-[24px] cursor-pointer active:shadow-[0_0px_10px_6px_#F46000E8] hover:shadow-[0_0px_10px_2px_#E46000E8] transition-all ease-in-out duration-200 select-none"
             >
-              Tạo Đơn Đăng Kí
+              Chỉnh Sửa
             </button>
           </div>
         </form>
@@ -582,4 +587,4 @@ const Rent = () => {
   );
 };
 
-export default Rent;
+export default BillDetail;

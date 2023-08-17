@@ -24,6 +24,12 @@ const InforBill = ({ infor, closeNotice }) => {
         ></i>
         <h1 className="font-semibold text-[20px]">Mã Đơn Hàng Của bạn</h1>
         <div className="text-[#ec904d] text-[30px]">{infor.id}</div>
+        <div className="font-semibold">
+          Loại Vận Chuyển:{" "}
+          <span className="text-[#ec904d]">
+            {infor.delivery_option === "nd" ? "Nội Địa" : "Việt Trung"}{" "}
+          </span>
+        </div>
         <p className="text-[16px]">
           <i className="bi bi-exclamation-triangle-fill text-[#ec904d] text-[20px] cursor-pointer"></i>{" "}
           Hãy Giữ Mã Đơn Hàng Này Để Tra Cứu Đơn Hàng Của Bạn.

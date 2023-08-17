@@ -31,6 +31,8 @@ import ClearanceService from "./component/Clearance-service/ClearanceService";
 import Delivery2Way from "./component/Delivery2Way/Delivery2Way";
 import PriceList from "./component/PriceList/PriceList";
 import EditBill from "./component/SearchCode/EditBill";
+import AdminAuth from "./auth/authAdmin";
+import BillDetail from "./component/Rent/BillDetail";
 
 function App() {
   return (
@@ -58,8 +60,10 @@ function App() {
           ></Route>
           <Route path="/Delivery2Way" element={<Delivery2Way />}></Route>
           <Route path="/PriceList" element={<PriceList />}></Route>
-
-          <Route path="/EditBill" element={<EditBill />}></Route>
+          <Route element={<AdminAuth />}>
+            <Route path="/EditBill" element={<EditBill />}></Route>
+            <Route path="/BillDetail" element={<BillDetail />}></Route>
+          </Route>
         </Route>
       </Routes>
     </div>

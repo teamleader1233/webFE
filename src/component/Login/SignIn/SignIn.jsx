@@ -77,7 +77,7 @@ const SignIn = ({ isAdmin }) => {
       const checkUserPreLoggin = userCurrent.find((item) => {
         return item.userEmail.trim() === e.target.value.trim();
       });
-      console.log(checkUserPreLoggin);
+
       if (checkUserPreLoggin) {
         setInputPassword(checkUserPreLoggin.userPassword.trim());
       } else if (!checkUserPreLoggin) {

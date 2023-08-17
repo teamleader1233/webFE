@@ -23,7 +23,6 @@ const NavHeader = () => {
   const navigate = useNavigate();
   const showNotice = useRef(false);
   const handeBackHome = () => {
-    console.log(1);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const handleClose = (e) => {

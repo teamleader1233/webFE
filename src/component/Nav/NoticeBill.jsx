@@ -1,30 +1,55 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
 const cookies = new Cookies();
 const NoticeBill = () => {
-  const billCurrent = useRef(0);
-  const totalNewBill = useRef(0);
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
   const getApiData = async () => {
     const token = cookies.get("access");
     try {
       const response = await axios.get("http://127.0.0.1:8000/bills", {
         headers: {
           Authorization: `Bearer ${token}`,
-          // 'Content-Type': 'application/json', // Đặt kiểu dữ liệu gửi đi (nếu cần)
         },
       });
-      console.log(response.data);
+
       setData(response.data.results);
     } catch (e) {
-      console.log(e);
+      toast.error("Error!");
     }
   };
   useEffect(() => {
     getApiData();
   }, []);
+  const deleteBill = async (id) => {
+    const token = cookies.get("access");
+
+    try {
+      await axios.delete(`http://127.0.0.1:8000/bills/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      getApiData();
+    } catch (e) {
+      toast.error("Error deleting");
+    }
+  };
+  const InforStatus = (status) => {
+    if (status === "pending") {
+      return <span className="text-[#50d53c] font-medium"> Đang Chuẩn Bị</span>;
+    } else if (status === "paid") {
+      return <span className="text-[#4bff4b] font-medium"> Đã Thanh Toán</span>;
+    } else if (status === "delivered") {
+      return <span className="text-[#ff994a] font-medium">Đang giao hàng</span>;
+    } else if (status === "canceled") {
+      return <span className="text-[#ff4b4b] font-medium"> Đã hủy</span>;
+    }
+  };
   return (
     <div
       className="w-[600px] h-[360px] bg-white absolute lg:top-[60px] lg:right-[20px] lg:left-[auto]  shadow-xl rounded-sm overflow-auto text-black py-[10px] left-0 top-0"
@@ -46,18 +71,19 @@ const NoticeBill = () => {
               <th className="font-normal  w-[20%]  text-[14px] px-[12px] border-x-[1px]">
                 Mã Đơn Hàng
               </th>
-              <th className=" w-1/2 font-normal text-[14px] border-x-[1px]">
+              <th className="  w-[30%] font-normal text-[14px] border-x-[1px]">
                 Loại Vận Chuyển
               </th>
-              <th className="px-[12px]   w-[20%] font-normal text-[14px]">
+              <th className="px-[12px]   w-[40%] font-normal text-[14px]">
                 Trạng Thái
               </th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="cursor-pointer">
             {data &&
               data.map((item, index) => (
                 <tr
+                  onClick={() => navigate("/BillDetail", { state: item })}
                   key={item.id}
                   className={`${
                     index % 2 === 0 ? "bg-[#fdece5]" : ""
@@ -69,15 +95,24 @@ const NoticeBill = () => {
                   <th className="font-normalw-[20%] text-left  text-[14px] px-[12px]">
                     {item.id}
                   </th>
-                  <th className=" w-1/2 font-normal text-[14px] ">
-                    Việt - Trung /{" "}
-                    {dayjs(item.date).format("HH:mm:ss - DD/MM/YYYY")}
-                  </th>
-                  <th className="px-[12px]  w-[20%] font-normal text-[14px] flex">
-                    <span className="mr-[10px]">{item.status}</span>
-                    <span>
-                      <i className="bi bi-x text-[18px] cursor-pointer text-[red]"></i>
+                  <th className=" w-[30%] font-normal text-[14px] ">
+                    <span className="text-[#d16243] font-semibold text-[16px]">
+                      {item.delivery_option === "nd"
+                        ? "Nội Địa"
+                        : "Việt - Trung"}{" "}
                     </span>
+                    <div>
+                      {dayjs(item.date).format("HH:mm:ss - DD/MM/YYYY")}
+                    </div>
+                  </th>
+                  <th className="px-[12px]  w-[40%] font-normal text-[14px] ">
+                    <div className="flex justify-around">
+                      <div>{InforStatus(item.status)}</div>
+                      <i
+                        className="bi bi-x text-[18px] cursor-pointer text-[red]"
+                        onClick={() => deleteBill(item.id)}
+                      ></i>
+                    </div>
                   </th>
                 </tr>
               ))}

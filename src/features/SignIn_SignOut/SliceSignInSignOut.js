@@ -7,7 +7,6 @@ export const sliceSignInSignOut = createSlice({
   initialState,
   reducers: {
     isSignIn: (state) => {
-      console.log("abc");
       state.value = "SIGN_IN";
     },
     isSignUp: (state) => {
