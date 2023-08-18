@@ -26,6 +26,9 @@ const NavHeader = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   const handleClose = (e) => {
+    showDetail.current?.classList.add(
+      ..."opacity-0 pointer-events-none".split(" ")
+    );
     window.scrollTo({ top: 0 });
     show &&
       show.current?.classList.add(
