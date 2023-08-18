@@ -57,10 +57,7 @@ const NavHeader = () => {
         }
       }}
     >
-      <div
-        className="top-0 w-full flex flex-col items-center justify-center bg-white z-[20] "
-        onClick={() => showNotice.current.classList.add("hidden")}
-      >
+      <div className="top-0 w-full flex flex-col items-center justify-center bg-white z-[20] ">
         <div className="lg:flex lg:justify-between  w-4/5 lg:h-[100px] relative ">
           <div className=" flex items-center   ">
             <Link to={"/"} onClick={() => handeBackHome()}>
