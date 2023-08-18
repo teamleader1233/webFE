@@ -35,7 +35,7 @@ const NavHeader = () => {
   };
   const handeClickDetail = () => {
     showDetail.current?.classList.remove(
-      ..."sm:opacity-0 sm:pointer-events-none".split(" ")
+      ..."opacity-0 pointer-events-none".split(" ")
     );
   };
 
@@ -47,7 +47,7 @@ const NavHeader = () => {
             ..."opacity-0 pointer-events-none".split(" ")
           );
         showDetail.current?.classList.add(
-          ..."sm:opacity-0 sm:pointer-events-none".split(" ")
+          ..."opacity-0 pointer-events-none".split(" ")
         );
         if (localStorage.getItem("role") === "admin") {
           showNotice?.current?.classList.add("hidden".split(" "));
@@ -58,7 +58,7 @@ const NavHeader = () => {
         className="top-0 w-full flex flex-col items-center justify-center bg-white z-[20] "
         onClick={() => showNotice.current.classList.add("hidden")}
       >
-        <div className="flex justify-between  w-4/5 h-[100px] relative">
+        <div className="lg:flex lg:justify-between  w-4/5 lg:h-[100px] relative ">
           <div className=" flex items-center   ">
             <Link to={"/"} onClick={() => handeBackHome()}>
               <div className={style.nav_header_title_logo}>
@@ -92,22 +92,22 @@ const NavHeader = () => {
                 className="h-[20px] w-[30px] ml-[20px]"
               />
             </div>
-            <div className="flex">
-              <div className="2xl:px-[40px] sm:px-[20px] border-r-[1px] border-solid border-[#8d8c8c70] 2xl:text-[16px] sm:text-[10px]">
+            <div className="flex flex-col  sm:flex-row mb-[10px]">
+              <div className="2xl:px-[40px] sm:border-b-[0] border-b-[1px]  sm:px-[20px] sm:border-r-[1px] border-solid border-[#8d8c8c70] 2xl:text-[16px] sm:text-[10px]">
                 <h2>
                   <i className="bi bi-headset pr-[6px] text-[#ff7134]"></i>
                   Hotline:
                 </h2>
                 <h2>0985.986.833</h2>
               </div>
-              <div className="2xl:px-[40px] sm:px-[20px] border-r-[1px] border-solid border-[#8d8c8c70] 2xl:text-[16px] sm:text-[10px]">
+              <div className="2xl:px-[40px]  sm:border-b-[0] border-b-[1px] sm:px-[20px] sm:border-r-[1px] border-solid border-[#8d8c8c70] 2xl:text-[16px] sm:text-[10px]">
                 <h2>
                   <i className="bi bi-clock pr-[6px] text-[#ff7134]"></i>Work
                   time:
                 </h2>
                 <h2>8h - 18h</h2>
               </div>
-              <div className="2xl:px-[40px] sm:px-[20px] 2xl:text-[16px] sm:text-[10px]">
+              <div className="2xl:px-[40px]  sm:border-b-[0] border-b-[1px] sm:px-[20px] 2xl:text-[16px] sm:text-[10px] border-[#8d8c8c70]">
                 <h2>
                   <i className="bi bi-envelope pr-[6px] text-[#d4240e]"></i>
                   Email:
@@ -145,7 +145,7 @@ const NavHeader = () => {
                   handleClose(e);
                 }}
                 ref={showDetail}
-                className={` justify-around sm: lg:text-center w-full sm:w-full text-white sm:opacity-0 lg:opacity-[1] lg:pointer-events-auto sm:pointer-events-none  sm:py-[14px] flex sm:flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static sm:absolute sm:bottom-[-160px] sm:bg-gradient-to-r sm:from-[#cb0101] sm:to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] sm:right-0 sm:left-0  `}
+                className={` justify-around  lg:text-center  w-full text-white opacity-0 lg:opacity-[1] lg:pointer-events-auto pointer-events-none  py-[14px] flex flex-col lg:text-[16px] xl:text-[18px] lg:flex-row lg:static absolute bottom-[-160px] bg-gradient-to-r from-[#cb0101] to-[#e97c30] lg:bg-gradient-to-r lg:from-[tranparent] lg:to-[tranparent] right-0 left-0  `}
               >
                 <NavLink
                   to="/home"
@@ -263,7 +263,7 @@ const NavHeader = () => {
                   <span className="sm:hidden lg:block"></span>
                 </NavLink>
 
-                <NavLink
+                {/* <NavLink
                   onClick={(e) => handleClose(e)}
                   to="/"
                   className={({ isActive }) =>
@@ -275,7 +275,7 @@ const NavHeader = () => {
                   {" "}
                   Tuyển Dụng
                   <span className="sm:hidden lg:block"></span>
-                </NavLink>
+                </NavLink> */}
                 <NavLink
                   onClick={(e) => handleClose(e)}
                   to="/About-us"
@@ -323,7 +323,7 @@ const NavHeader = () => {
           </div>
         </div>
       </div>
-      <div className="relative top-[40px]">
+      <div className="relative">
         <IconContact />
         <Outlet />
       </div>

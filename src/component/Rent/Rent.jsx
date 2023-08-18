@@ -109,9 +109,10 @@ const Rent = () => {
       quantity: parseInt(data.quantity),
       status: "pending",
       total_price: 0,
-      precollected_price: parseInt(data.collection),
-      note: data.note,
+      precollected_price: parseInt(data.collection) || 0,
+      note: data.note === "" ? "Trống" : data.note,
     };
+    console.log(dataCreate);
     postData(dataCreate);
   };
   return (

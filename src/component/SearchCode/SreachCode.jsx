@@ -19,7 +19,7 @@ const SreachCode = () => {
     setInputSearch("");
   };
   return (
-    <>
+    <div className="">
       {infor ? (
         <InfoBill
           inputSearch={inputSearch}
@@ -28,31 +28,29 @@ const SreachCode = () => {
       ) : (
         ""
       )}
-      <div className="flex flex-col justify-between md:h-screen relative top-[-40px] z-[9]">
-        <div className="grow-[1] max-[1280px]:h-[120px]"></div>
-        <div className="w-full  grow-[8] flex  justify-center   max-[1280px]:mb-[40px] ">
+      <div className="flex flex-col justify-between md:h-screen relative   z-[9]  ">
+        <div className="w-full  flex  justify-center">
           <img
             src={imgSearchCode}
             alt="img avar"
-            className="h-screen w-screen object-cover"
+            className=" w-screen object-cover h-screen "
           />
           <div className="mt-[120px] absolute bg-[#ffffffae] max-[640px]:w-[300px]  max-[1280px]:w-[400px] xl:w-[600px] rounded-2xl min-h-[300px] flex items-center justify-around flex-col py-[20px] my-[10px] z-[10]">
-            <div className="text-black font-semibold text-[20px]">
+            <div className="text-black font-semibold text-[20px] px-[20px]">
               <span>SVN Logistic</span> <span>|</span>{" "}
               <span>Tra cứu đơn hàng </span>
             </div>
             <div className=" w-4/5  flex items-center justify-center overflow-hidden border-solid border-[1px] rounded-md my-[20px]">
-              <label
-                htmlFor="input"
-                className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center"
-              >
-                <i
-                  className="bi bi-search   "
-                  onClick={(e) => {
-                    setInfor(true);
-                    e.stopPropagation();
-                  }}
-                ></i>
+              <label className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center ">
+                <div className="pl-[20px] sm:pl-[0]">
+                  <i
+                    className="bi bi-search   "
+                    onClick={(e) => {
+                      setInfor(true);
+                      e.stopPropagation();
+                    }}
+                  ></i>
+                </div>
               </label>
               <input
                 id="input"
@@ -118,9 +116,8 @@ const SreachCode = () => {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

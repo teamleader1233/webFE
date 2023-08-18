@@ -23,7 +23,9 @@ const NoticeBill = () => {
     }
   };
   useEffect(() => {
-    getApiData();
+    if (localStorage.getItem("role") === "admin") {
+      getApiData();
+    }
   }, []);
   const deleteBill = async (id) => {
     const token = cookies.get("access");
@@ -110,7 +112,10 @@ const NoticeBill = () => {
                       <div>{InforStatus(item.status)}</div>
                       <i
                         className="bi bi-x text-[18px] cursor-pointer text-[red]"
-                        onClick={() => deleteBill(item.id)}
+                        onClick={(e) => {
+                          deleteBill(item.id);
+                          e.stopPropagation();
+                        }}
                       ></i>
                     </div>
                   </th>

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, set, useForm } from "react-hook-form";
 import * as yub from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Input from "../Input/Input";
@@ -16,7 +16,7 @@ const BillDetail = () => {
 
   const area = useRef();
   const { state } = useLocation();
-
+  console.log(state);
   const [address] = useState(() => {
     return state.delivery_address.split("/");
   });
@@ -78,16 +78,34 @@ const BillDetail = () => {
       quantity: state.quantity,
       collection: state.precollected_price,
       priceProduct: "",
-      detailProduct: state.precollected_price,
+      detailProduct: state.product_description,
       note: state.note,
     },
     resolver: yupResolver(schema),
   });
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    setValue("phoneNumber", state.receiver_phone);
+    setValue("name", state.receiver_name);
+    setValue("address", state.receiver_address);
+    setValue("senderPhoneNumber", state.sender_phone);
+    setValue("senderName", state.sender_name);
+    setValue("senderAddress", state.sender_address);
+    setValue("building", address[0]);
+    setValue("wards", address[1]);
+    setValue("district", address[2]);
+    setValue("city", address[3]);
+    setValue("nameProduct", state.product_name);
+    setValue("weight", state.product_weight);
+    setValue("quantity", state.quantity);
+    setValue("collection", state.precollected_price);
+    setValue("priceProduct", "");
+    setValue("detailProduct", state.product_description);
+    setValue("note", state.note);
   }, []);
   const editData = async (dataCreate) => {
     const token = cookies.get("access");
+    console.log(dataCreate);
     try {
       const headers = {
         Authorization: `Bearer ${token}`,
@@ -121,7 +139,7 @@ const BillDetail = () => {
       delivery_address: `${data.building}/${data.wards}/${data.district}/${data.city}`,
       quantity: parseInt(data.quantity),
       status: "pending",
-      total_price: parseInt(data.priceProduct),
+      total_price: parseInt(data.priceProduct) || 0,
     };
     editData(dataCreate);
   };
@@ -130,6 +148,9 @@ const BillDetail = () => {
       <div className="w-full flex justify-center">
         <form className="w-4/5   " onSubmit={handleSubmit(onSubmit)}>
           {/* header  */}
+          <div className="text-left font-medium text-[20px]">
+            Mã Đơn Hàng : <span className="text-[red]">{state.id}</span>
+          </div>
           <div className="flex justify-between max-[1280px]:flex-col max-[1280px]:items-center">
             <div>
               <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
@@ -570,13 +591,13 @@ const BillDetail = () => {
             </div>
           </div>
           <div className="flex justify-center mb-[60px] mt-[20px]">
-            <button
+            {/* <button
               onClick={(e) => e.stopPropagation()}
               type="submit"
               className="bg-[#ff9232] inline-block text-white px-[18px] py-[10px] rounded-md text-[24px] cursor-pointer active:shadow-[0_0px_10px_6px_#F46000E8] hover:shadow-[0_0px_10px_2px_#E46000E8] transition-all ease-in-out duration-200 select-none"
             >
               Chỉnh Sửa
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

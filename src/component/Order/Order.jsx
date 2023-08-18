@@ -49,7 +49,7 @@ const Order = () => {
         <div className="flex justify-center mt-[40px]">
           <img src={svnOrder} alt="svnOrder" />
         </div>
-        <div className="flex justify-start my-[60px]">
+        <div className="sm:flex sm:justify-start my-[60px] w-full flex justify-center">
           <a
             href="https://www.facebook.com/SVN.LOGISTICS"
             target="_blank"
@@ -59,7 +59,7 @@ const Order = () => {
               const href = e.currentTarget.href;
               window.open(href, "_blank");
             }}
-            className=" sm:w-full text-center lg:w-auto bg-[#ec904d] text-white px-[20px] py-[10px] sm:text-[18px] xl:text-[20px] cursor-pointer rounded-md hover:shadow-[0_0px_10px_1px_#E46000E8] transition-all duration-150 hover:translate-y-[-4px]"
+            className="w-full sm:w-full text-center lg:w-auto bg-[#ec904d] text-white px-[20px] py-[10px] sm:text-[18px] xl:text-[20px] cursor-pointer rounded-md hover:shadow-[0_0px_10px_1px_#E46000E8] transition-all duration-150 hover:translate-y-[-4px]"
           >
             Đặt Hàng
           </a>
