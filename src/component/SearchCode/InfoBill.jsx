@@ -115,7 +115,10 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
             <div className="mt-[10px]">
               Trạng Thái : {InforStatus(data.status)}
             </div>
-            <div className="mt-[10px]"> Địa Điểm : Hà Nội </div>
+            <div className="mt-[10px]">
+              {" "}
+              Địa Điểm : {data.current_location}{" "}
+            </div>
             <div className="mt-[10px]">
               {" "}
               Thời Gian Cập Nhật Đơn Hàng Của Của Bạn Gần Nhất:{" "}

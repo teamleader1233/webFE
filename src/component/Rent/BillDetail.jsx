@@ -145,20 +145,20 @@ const BillDetail = () => {
   };
   return (
     <div onClick={(e) => e.stopPropagation()}>
-      <div className="w-full flex justify-center">
-        <form className="w-4/5   " onSubmit={handleSubmit(onSubmit)}>
+      <div className="w-full flex justify-center ">
+        <form className="w-4/5 " onSubmit={handleSubmit(onSubmit)}>
           {/* header  */}
-          <div className="text-left font-medium text-[20px]">
+          <div className="text-left font-medium text-[20px] mt-[28px]">
             Mã Đơn Hàng : <span className="text-[red]">{state.id}</span>
           </div>
-          <div className="flex justify-between max-[1280px]:flex-col max-[1280px]:items-center">
+          <div className="flex justify-between max-[1280px]:flex-col max-[1280px]:items-center px-[20px]">
             <div>
-              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
+              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-center lg:text-left">
                 {" "}
                 Người Nhận
               </h1>
-              <div className="mb-[10px] ">
-                <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center ">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center ">
                   <label htmlFor="phoneNumber">
                     <i className="bi bi-telephone-fill pr-[16px] "></i>
                   </label>
@@ -182,8 +182,8 @@ const BillDetail = () => {
                   {errors.phoneNumber?.message}
                 </p>
               </div>
-              <div className="mb-[10px]">
-                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white  w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="name">
                     <i className="bi bi-person-fill-add pr-[16px]"></i>
                   </label>
@@ -205,8 +205,8 @@ const BillDetail = () => {
                 </div>
                 <p className="text-red-400 text-left">{errors.name?.message}</p>
               </div>
-              <div className="mb-[10px]">
-                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white  w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="address">
                     <i className="bi bi-house-door-fill pr-[16px]"></i>
                   </label>
@@ -232,12 +232,12 @@ const BillDetail = () => {
               </div>
             </div>
             <div>
-              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-left">
+              <h1 className="mt-[40px] mb-[20px] text-[32px] font-semibold text-center lg:text-left">
                 {" "}
                 Người Gửi
               </h1>
-              <div className="mb-[10px]">
-                <div className="flex py-[4px] bg-white w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white  w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderPhoneNumber">
                     <i className="bi bi-telephone-fill pr-[16px] "></i>
                   </label>
@@ -261,8 +261,8 @@ const BillDetail = () => {
                   {errors.senderPhoneNumber?.message}
                 </p>
               </div>
-              <div className="mb-[10px]">
-                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white  w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderName">
                     <i className="bi bi-person-fill-add pr-[16px]"></i>
                   </label>
@@ -286,8 +286,8 @@ const BillDetail = () => {
                   {errors.senderName?.message}
                 </p>
               </div>
-              <div className="mb-[10px]">
-                <div className="flex py-[4px] bg-white  w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
+              <div className="mb-[10px] flex justify-center lg:block">
+                <div className="flex py-[4px] bg-white  w-[320px]  lg:w-[420px] border-b-[1px] border-solid border-[#363636a3] mb-[10px] items-center">
                   <label htmlFor="senderAddress">
                     <i className="bi bi-house-door-fill pr-[16px]"></i>
                   </label>
@@ -314,14 +314,14 @@ const BillDetail = () => {
             </div>
           </div>
           {/* main  */}
-          <div className="flex justify-between mt-[40px] sm:flex-col xl:flex-row flex-wrap">
+          <div className="lg:flex justify-between mt-[40px] sm:flex-col xl:flex-row flex-wrap">
             <div className="flex flex-col items-center relative mx-[20px] mb-[20px]">
               <i className="bi bi-geo-alt-fill text-[40px] text-[#d83716] "></i>
               <div className="w-[60px] h-[40px] rounded-[50%] border-solid border-[#d83716] border-[1px] absolute top-[40px] "></div>
               <div className="mt-[40px]">Địa Điểm Nhận Hàng </div>
             </div>
             <div className="xl:mr-[20px]">
-              <div className="border-solid border-[1px] border-[#363636a3] sm:full  xl:w-[500px] mt-[20px]">
+              <div className="border-solid border-[1px] border-[#363636a3] sm:w-full  xl:w-[500px] mt-[20px]">
                 <Controller
                   control={control}
                   name="building"

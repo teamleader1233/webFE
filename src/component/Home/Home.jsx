@@ -18,7 +18,7 @@ const Home = () => {
     >
       <img src={bgUrl} alt="bgUrl" className="fixed w-screen top-0 z-0" />
       <div className="flex  w-4/5 mt-[40px] flex-col relative z-10">
-        <div className="w-full flex flex-col sm:flex sm:justify-center sm:flex-row  ">
+        <div className="w-full flex flex-col sm:flex sm:justify-between sm:flex-row  ">
           <div className="sm:w-[40%] mb-[40px]">
             <h1 className="text-[24px] font-bold my-[20px]">Giới Thiệu</h1>
             <p className="mt-[6px] text-justify">
@@ -34,16 +34,16 @@ const Home = () => {
               Xem thêm....
             </p>
           </div>
-          <div className="w-[20%]  sm:flex justify-center hidden">
+          <div className="w-[30%]  sm:flex justify-center hidden">
             <div className="w-[2px] h-full bg-slate-300 rounded-md"></div>
           </div>
-          <div className="sm:w-[40%]">
-            <div className="bg-[#D9D9D9] min-h-[400px]  flex flex-col py-[20px] px-[20px] rounded-2xl ">
+          <div className="sm:w-[30%]">
+            <div className="bg-[#d6a80334] min-h-[400px]  flex flex-col py-[20px] px-[20px] rounded-2xl ">
               <h1 className="text-center font-medium text-[24px]">
                 Bảng Tin Hàng Về
               </h1>
               <div className="mt-[20px] break-words text-justify">
-                Chào các bạn thân yêu của chúng tôi! 🌟 Chúng tôi vô cùng phấn
+                Chào các bạn thân yêu của chúng tôi! Chúng tôi vô cùng phấn
                 khích thông báo rằng tính năng "Theo dõi đơn hàng" đã chuẩn bị
                 ra mắt! Từ giờ, bạn sẽ không còn phải mất niềm tin khi đợi chờ
                 hàng hóa từ Trung Quốc về Việt Nam mà không biết chúng đang ở
@@ -55,7 +55,7 @@ const Home = () => {
         </div>
         <div className="w-full border-b-[2px] mt-[60px] sm:hidden bg-slate-300"></div>
         <div className=" flex justify-between sm:mt-[200px] flex-wrap">
-          <div className="bg-[#D9D9D9] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+          <div className="bg-[#d6a80334] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
             <div className="mt-[20px] break-words text-justify">
               Chào các bạn thân mến, Bạn đang có kế hoạch kinh doanh hoặc cá
               nhân và cần dịch vụ vận chuyển 2 chiều giữa Việt Nam và Trung
@@ -66,7 +66,7 @@ const Home = () => {
               Bài Báo{" "}
             </div>
           </div>
-          <div className="bg-[#D9D9D9] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+          <div className="bg-[#d6a80334] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
             <div className="mt-[20px] min-h-[400px] break-words text-justify">
               SVN Logistics tự hào là đối tác đáng tin cậy cho mọi nhu cầu vận
               chuyển 2 chiều giữa Việt Nam và Trung Quốc. Chúng tôi cam kết mang
@@ -81,7 +81,7 @@ const Home = () => {
               Bài Báo{" "}
             </div>
           </div>
-          <div className="bg-[#D9D9D9] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
+          <div className="bg-[#d6a80334] min-h-[400px] flex flex-col py-[20px] px-[20px] rounded-2xl w-[100%] relative lg:w-[30%] mt-[60px] lg:mt-0">
             <div className="mt-[20px] break-words text-justify">
               Bạn đang kinh doanh và muốn mở rộng thị trường sang Trung Quốc hay
               đang tìm kiếm một đối tác đáng tin cậy để hỗ trợ cho quá trình
