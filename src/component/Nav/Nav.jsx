@@ -8,6 +8,7 @@ const Nav = () => {
   return (
     <div className={style.nav}>
       <NavHeader />
+
       <IconContact />
       <Outlet />
     </div>

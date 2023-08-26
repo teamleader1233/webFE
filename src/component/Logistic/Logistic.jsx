@@ -3,9 +3,11 @@ import vcqt from "../../data/img/vcqt.png";
 import Footer from "../Footer/Footer";
 import imgMain from "../../data/img/imgMain.png";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
+import LayOut from "../LayOut/LayOut";
 const Logistic = () => {
   return (
     <div className="w-full flex justify-center flex-col items-center">
+      <LayOut />
       <ButtonSearch />
       <div className="w-4/5 my-[20px]">
         <div className="flex space-x-3 place-content-center ">

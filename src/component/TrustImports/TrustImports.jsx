@@ -2,9 +2,11 @@ import React from "react";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
 import imgMain from "../../data/img/imgMain.png";
 import Footer from "../Footer/Footer";
+import LayOut from "../LayOut/LayOut";
 const TrustImports = () => {
   return (
     <div className="w-full flex justify-between items-center flex-col">
+      <LayOut />
       <div className="w-4/5">
         <ButtonSearch />
         <div className="flex space-x-3 place-content-center ">

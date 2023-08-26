@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Cookies from "universal-cookie";
+import emptyBill from "../../data/img/emptybill.jpg";
 const cookies = new Cookies();
 const NoticeBill = () => {
   const [data, setData] = useState([]);
@@ -82,7 +83,7 @@ const NoticeBill = () => {
             </tr>
           </thead>
           <tbody className="cursor-pointer">
-            {data &&
+            {data.length !== 0 ? (
               data.map((item, index) => (
                 <tr
                   onClick={() => navigate("/BillDetail", { state: item })}
@@ -120,7 +121,15 @@ const NoticeBill = () => {
                     </div>
                   </th>
                 </tr>
-              ))}
+              ))
+            ) : (
+              <div className="absolute flex justify-center w-full flex-col items-center">
+                <div className="w-[280px] ">
+                  <img src={emptyBill} alt="img empty" />
+                </div>
+                <span className="font-medium">Không Có Đơn Hàng Nào ! </span>
+              </div>
+            )}
           </tbody>
         </table>
       </div>

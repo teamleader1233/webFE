@@ -5,12 +5,14 @@ import tiktok from "../../data/img/tiktok.png";
 import taobao from "../../data/img/taobao.png";
 import JD from "../../data/img/JD.png";
 import express from "../../data/img/express.png";
-import imgMain from "../../data/img/imgMain.png";
+
 import Footer from "../Footer/Footer";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
+import LayOut from "../LayOut/LayOut";
 const Order = () => {
   return (
     <div className="flex flex-col justify-center items-center relative">
+      <LayOut />
       <div className="w-4/5">
         <ButtonSearch />
         <div className="flex space-x-3 place-content-center ">

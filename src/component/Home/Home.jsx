@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 import Footer from "../Footer/Footer";
 
-import bgUrl from "../../data/img/bgUrl.png";
-import InfoBill from "../SearchCode/InfoBill";
 import { useNavigate } from "react-router-dom";
+import LayOut from "../LayOut/LayOut";
 
-// import axios from "axios";
 const Home = () => {
   const show = useRef();
   const navigate = useNavigate();
@@ -16,7 +14,7 @@ const Home = () => {
       id="home"
       className="relative w-full overflow-x-hidden flex justify-around flex-col items-center z-[8]"
     >
-      <img src={bgUrl} alt="bgUrl" className="fixed w-screen top-0 z-0" />
+      <LayOut />
       <div className="flex  w-4/5 mt-[40px] flex-col relative z-10">
         <div className="w-full flex flex-col sm:flex sm:justify-between sm:flex-row  ">
           <div className="sm:w-[40%] mb-[40px]">

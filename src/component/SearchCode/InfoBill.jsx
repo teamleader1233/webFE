@@ -53,7 +53,6 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
     } else if (status === "paid") {
       return (
         <span className="text-[#4bff4b] font-semibold">
-          {" "}
           Đã Thanh Toán <i class="bi bi-check-lg font-semibold"></i>
         </span>
       );
@@ -74,10 +73,9 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
       }}
     >
       <div
-        className="w-[480px] min-h-[260px] bg-[white] mt-[-184px] rounded-md relative pb-[20px]"
+        className="w-[480px] min-h-[260px] bg-[white]  rounded-md relative pb-[20px]"
         onClick={(e) => e.stopPropagation()}
       >
-        {" "}
         <div
           className="absolute right-[10px] top-[4px] text-[20px] cursor-pointer"
           onClick={(e) => {
@@ -104,23 +102,24 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
         {data ? (
           <div className="mt-[20px] px-[20px] text-[#6c6c6c]">
             <div className="mt-[10px]  ">
-              Mã Sản Phẩm : <span className="text-[#ec904d]">{data.id}</span>{" "}
+              Mã Sản Phẩm : <span className="text-[#ec904d]">{data.id}</span>
             </div>
             <div className="mt-[10px]  ">
-              Loại Vận Chuyển:{" "}
+              Loại Vận Chuyển:
               <span className="text-[#ec904d]">
-                {data.delivery_option === "nd" ? "Nội Địa" : "Việt Trung"}{" "}
+                {data.delivery_option === "nd" ? "Nội Địa" : "Việt Trung"}
               </span>
             </div>
             <div className="mt-[10px]">
               Trạng Thái : {InforStatus(data.status)}
             </div>
             <div className="mt-[10px]">
-              {" "}
-              Địa Điểm : {data.current_location}{" "}
+              Địa Điểm :{" "}
+              <span className="font-medium italic">
+                {data.current_location || "Đang Cập Nhật"}
+              </span>
             </div>
             <div className="mt-[10px]">
-              {" "}
               Thời Gian Cập Nhật Đơn Hàng Của Của Bạn Gần Nhất:{" "}
               <span className="text-[#ec904d]">
                 {dayjs(data.date).format("HH:mm:ss - DD/MM/YYYY")}
@@ -129,13 +128,15 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
             <div className="mt-[10px]">Số Lượng Sản Phẩm : {data.quantity}</div>
             <div className="mt-[10px] font-semibold">
               Giá :
-              {data.total_price !== 0
-                ? " " +
-                  data.total_price
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
-                  " VND"
-                : " Đang xử lí...."}
+              <span className="font-medium italic">
+                {data.total_price !== 0
+                  ? " " +
+                    data.total_price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+                    " VND"
+                  : " Đang Cập Nhật"}
+              </span>
             </div>
             {isAdmin ? (
               <div className="flex justify-between ">
@@ -143,7 +144,7 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
                   onClick={() => navigate("/EditBill", { state: data })}
                   className="bg-[#e6712c] text-[white] my-[20px] py-[10px] px-[10px] rounded-md inline-block cursor-pointer hover:opacity-80"
                 >
-                  Chỉnh Sửa Đơn Hàng{" "}
+                  Chỉnh Sửa Đơn Hàng
                 </div>
                 <div
                   onClick={() => deleteBill(data.id)}

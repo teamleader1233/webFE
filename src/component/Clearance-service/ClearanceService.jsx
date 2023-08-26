@@ -3,9 +3,11 @@ import ButtonSearch from "../ButtonSearch/ButtonSearch";
 import imgContent from "../../data/img/tq&dvc.png";
 import imgMain from "../../data/img/imgMain.png";
 import Footer from "../Footer/Footer";
+import LayOut from "../LayOut/LayOut";
 const ClearanceService = () => {
   return (
     <div className="flex flex-col justify-center items-center relative">
+      <LayOut />
       <div className="w-4/5">
         <ButtonSearch />
         <div className="flex space-x-3 place-content-center ">

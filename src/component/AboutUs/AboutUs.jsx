@@ -1,8 +1,10 @@
 import React from "react";
 import Footer from "../Footer/Footer";
+import LayOut from "../LayOut/LayOut";
 const AboutUs = () => {
   return (
     <div className="w-full">
+      <LayOut />
       <div className="flex space-x-3 place-content-center">
         <div className=" flex items-center">
           <div className="w-[160px] h-[2px] bg-black rounded-md"></div>

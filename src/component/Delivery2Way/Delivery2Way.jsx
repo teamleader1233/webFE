@@ -2,9 +2,11 @@ import React from "react";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
 import Footer from "../Footer/Footer";
 import deli2way from "../../data/img/picdeli2way.png";
+import LayOut from "../LayOut/LayOut";
 const Delivery2Way = () => {
   return (
     <div className="flex flex-col justify-center items-center relative">
+      <LayOut />
       <div className="w-4/5">
         <ButtonSearch />
         <div className="flex space-x-3 place-content-center mt-[40px]">

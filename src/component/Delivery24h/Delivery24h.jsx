@@ -1,10 +1,12 @@
 import Footer from "../Footer/Footer";
 import delivery24h from "../../data/img/delivery24h.png";
 import ButtonSearch from "../ButtonSearch/ButtonSearch";
+import LayOut from "../LayOut/LayOut";
 
 const Delivery24h = () => {
   return (
     <div className="w-full flex flex-col items-center">
+      <LayOut />
       <ButtonSearch />
       <div className="w-4/5 ">
         <div className="flex space-x-3 place-content-center mt-[40px]">

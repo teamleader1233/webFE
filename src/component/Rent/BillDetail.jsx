@@ -77,7 +77,7 @@ const BillDetail = () => {
       weight: state.product_weight,
       quantity: state.quantity,
       collection: state.precollected_price,
-      priceProduct: "",
+      priceProduct: state.total_price,
       detailProduct: state.product_description,
       note: state.note,
     },
@@ -99,7 +99,14 @@ const BillDetail = () => {
     setValue("weight", state.product_weight);
     setValue("quantity", state.quantity);
     setValue("collection", state.precollected_price);
-    setValue("priceProduct", "");
+    setValue(
+      "priceProduct",
+      state.total_price !== 0
+        ? " " +
+            state.total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") +
+            " VND"
+        : 0
+    );
     setValue("detailProduct", state.product_description);
     setValue("note", state.note);
   }, []);

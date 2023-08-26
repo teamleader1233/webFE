@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import imgMap1 from "../../data/img/map.jpg";
 import imgMap2 from "../../data/img/map2.jpg";
 import { useNavigate } from "react-router-dom";
+import LayOut from "../LayOut/LayOut";
 const InlandTransport = () => {
   const navigate = useNavigate();
   const show = useRef();
@@ -15,6 +16,7 @@ const InlandTransport = () => {
       className="overflow-x-hidden mt-[200px] transition-all duration-1000 ease-in-out opacity-0 "
       ref={show}
     >
+      <LayOut />
       <div className="flex space-x-3 place-content-center mb-[40px]">
         <div className=" flex items-center">
           <div className="w-[160px] h-[2px] bg-black rounded-md"></div>

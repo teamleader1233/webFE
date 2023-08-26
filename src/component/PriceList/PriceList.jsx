@@ -1,9 +1,11 @@
 import React from "react";
 import Footer from "../Footer/Footer";
 import TextDetail from "./TextDetail";
+import LayOut from "../LayOut/LayOut";
 const PriceList = () => {
   return (
     <div>
+      <LayOut />
       <div className="w-4/5 ml-auto mr-auto items-center">
         <div className="flex space-x-3 place-content-center">
           <div className=" flex items-center">
