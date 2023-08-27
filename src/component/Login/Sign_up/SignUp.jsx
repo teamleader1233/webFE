@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRef } from "react";
 import style from "./style.module.scss";
-import logoGG from "../../../data/img/gg.png";
+
 import { useDispatch } from "react-redux";
 import {
   isSignIn,
@@ -308,9 +308,7 @@ const SignUp = () => {
           >
             <i className="bi bi-facebook"></i>
           </div>
-          <div className={`${style.signUp_another_logo}  flex justify-center`}>
-            <img src={logoGG} alt="logoGG" className="text-center" />
-          </div>
+
           <div
             className={style.signUp_another_logo}
             style={{ backgroundColor: "#161616" }}
