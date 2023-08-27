@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 import InforBill from "./InforBill";
 import { toast } from "react-toastify";
+import LayOut from "../LayOut/LayOut";
 
 const Rent = () => {
   const [infor, setInfor] = useState([]);
@@ -117,6 +118,7 @@ const Rent = () => {
   };
   return (
     <div onClick={(e) => e.stopPropagation()}>
+      <LayOut />
       {activeNotice ? (
         <InforBill infor={infor} closeNotice={closeNotice} />
       ) : (
