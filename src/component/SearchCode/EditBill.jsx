@@ -131,7 +131,7 @@ const EditBill = () => {
                 )}
               />
               <i
-                class="bi bi-chevron-down absolute right-[14px] top-[16px]"
+                class="bi bi-chevron-down absolute right-[14px] top-[16px] cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
                   isOpen.current?.classList.toggle("hidden");
