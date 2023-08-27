@@ -41,10 +41,10 @@ const SreachCode = () => {
               <span>Tra cứu đơn hàng </span>
             </div>
             <div className=" w-4/5  flex items-center justify-center overflow-hidden border-solid border-[1px] rounded-md my-[20px]">
-              <label className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center ">
+              <label className="text-[#858585] bg-white  px-[18px] py-[8px] grow-[2] flex justify-center cursor-pointer ">
                 <div className="pl-[20px] sm:pl-[0]">
                   <i
-                    className="bi bi-search   "
+                    className="bi bi-search  cursor-pointer "
                     onClick={(e) => {
                       setInfor(true);
                       e.stopPropagation();

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as yub from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Controller, useForm } from "react-hook-form";
@@ -11,7 +11,7 @@ const cookies = new Cookies();
 const EditBill = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-
+  const isOpen = useRef();
   const schema = yub.object().shape({
     code: yub.string(),
     status: yub.string().required("Vui Lòng Nhập Trường Này."),
@@ -24,13 +24,14 @@ const EditBill = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm({
     mode: "onChange",
     defaultValues: {
       code: state.id,
       status: state.status,
-      area: "",
+      area: state.current_location,
       total_price: state.total_price,
       quantity: state.quantity,
     },
@@ -106,8 +107,8 @@ const EditBill = () => {
               />
             </div>
           </div>
-          <div className="mb-[10px] ">
-            <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">
+          <div className="mb-[10px] relative select-none">
+            <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center relative z-30 ">
               <label htmlFor="status">
                 <div className="w-[180px] break-normal">
                   {" "}
@@ -120,7 +121,7 @@ const EditBill = () => {
                 name="status"
                 render={({ field: { onChange } }) => (
                   <Input
-                    isdisabled="false"
+                    isdisabled="true"
                     register={register}
                     onChange={onChange}
                     errors={errors}
@@ -129,8 +130,60 @@ const EditBill = () => {
                   />
                 )}
               />
+              <i
+                class="bi bi-chevron-down absolute right-[14px] top-[16px]"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  isOpen.current?.classList.toggle("hidden");
+                }}
+              ></i>
             </div>
             <p className="text-red-400 text-left">{errors.status?.message}</p>
+            <div
+              ref={isOpen}
+              className="hidden absolute right-0 left-[180px] bg-[#fd9c41] text-white  rounded-sm overflow-hidden"
+            >
+              <div
+                className="hover:bg-[#f8b98f] px-[10px] py-[6px]   cursor-pointer"
+                onClick={(e) => {
+                  setValue("status", "pending");
+                  e.stopPropagation();
+                  isOpen.current?.classList.add("hidden");
+                }}
+              >
+                pending
+              </div>
+              <div
+                className="hover:bg-[#f8b98f] px-[10px] py-[6px]   cursor-pointer"
+                onClick={(e) => {
+                  setValue("status", "delivered");
+                  e.stopPropagation();
+                  isOpen.current?.classList.add("hidden");
+                }}
+              >
+                delivered
+              </div>
+              <div
+                className="hover:bg-[#f8b98f] px-[10px] py-[6px]   cursor-pointer"
+                onClick={(e) => {
+                  setValue("status", "paid");
+                  e.stopPropagation();
+                  isOpen.current?.classList.add("hidden");
+                }}
+              >
+                paid
+              </div>
+              <div
+                className="hover:bg-[#f8b98f] px-[10px] py-[6px]   cursor-pointer"
+                onClick={(e) => {
+                  setValue("status", "canceled");
+                  e.stopPropagation();
+                  isOpen.current?.classList.add("hidden");
+                }}
+              >
+                canceled
+              </div>
+            </div>
           </div>
           <div className="mb-[10px] ">
             <div className="flex py-[2px] bg-white w-[600px] border-b-[1px] border-solid border-[#363636a3] items-center ">

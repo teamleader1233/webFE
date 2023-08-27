@@ -44,7 +44,7 @@ const NoticeBill = () => {
   };
   const InforStatus = (status) => {
     if (status === "pending") {
-      return <span className="text-[#50d53c] font-medium"> Đang Chuẩn Bị</span>;
+      return <span className="text-[#50d53c] font-medium"> Chờ Xác Nhận</span>;
     } else if (status === "paid") {
       return <span className="text-[#4bff4b] font-medium"> Đã Thanh Toán</span>;
     } else if (status === "delivered") {

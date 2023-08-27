@@ -48,7 +48,7 @@ const InfoBill = ({ inputSearch, handleCloseInfor }) => {
   const InforStatus = (status) => {
     if (status === "pending") {
       return (
-        <span className="text-[#50d53c] font-semibold"> Đang Chuẩn Bị</span>
+        <span className="text-[#50d53c] font-semibold"> Chờ Xác Nhận</span>
       );
     } else if (status === "paid") {
       return (
